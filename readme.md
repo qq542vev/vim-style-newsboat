@@ -1,1 +1,1 @@
-# Vim Style Newsbiat
+# Vim Style Newsboat
