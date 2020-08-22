@@ -83,7 +83,7 @@ bind-key F12 edit-urls feedlist
 
 bind-key ^L redraw
 
-bind-key : cmdline 
+bind-key : cmdline
 
 bind-key ; set-filter
 bind-key = select-filter
