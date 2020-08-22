@@ -1,0 +1,39 @@
+## File: color
+##
+## Color schemes for newsboat.
+##
+## Usage:
+##
+##   (start code)
+##   include "~/.newsboat/color"
+##   (end)
+##
+## Metadata:
+##
+##   author - qq542vev <https://purl.org/meta/me/>
+##   version - 1.0.0
+##   date - 2020-08-22
+##   since - 2020-08-22
+##   copyright - Copyright (C) 2020 qq542vev. Some rights reserved.
+##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
+##   package - vim-style-newsboat
+##
+## See Also:
+##
+##   * Project homepage - <https://github.com/qq542vev/vim-style-newsboat>
+##   * Bag report - <https://github.com/qq542vev/vim-style-newsboat/issues>
+
+# colors
+color background        white  black
+color listnormal        white  black bold
+color listfocus         yellow blue  bold
+color listnormal_unread green  black bold
+color listfocus_unread  yellow blue  bold
+color info              yellow blue  bold
+color article           white  black
+
+# highlights
+highlight article "https?://[^ ]+" blue default
+highlight article "\\[image\\ [0-9]+(:[^]]*)?\\]" green default
+highlight article "\\[[0-9]+\\]" yellow default
+highlight article "^Links: $" default default bold
