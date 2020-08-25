@@ -65,7 +65,7 @@ bind-key F12 toggle-source-view articlelist
 bind-key F12 toggle-source-view article
 
 bind-key A toggle-article-read
-bind-key ^A toggle-show-read-feeds
+bind-key z toggle-show-read-feeds
 
 bind-key TAB show-urls article
 
@@ -100,7 +100,10 @@ bind-key K prev-unread-feed feedlist
 bind-key L next-unread-feed articlelist
 bind-key H prev-unread-feed articlelist
 
+bind-key l next-feed articlelist
 bind-key RIGHT next-feed articlelist
+
+bind-key h prev-feed articlelist
 bind-key LEFT prev-feed articlelist
 
 bind-key D delete-article
