@@ -1,39 +1,5 @@
 ## File: macro
 ##
-## Macros for newsboat.
-##
-## Usage:
-##
-##   (start code)
-##   include "~/.newsboat/macro## File: macro
-##
-## Macros for Newsboat.
-##
-## Usage:
-##
-##   (start code)
-##   include "~/.newsboat/macro"
-##   (end)
-##
-## Metadata:
-##
-##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.0.1
-##   date - 2020-08-25
-##   since - 2020-08-22
-##   copyright - Copyright (C) 2020 qq542vev. Some rights reserved.
-##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
-##   package - vim-style-newsboat
-##
-## See Also:
-##
-##   * Project homepage - <https://github.com/qq542vev/vim-style-newsboat>
-##   * Bag report - <https://github.com/qq542vev/vim-style-newsboat/issues>
-
-macro 1 set browser "firefox %u &" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-macro 2 set browser "chromium %u &" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-## File: macro
-##
 ## Macros for Newsboat.
 ##
 ## Usage:
@@ -68,58 +34,6 @@ macro 6 set browser "w3m %u" ; open-in-browser ; set browser "${BROWSER-lynx} %u
 macro 7 set browser "wget -b -- %u" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
 macro 8 set browser "curl -L -O -sS -- %u &" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
 macro 9 set browser "youtube-dl -q -- %u &" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-
-macro ^ view-dialogs ; open
-macro $ view-dialogs ; end ; open
-macro y set browser "echo %u >>${HOME}/yank" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-# macro y set browser "echo %u | xsel --input --primary; echo %u | xsel --input --clipboard" ; open-in-browser ; set browser "${BROWSER} %u"
-# macro y set browser "echo %u | xcrip -selection primary; echo %u | xsel -selction clipboard" ; open-in-browser ; set browser "${BROWSER} %u"
-macro i pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; ${VISUAL-${EDITOR-vi}} ${tmpFile}; rm -f -- ${tmpFile}"
-macro m view-dialogs ; open ; set-filter "feedtitle = \"Flagged Articles\"" ; open
-macro 3 set browser "${MAILER} mailto:?body=$(echo %u | urlencode)" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-
-macro 5 set browser "lynx %u" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-macro 6 set browser "w3m %u" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-
-macro 7 set browser "wget -b -- %u" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-macro 8 set browser "curl -L -O -sS -- %u &" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-macro 9 set browser "youtube-dl -q %u &" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-
-macro ^ view-dialogs ; open
-macro $ view-dialogs ; end ; open
-macro y set browser "echo %u >>${HOME}/yank" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-# macro y set browser "echo %u | xsel --input --primary; echo %u | xsel --input --clipboard" ; open-in-browser ; set browser "${BROWSER} %u"
-# macro y set browser "echo %u | xcrip -selection primary; echo %u | xsel -selction clipboard" ; open-in-browser ; set browser "${BROWSER} %u"
-macro i pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; ${VISUAL-${EDITOR-vi}} ${tmpFile}; rm -f -- ${tmpFile}"
-macro m view-dialogs ; open ; set-filter "feedtitle = \"Flagged Articles\"" ; open"
-##   (end)
-##
-## Metadata:
-##
-##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.0.0
-##   date - 2020-08-22
-##   since - 2020-08-22
-##   copyright - Copyright (C) 2020 qq542vev. Some rights reserved.
-##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
-##   package - vim-style-newsboat
-##
-## See Also:
-##
-##   * Project homepage - <https://github.com/qq542vev/vim-style-newsboat>
-##   * Bag report - <https://github.com/qq542vev/vim-style-newsboat/issues>
-
-macro 1 set browser "firefox %u" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-macro 2 set browser "chromium %u" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-
-macro 3 set browser "${MAILER} mailto:?body=$(echo %u | urlencode)" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-
-macro 5 set browser "lynx %u" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-macro 6 set browser "w3m %u" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-
-macro 7 set browser "wget -b -c -- %u" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-macro 8 set browser "curl -L -O -C - %u &" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
-macro 9 set browser "youtube-dl -q %u" ; open-in-browser ; set browser "${BROWSER-lynx} %u"
 
 macro ^ view-dialogs ; open
 macro $ view-dialogs ; end ; open
