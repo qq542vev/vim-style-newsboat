@@ -1,12 +1,6 @@
 ## File: urls
 ##
-## URLs for newsboat.
-##
-## Usage:
-##
-##   (start code)
-##   include "~/.newsboat/urls"
-##   (end)
+## URLs for Newsboat.
 ##
 ## Metadata:
 ##
