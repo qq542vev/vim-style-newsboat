@@ -77,6 +77,7 @@ bind-key d clear-tag feedlist
 bind-key / open-search
 
 bind-key f goto-url
+bind-key p enqueue
 
 bind-key F edit-urls feedlist
 bind-key F12 edit-urls feedlist
