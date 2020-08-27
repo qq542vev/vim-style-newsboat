@@ -82,8 +82,8 @@ highlight article "\\[[0-9]+\\]" yellow black
 # highlight article "^Collegamenti: $" white black bold
 
 # Japanese
-highlight article "^フィード：|^見出し：|^作者：|^日付：|^リンク：|^Flag: |^コンテンツ：" white black bold
-highlight article "^Links: $" white black bold
+# highlight article "^フィード：|^見出し：|^作者：|^日付：|^リンク：|^Flag: |^コンテンツ：" white black bold
+# highlight article "^Links: $" white black bold
 
 # Norwegian bokmål
 # highlight article "^Strøm: |^Tittel: |^Forfatter: |^Dato: |^Lenke: |^Flagg: |^Podkastnedlastings-URL: " white black bold
