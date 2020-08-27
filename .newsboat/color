@@ -23,7 +23,7 @@
 ##   * Project homepage - <https://github.com/qq542vev/vim-style-newsboat>
 ##   * Bag report - <https://github.com/qq542vev/vim-style-newsboat/issues>
 
-# Colors
+# # Colors
 color background        white  black
 color listnormal        white  black bold
 color listfocus         yellow blue  bold
@@ -32,7 +32,17 @@ color listfocus_unread  yellow blue  bold
 color info              yellow blue  bold
 color article           white  black
 
-# Highlights
+# # Highlights
+
+# ## Feed List
+
+highlight feedlist "(data|fax|file|ftp|https?|mailto|tel):(//(([A-Za-z0-9._~!$&'()*+,;=:-]|%[0-9A-Fa-f]{2})*@)?(\\[(((([0-9A-F]{1,4}:){6}|::([0-9A-F]{1,4}:){5}|([0-9A-F]{1,4})?::([0-9A-F]{1,4}:){4}|(([0-9A-F]{1,4}:){0,1}[0-9A-F]{1,4})?::([0-9A-F]{1,4}:){3}|(([0-9A-F]{1,4}:){0,2}[0-9A-F]{1,4})?::([0-9A-F]{1,4}:){2}|(([0-9A-F]{1,4}:){0,3}[0-9A-F]{1,4})?::[0-9A-F]{1,4}:|(([0-9A-F]{1,4}:){0,4}[0-9A-F]{1,4})?::)([0-9A-F]{1,4}:[0-9A-F]{1,4}|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-F]{1,4}:){0,5}[0-9A-F]{1,4})?::[0-9A-F]{1,4}|(([0-9A-F]{1,4}:){0,6}[0-9A-F]{1,4})?::)|v[0-9A-F]+\\.[A-Za-z0-9._~!$&'()*+,;=:-]+)]|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([A-Za-z0-9._~!$&'()*+,;=-]|%[0-9A-Fa-f]{2})*)(:[0-9]*)?(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*|/((([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))+(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*)?|(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))+(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*)(\\?([A-Za-z0-9._~!$&'()*+,;=:@/?-]|%[0-9A-Fa-f]{2})*)?(#([A-Za-z0-9._~!$&'()*+,;=:@/?-]|%[0-9A-Fa-f]{2})*)?" yellow red bold
+
+# ## Article List
+
+highlight articlelist " !" red black bold
+
+# ## Article
 
 # URI
 highlight article "(data|fax|file|ftp|https?|mailto|tel):(//(([A-Za-z0-9._~!$&'()*+,;=:-]|%[0-9A-Fa-f]{2})*@)?(\\[(((([0-9A-F]{1,4}:){6}|::([0-9A-F]{1,4}:){5}|([0-9A-F]{1,4})?::([0-9A-F]{1,4}:){4}|(([0-9A-F]{1,4}:){0,1}[0-9A-F]{1,4})?::([0-9A-F]{1,4}:){3}|(([0-9A-F]{1,4}:){0,2}[0-9A-F]{1,4})?::([0-9A-F]{1,4}:){2}|(([0-9A-F]{1,4}:){0,3}[0-9A-F]{1,4})?::[0-9A-F]{1,4}:|(([0-9A-F]{1,4}:){0,4}[0-9A-F]{1,4})?::)([0-9A-F]{1,4}:[0-9A-F]{1,4}|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-F]{1,4}:){0,5}[0-9A-F]{1,4})?::[0-9A-F]{1,4}|(([0-9A-F]{1,4}:){0,6}[0-9A-F]{1,4})?::)|v[0-9A-F]+\\.[A-Za-z0-9._~!$&'()*+,;=:-]+)]|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([A-Za-z0-9._~!$&'()*+,;=-]|%[0-9A-Fa-f]{2})*)(:[0-9]*)?(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*|/((([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))+(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*)?|(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))+(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*)(\\?([A-Za-z0-9._~!$&'()*+,;=:@/?-]|%[0-9A-Fa-f]{2})*)?(#([A-Za-z0-9._~!$&'()*+,;=:@/?-]|%[0-9A-Fa-f]{2})*)?" blue black
@@ -72,8 +82,8 @@ highlight article "\\[[0-9]+\\]" yellow black
 # highlight article "^Collegamenti: $" white black bold
 
 # Japanese
-# highlight article "^フィード：|^見出し：|^作者：|^日付：|^リンク：|^Flag: |^コンテンツ：" white black bold
-# highlight article "^Links: $" white black bold
+highlight article "^フィード：|^見出し：|^作者：|^日付：|^リンク：|^Flag: |^コンテンツ：" white black bold
+highlight article "^Links: $" white black bold
 
 # Norwegian bokmål
 # highlight article "^Strøm: |^Tittel: |^Forfatter: |^Dato: |^Lenke: |^Flagg: |^Podkastnedlastings-URL: " white black bold
