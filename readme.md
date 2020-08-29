@@ -1,6 +1,6 @@
 # Vim Style Newsboat
 
-![Screenshot of Feed List](images/feedlist.png) ![Screenshot of Artcle List](images/artclelist.png) ![Screenshot of Artcle](images/artcle.png)
+![Screenshot of Feed List](images/feedlist.png) ![Screenshot of Artcle List](images/articlelist.png) ![Screenshot of Artcle](images/article.png)
 
 このプロジェクトは[Vim](https://www.vim.org/), [Pentadactyl](https://github.com/pentadactyl/pentadactyl)のキーボード操作を[Newsboat](https://newsboat.org/)でも実現する試みです。
 
