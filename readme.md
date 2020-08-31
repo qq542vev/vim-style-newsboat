@@ -23,7 +23,7 @@ include "~/.newsboat/macro"
 
 ~~~
 # Japanese
-highlight article "^フィード：|^見出し：|^作者：|^日付：|^リンク：|^Flag: |^コンテンツ：" white black bold
+highlight article "^フィード：|^見出し：|^作者：|^日付：|^リンク：|^Flags: |^コンテンツ：" white black bold
 highlight article "^Links: $" white black bold
 ~~~
 
