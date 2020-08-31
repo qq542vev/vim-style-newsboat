@@ -11,8 +11,8 @@
 ## Metadata:
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.1.0
-##   date - 2020-08-27
+##   version - 1.1.1
+##   date - 2020-09-01
 ##   since - 2020-08-22
 ##   copyright - Copyright (C) 2020 qq542vev. Some rights reserved.
 ##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
@@ -82,7 +82,7 @@ highlight article "\\[[0-9]+\\]" yellow black
 # highlight article "^Collegamenti: $" white black bold
 
 # Japanese
-# highlight article "^フィード：|^見出し：|^作者：|^日付：|^リンク：|^Flag: |^コンテンツ：" white black bold
+# highlight article "^フィード：|^見出し：|^作者：|^日付：|^リンク：|^Flags: |^コンテンツ：" white black bold
 # highlight article "^Links: $" white black bold
 
 # Norwegian bokmål
@@ -102,7 +102,7 @@ highlight article "\\[[0-9]+\\]" yellow black
 # highlight article "^Links: $" white black bold
 
 # Russian
-#highlight article "^Лента: |^Заголовок: |^Автор: |^Дата: |^Ссылка: |^Флаги: |^Ссылка загрузки подкаста: " white black bold
+# highlight article "^Лента: |^Заголовок: |^Автор: |^Дата: |^Ссылка: |^Флаги: |^Ссылка загрузки подкаста: " white black bold
 # highlight article "^Ссылки: $" white black bold
 
 # Slovak
