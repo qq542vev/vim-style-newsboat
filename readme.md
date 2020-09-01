@@ -6,7 +6,7 @@
 
 VimはCLIのスクリーンエディタ、PentadactylはWebブラウザー[Pale Moon](https://www.palemoon.org/)のアドオン、NewsboatはCLIのFeed(RSS/Atom)リーダーです。ソフトウェアの性質の違い故に全てのキーボード操作を模倣出来ている訳ではありませんが、基本的な操作の模倣は完了しております。
 
-テストはnewsboat 2.10.2で行っています。それ以外のバーション及びNewsbeuterでの動作は未確認です。
+テストはnewsboat 2.10.2で行っています。それ以外のバーション及び[Newsbeuter](https://www.newsbeuter.org/)での動作は未確認です。
 
 # 使い方
 
