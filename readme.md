@@ -29,6 +29,13 @@ highlight article "^Links: $" white black bold
 
 Newsboatを起動しスクリーンショットのような	彩色が反映され、`j`, `k`などで操作出来れば、初期設定は完了です。
 
+`xsel`や`xclip`がインストールされている場合、ヤンクにクリップボードを使用することも可能です。`~/.newsboat/macro`内のヤンクに関する当該行をコメントアウトしてください。例えば`xsel`の場合以下の行を有効にしてください。
+
+~~~
+macro y set browser "echo %u | xclip -selection 'primary'; echo %u | xclip -selection 'clipboard'" ; open-in-browser ; set browser "${BROWSER-lynx --} %u"
+macro Y pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; cat -- ${tmpFile} | xsel --input --primary; cat -- ${tmpFile} | xsel --input --clipboard; rm -f -- ${tmpFile}"
+~~~
+
 # 謝辞
 
 当プロジェクトを作成するにあたり、以下のソフトウェアの機能を利用、若しくは参考にしました。当該ソフトウェアの開発者の皆様に感謝の意を表します。
