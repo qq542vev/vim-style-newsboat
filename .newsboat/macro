@@ -37,10 +37,12 @@ macro 9 set browser "youtube-dl -q -- %u &" ; open-in-browser ; set browser "${B
 
 macro ^ view-dialogs ; open
 macro $ view-dialogs ; end ; open
-macro o set browser "tmpFile=$(mktemp); echo %u >${tmpFile}; ${VISUAL-${EDITOR-vi --}} ${tmpFile}; ${BROWSER-lynx --} $(cat -- ${tmpFile}; rm -f -- ${tmpFile})" ; open-in-browser ; set browser "${BROWSER-lynx --} %u"
-macro O set browser "echo %u >>${HOME}/tmpfile-newsboat" ; open-all-unread-in-browser ; set browser "tmpFile=${HOME}/tmpfile-newsboat; ${VISUAL-${EDITOR-vi --}} ${tmpFile}; ${BROWSER-lynx --} $(cat -- ${tmpFile}; rm -f ${tmpFile}) # %u" ; open-in-browser ; set browser "${BROWSER-lynx --} %u"
 macro i pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; ${VISUAL-${EDITOR-vi --}} ${tmpFile}; rm -f -- ${tmpFile}"
 macro m view-dialogs ; open ; set-filter "feedtitle = \"Flagged Articles\"" ; open
+macro o set browser "tmpFile=$(mktemp); echo %u >${tmpFile}; ${VISUAL-${EDITOR-vi --}} ${tmpFile}; ${BROWSER-lynx --} $(cat -- ${tmpFile}; rm -f -- ${tmpFile})" ; open-in-browser ; set browser "${BROWSER-lynx --} %u"
+macro O set browser "echo %u >>${HOME}/tmpfile-newsboat" ; open-all-unread-in-browser ; set browser "tmpFile=${HOME}/tmpfile-newsboat; ${VISUAL-${EDITOR-vi --}} ${tmpFile}; ${BROWSER-lynx --} $(cat -- ${tmpFile}; rm -f ${tmpFile}) # %u" ; open-in-browser ; set browser "${BROWSER-lynx --} %u"
+
+# Yank URL
 macro y set browser "echo %u >>${VIMSTYLENEWSBOAT_YANKFILE:-${HOME}/yank}" ; open-in-browser ; set browser "${BROWSER-lynx --} %u"
 # macro y set browser "echo %u | xsel --input --primary; echo %u | xsel --input --clipboard" ; open-in-browser ; set browser "${BROWSER-lynx --} %u"
 # macro y set browser "echo %u | xclip -selection 'primary'; echo %u | xclip -selection 'clipboard'" ; open-in-browser ; set browser "${BROWSER-lynx --} %u"
