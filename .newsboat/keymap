@@ -37,6 +37,8 @@ bind-key r reload
 bind-key F5 reload
 bind-key R reload-all
 
+bind-key ^A mark-all-feeds-read
+
 bind-key s save
 # bind-key S save-all
 
@@ -71,8 +73,8 @@ bind-key TAB show-urls article
 
 bind-key t set-tag
 
-bind-key BACKSPACE clear-tag feedlist
 bind-key d clear-tag feedlist
+bind-key BACKSPACE clear-tag feedlist
 
 bind-key / open-search
 
@@ -82,6 +84,7 @@ bind-key p enqueue
 bind-key F edit-urls feedlist
 bind-key F12 edit-urls feedlist
 
+bind-key ^R reload-urls
 bind-key ^L redraw
 
 bind-key : cmdline
