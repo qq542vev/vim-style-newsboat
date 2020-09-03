@@ -51,7 +51,7 @@ highlight article "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+(.[a-zA-Z0-9-]+)*" default def
 # Image
 highlight article "\\[image [0-9]+(: [^]]+)?\\]" default default underline
 # Annotation
-highlight article "\\[[0-9]+\\]" default default reverse
+# highlight article "\\[[0-9]+\\]" default default
 
 # Catalan
 # highlight article "^Font: |^Título: |^Autor: |^Fecha: |^Enllaç: |^Indicadors: |^URL de descàrrega del podcast: " default default bold
@@ -128,4 +128,3 @@ highlight article "\\[[0-9]+\\]" default default reverse
 # Chinese (Taiwan)
 # highlight article "^來源: |^標題: |^作者: |^日期: |^鏈結: |^標記: |^Pocast下載網址: " default default bold
 # highlight article "^所有鏈結$" default default bold
-
