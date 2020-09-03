@@ -2,7 +2,7 @@
 
 [![Screenshot of Feed List](images/thumbnails/color-feedlist.png)](images/color-feedlist.png "Screenshot of Feed List") [![Screenshot of Artcle List](images/thumbnails/color-articlelist.png)](images/color-articlelist.png "Screenshot of Artcle List") [![Screenshot of Artcle](images/thumbnails/color-article.png)](images/color-article.png "Screenshot of Artcle")
 
-このプロジェクトは[Vim](https://www.vim.org/), [Pentadactyl](https://github.com/pentadactyl/pentadactyl)のキーボード操作を[Newsboat](https://newsboat.org/)でも実現する試みです。
+Vim Style Newsboatは[Vim](https://www.vim.org/), [Pentadactyl](https://github.com/pentadactyl/pentadactyl)のキーボード操作を[Newsboat](https://newsboat.org/)でも実現する試みです。
 
 VimはCLIのスクリーンエディタ、PentadactylはWebブラウザー[Pale Moon](https://www.palemoon.org/)のアドオン、NewsboatはCLIのFeed(RSS/Atom)リーダーです。ソフトウェアの性質の違い故に全てのキーボード操作を模倣出来ている訳ではありませんが、基本的な操作の模倣は完了しております。
 
