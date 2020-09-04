@@ -210,9 +210,7 @@ bind-key "O" open-all-unread-in-browser-and-mark-read
 bind-key "?" help
 bind-key "F1" help
 
-bind-key "F" toggle-source-view articlelist
 bind-key "F" toggle-source-view article
-bind-key "F12" toggle-source-view articlelist
 bind-key "F12" toggle-source-view article
 
 bind-key "A" toggle-article-read
@@ -231,6 +229,8 @@ bind-key "/" open-search
 bind-key "f" goto-url
 bind-key "p" enqueue
 
+bind-key "F" edit-urls articlelist
+bind-key "F12" edit-urls articlelist
 bind-key "F" edit-urls feedlist
 bind-key "F12" edit-urls feedlist
 
