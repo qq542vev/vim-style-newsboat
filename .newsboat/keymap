@@ -271,8 +271,8 @@ bind-key "^P" prev-dialog
 
 bind-key "!" pipe-to
 
-bind-key "(" sort
-bind-key ")" rev-sort
+bind-key "<" sort
+bind-key ">" rev-sort
 
 bind-key "k" up
 # bind-key "UP" up
