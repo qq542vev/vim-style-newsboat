@@ -11,8 +11,8 @@
 ## Metadata:
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.0.0
-##   date - 2020-08-22
+##   version - 1.0.1
+##   date - 2020-09-04
 ##   since - 2020-08-22
 ##   copyright - Copyright (C) 2020 qq542vev. Some rights reserved.
 ##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
@@ -23,127 +23,277 @@
 ##   * Project homepage - <https://github.com/qq542vev/vim-style-newsboat>
 ##   * Bag report - <https://github.com/qq542vev/vim-style-newsboat/issues>
 
-unbind-key -a
+# Reset key bind
 
-bind-key ENTER open
+# unbind-key "-a"
 
-bind-key d quit
-bind-key BACKSPACE quit
-bind-key q quit
-bind-key Q hard-quit
-bind-key F4 hard-quit
+unbind-key "^A"
+unbind-key "^B"
+unbind-key "^C"
+unbind-key "^D"
+unbind-key "^E"
+unbind-key "^F"
+unbind-key "^G"
+unbind-key "^H"
+unbind-key "^I"
+unbind-key "^J"
+unbind-key "^K"
+unbind-key "^L"
+unbind-key "^M"
+unbind-key "^N"
+unbind-key "^O"
+unbind-key "^P"
+unbind-key "^Q"
+unbind-key "^R"
+unbind-key "^S"
+unbind-key "^T"
+unbind-key "^U"
+unbind-key "^V"
+unbind-key "^W"
+unbind-key "^X"
+unbind-key "^Y"
+unbind-key "^Z"
 
-bind-key r reload
-bind-key F5 reload
-bind-key R reload-all
+unbind-key "!"
+unbind-key "#"
+unbind-key "$"
+unbind-key "%"
+unbind-key "&"
+unbind-key "'"
+unbind-key "("
+unbind-key ")"
+unbind-key "*"
+unbind-key "+"
+unbind-key ","
+unbind-key "-"
+unbind-key "."
+unbind-key "/"
+unbind-key "0"
+unbind-key "1"
+unbind-key "2"
+unbind-key "3"
+unbind-key "4"
+unbind-key "5"
+unbind-key "6"
+unbind-key "7"
+unbind-key "8"
+unbind-key "9"
+unbind-key ":"
+unbind-key ";"
+unbind-key "<"
+unbind-key "="
+unbind-key ">"
+unbind-key "?"
+unbind-key "@"
+unbind-key "A"
+unbind-key "B"
+unbind-key "C"
+unbind-key "D"
+unbind-key "E"
+unbind-key "F"
+unbind-key "G"
+unbind-key "H"
+unbind-key "I"
+unbind-key "J"
+unbind-key "K"
+unbind-key "L"
+unbind-key "M"
+unbind-key "N"
+unbind-key "O"
+unbind-key "P"
+unbind-key "Q"
+unbind-key "R"
+unbind-key "S"
+unbind-key "T"
+unbind-key "U"
+unbind-key "V"
+unbind-key "W"
+unbind-key "X"
+unbind-key "Y"
+unbind-key "Z"
+unbind-key "["
+unbind-key "]"
+unbind-key "^"
+unbind-key "`"
+unbind-key "a"
+unbind-key "b"
+unbind-key "c"
+unbind-key "d"
+unbind-key "e"
+unbind-key "f"
+unbind-key "g"
+unbind-key "h"
+unbind-key "i"
+unbind-key "j"
+unbind-key "k"
+unbind-key "l"
+unbind-key "m"
+unbind-key "n"
+unbind-key "o"
+unbind-key "p"
+unbind-key "q"
+unbind-key "r"
+unbind-key "s"
+unbind-key "t"
+unbind-key "u"
+unbind-key "v"
+unbind-key "w"
+unbind-key "x"
+unbind-key "y"
+unbind-key "z"
+unbind-key "{"
+unbind-key "|"
+unbind-key "}"
+unbind-key "~"
 
-bind-key ^A mark-all-feeds-read
+unbind-key "F1"
+unbind-key "F2"
+unbind-key "F3"
+unbind-key "F4"
+unbind-key "F5"
+unbind-key "F6"
+unbind-key "F7"
+unbind-key "F8"
+unbind-key "F9"
+unbind-key "F10"
+unbind-key "F11"
+unbind-key "F12"
 
-bind-key s save
-# bind-key S save-all
+# unbind-key "ENTER"
+# unbind-key "BACKSPACE"
+# unbind-key "LEFT"
+# unbind-key "RIGHT"
+# unbind-key "UP"
+# unbind-key "DOWN"
+# unbind-key "PPAGE"
+# unbind-key "NPAGE"
+# unbind-key "HOME"
+# unbind-key "END"
+# unbind-key "ESC"
+# unbind-key "TAB"
 
-bind-key J next-unread articlelist
-bind-key K prev-unread articlelist
+# Custom key bind
 
-bind-key L next-unread article
-bind-key H prev-unread article
+bind-key "ENTER" open
 
-bind-key l next article
-bind-key h prev article
+bind-key "d" quit
+bind-key "BACKSPACE" quit
+bind-key "q" quit
+bind-key "Q" hard-quit
+bind-key "F4" hard-quit
 
-bind-key RIGHT next article
-bind-key LEFT prev article
+bind-key "r" reload
+bind-key "F5" reload
+bind-key "R" reload-all
 
-bind-key o open-in-browser
-bind-key o open-in-browser-and-mark-read articlelist
-bind-key O open-all-unread-in-browser-and-mark-read
+bind-key "^A" mark-all-feeds-read
 
-bind-key ? help
-bind-key F1 help
+bind-key "s" save
+# bind-key "S" save-all
 
-bind-key F toggle-source-view articlelist
-bind-key F toggle-source-view article
-bind-key F12 toggle-source-view articlelist
-bind-key F12 toggle-source-view article
+bind-key "J" next-unread articlelist
+bind-key "K" prev-unread articlelist
 
-bind-key A toggle-article-read
-bind-key z toggle-show-read-feeds
+bind-key "L" next-unread article
+bind-key "H" prev-unread article
 
-bind-key TAB show-urls article
+bind-key "l" next article
+bind-key "h" prev article
 
-bind-key t set-tag
+bind-key "RIGHT" next article
+bind-key "LEFT" prev article
 
-bind-key d clear-tag feedlist
-bind-key BACKSPACE clear-tag feedlist
+bind-key "o" open-in-browser
+bind-key "o" open-in-browser-and-mark-read articlelist
+bind-key "O" open-all-unread-in-browser-and-mark-read
 
-bind-key / open-search
+bind-key "?" help
+bind-key "F1" help
 
-bind-key f goto-url
-bind-key p enqueue
+bind-key "F" toggle-source-view articlelist
+bind-key "F" toggle-source-view article
+bind-key "F12" toggle-source-view articlelist
+bind-key "F12" toggle-source-view article
 
-bind-key F edit-urls feedlist
-bind-key F12 edit-urls feedlist
+bind-key "A" toggle-article-read
+bind-key "z" toggle-show-read-feeds
 
-bind-key ^R reload-urls
-bind-key ^L redraw
+bind-key ";" show-urls article
+bind-key "TAB" show-urls article
 
-bind-key : cmdline
+bind-key "t" set-tag
 
-bind-key ; set-filter
-bind-key = select-filter
-bind-key ESC clear-filter
+bind-key "d" clear-tag feedlist
+bind-key "BACKSPACE" clear-tag feedlist
 
-bind-key a bookmark
+bind-key "/" open-search
 
-bind-key m edit-flags
+bind-key "f" goto-url
+bind-key "p" enqueue
 
-bind-key J next-unread-feed feedlist
-bind-key K prev-unread-feed feedlist
+bind-key "F" edit-urls feedlist
+bind-key "F12" edit-urls feedlist
 
-bind-key L next-unread-feed articlelist
-bind-key H prev-unread-feed articlelist
+bind-key "^R" reload-urls
+bind-key "^L" redraw
 
-bind-key l next-feed articlelist
-bind-key RIGHT next-feed articlelist
+bind-key ":" cmdline
 
-bind-key h prev-feed articlelist
-bind-key LEFT prev-feed articlelist
+bind-key ";" set-filter
+bind-key "=" select-filter
+bind-key "ESC" clear-filter
 
-bind-key D delete-article
-# bind-key ^D delete-all-article
+bind-key "a" bookmark
+
+bind-key "m" edit-flags
+
+bind-key "J" next-unread-feed feedlist
+bind-key "K" prev-unread-feed feedlist
+
+bind-key "L" next-unread-feed articlelist
+bind-key "H" prev-unread-feed articlelist
+
+bind-key "l" next-feed articlelist
+bind-key "RIGHT" next-feed articlelist
+
+bind-key "h" prev-feed articlelist
+bind-key "LEFT" prev-feed articlelist
+
+bind-key "D" delete-article
+# bind-key "^D" delete-all-article
 # bind-key purge-deleted
 
-bind-key b view-dialogs
-bind-key x close-dialog
+bind-key "b" view-dialogs
+bind-key "x" close-dialog
 
-bind-key ^N next-dialog
-bind-key ^P prev-dialog
+bind-key "^N" next-dialog
+bind-key "^P" prev-dialog
 
-bind-key ! pipe-to
+bind-key "!" pipe-to
 
-bind-key ( sort
-bind-key ) rev-sort
+bind-key "(" sort
+bind-key ")" rev-sort
 
-bind-key k up
-# bind-key UP up
+bind-key "k" up
+# bind-key "UP" up
 
-bind-key j down
-# bind-key DOWN down
+bind-key "j" down
+# bind-key "DOWN" down
 
 bind-key ^B pageup
 # bind-key PPAGE pageup
 
-bind-key ^F pagedown
-bind-key SPACE pagedown
-# bind-key NPAGE pagedown
+bind-key "^F" pagedown
+bind-key "SPACE" pagedown
+# bind-key "NPAGE" pagedown
 
-bind-key g home
-# bind-key HOME home
+bind-key "g" home
+# bind-key "HOME" home
 
-bind-key G end
-# bind-key END end
+bind-key "G" end
+# bind-key "END" end
 
-bind-key @ macro-prefix
+bind-key "@" macro-prefix
 
-# bind-key TAB switch-focus filebrowser
-# bind-key TAB switch-focus dirbrowser
+# bind-key "TAB" switch-focus filebrowser
+# bind-key "TAB" switch-focus dirbrowser
