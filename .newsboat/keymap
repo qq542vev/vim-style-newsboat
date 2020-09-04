@@ -229,10 +229,11 @@ bind-key "/" open-search
 bind-key "f" goto-url
 bind-key "p" enqueue
 
-bind-key "F" edit-urls articlelist
-bind-key "F12" edit-urls articlelist
 bind-key "F" edit-urls feedlist
 bind-key "F12" edit-urls feedlist
+
+bind-key "F" edit-urls articlelist
+bind-key "F12" edit-urls articlelist
 
 bind-key "^R" reload-urls
 bind-key "^L" redraw
