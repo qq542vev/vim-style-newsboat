@@ -217,7 +217,7 @@ bind-key "A" toggle-article-read
 bind-key "z" toggle-show-read-feeds
 
 bind-key ";" show-urls article
-bind-key "TAB" show-urls article
+# bind-key "TAB" show-urls article
 
 bind-key "t" set-tag
 
@@ -240,7 +240,8 @@ bind-key "^L" redraw
 
 bind-key ":" cmdline
 
-bind-key ";" set-filter
+bind-key ";" set-filter feedlist
+bind-key ";" set-filter articlelist
 bind-key "=" select-filter
 bind-key "ESC" clear-filter
 
@@ -281,11 +282,11 @@ bind-key "k" up
 bind-key "j" down
 # bind-key "DOWN" down
 
-bind-key "^B" pageup
+bind-key ^B pageup
 # bind-key PPAGE pageup
 
 bind-key "^F" pagedown
-bind-key "SPACE" pagedown
+# bind-key "SPACE" pagedown
 # bind-key "NPAGE" pagedown
 
 bind-key "g" home
