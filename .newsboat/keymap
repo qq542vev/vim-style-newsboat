@@ -282,7 +282,7 @@ bind-key "k" up
 bind-key "j" down
 # bind-key "DOWN" down
 
-bind-key ^B pageup
+bind-key "^B" pageup
 # bind-key PPAGE pageup
 
 bind-key "^F" pagedown
