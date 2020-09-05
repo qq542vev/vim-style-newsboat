@@ -35,7 +35,7 @@ highlight article "^フィード：|^見出し：|^作者：|^日付：|^リン�
 highlight article "^Links: $" white black bold
 ~~~
 
-Newsboatを起動しスクリーンショットのような	彩色が反映され、`j`, `k`などで操作出来れば、初期設定は完了です。
+Newsboatを起動しスクリーンショットのような彩色が反映され、`j`, `k`などで移動操作が出来れば初期設定は完了です。
 
 ## マクロ
 
