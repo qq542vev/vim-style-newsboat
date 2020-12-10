@@ -11,8 +11,8 @@
 ## Metadata:
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.2.2
-##   date - 2020-09-12
+##   version - 1.2.3
+##   date - 2020-12-10
 ##   since - 2020-08-22
 ##   copyright - Copyright (C) 2020 qq542vev. Some rights reserved.
 ##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
@@ -27,6 +27,7 @@ macro 1 set browser "firefox %u &" ; open-in-browser ; set browser "${BROWSER:-l
 macro 2 set browser "chromium %u &" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 
 macro 3 set browser "${MAILER} mailto:?body=$(echo %u | urlencode)" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
+macro 4 set browser "qrencode -t 'UTF8' -- %u; read tmp" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 
 macro 5 set browser "lynx -- %u" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 macro 6 set browser "w3m %u" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
