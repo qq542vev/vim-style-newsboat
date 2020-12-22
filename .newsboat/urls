@@ -5,8 +5,8 @@
 ## Metadata:
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.0.0
-##   date - 2020-08-22
+##   version - 1.1.0
+##   date - 2020-12-20
 ##   since - 2020-08-22
 ##   copyright - Copyright (C) 2020 qq542vev. Some rights reserved.
 ##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
@@ -17,6 +17,7 @@
 ##   * Project homepage - <https://github.com/qq542vev/vim-style-newsboat>
 ##   * Bag report - <https://github.com/qq542vev/vim-style-newsboat/issues>
 
+"query:Articles within 3 Days:age <= 2" "Query"
 "query:Unread Articles:unread = \"yes\"" "Query"
 "query:Read Articles:unread = \"no\"" "Query"
 "query:Flagged Articles:flags != \"\"" "Query"
