@@ -62,7 +62,7 @@ Vim Style Newsboatでは幾つのマクロが定義されており、`~/.newsboa
 | `y`  | フィードリンクのURLまたは記事のURLをヤンクします。                                              |
 | `Y`  | 現在の記事の内容をヤンクする。                                                                  |
 
-`xsel`や`xclip`がインストールされている場合、ヤンクにクリップボードを使用することも可能です。`~/.newsboat/macro`内のヤンクに関する当該行をコメントアウトしてください。例えば`xsel`を使用する場合は以下の行を有効にしてください。
+`xsel`や`xclip`がインストールされている環境では、ヤンクにクリップボードを使用することも可能です。`~/.newsboat/macro`内のヤンクに関する当該行をコメントアウトしてください。例えば`xsel`を使用する場合は以下の行を有効にしてください。
 
 ~~~
 macro y set browser "echo %u | xsel --input --primary; echo %u | xsel --input --clipboard" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
