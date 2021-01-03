@@ -28,8 +28,8 @@ macro 1 set browser "firefox %u &" ; open-in-browser ; set browser "${BROWSER:-l
 macro 2 set browser "chromium %u &" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 
 macro 3 set browser "case ${MAILER-} in '') echo 'Enter the command to open the E-Mail. Exit if not entered.'; printf 'Command: '; read -r 'MAILER';; esac; case ${MAILER-} in ?*) ${MAILER} mailto:?body=$(echo %u | urlencode);; esac" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
-# macro 3 pipe-to "case ${MAILER-} in '') echo 'Enter the command to open the E-Mail. Exit if not entered.'; printf 'Command: '; read -r 'MAILER' <'/dev/tty';; esac; case ${MAILER-} in ?*) ${MAILER} mailto:?body=$(urlencode) <'/dev/tty';; esac"
-macro 4 set browser "qrencode -t 'UTF8' -- %u; printf 'Exit with Ctrl-C or Enter Key'; read -r 'tmp'" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
+# macro 3 pipe-to "case ${MAILER-} in '') echo 'Enter the command to open the E-Mail. Exit if not entered.'; printf 'Command: '; read -r 'MAILER' <'/dev/tty';; esac; case ${MAILER-} in ?*) ${MAILER} 'mailto:?body='$(urlencode) <'/dev/tty';; esac"
+macro 4 set browser "qrencode -t 'UTF8' -- %u; printf 'Exit with Ctrl-C or Enter Key'; read -r 'REPLY'" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 
 macro 5 set browser "lynx -- %u" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 macro 6 set browser "w3m %u" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
@@ -40,15 +40,15 @@ macro 9 set browser "youtube-dl -q -- %u &" ; open-in-browser ; set browser "${B
 
 macro ^ view-dialogs ; open
 macro $ view-dialogs ; open ; prev-dialog
-macro i pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; ${VISUAL-${EDITOR:-vi --}} ${tmpFile}; rm -f -- ${tmpFile}"
+macro i pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; ${VISUAL:-${EDITOR:-vi --}} ${tmpFile}; rm -f -- ${tmpFile}"
 macro m view-dialogs ; open ; set-filter "feedtitle = \"Flagged Articles\"" ; open
-macro o set browser "tmpFile=$(mktemp); echo %u >${tmpFile}; ${VISUAL-${EDITOR:-vi --}} ${tmpFile}; ${BROWSER:-lynx --} $(cat -- ${tmpFile}; rm -f -- ${tmpFile})" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
-macro O set browser "echo %u >>${HOME}/tmpfile-newsboat" ; open-all-unread-in-browser ; set browser "tmpFile=${HOME}/tmpfile-newsboat; ${VISUAL-${EDITOR:-vi --}} ${tmpFile}; ${BROWSER:-lynx --} $(cat -- ${tmpFile}; rm -f ${tmpFile}) # %u" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
+macro o set browser "tmpFile=$(mktemp); echo %u >${tmpFile}; ${VISUAL:-${EDITOR:-vi --}} ${tmpFile}; ${BROWSER:-lynx --} $(cat -- ${tmpFile}; rm -f -- ${tmpFile})" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
+macro O set browser "echo %u >>${HOME}/tmpfile-newsboat" ; open-all-unread-in-browser ; set browser "tmpFile=${HOME}/tmpfile-newsboat; ${VISUAL:-${EDITOR:-vi --}} ${tmpFile}; ${BROWSER:-lynx --} $(cat -- ${tmpFile}; rm -f ${tmpFile}) # %u" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 
 # Yank URL
 macro y set browser "echo %u >>${VIMSTYLENEWSBOAT_YANKFILE:-${HOME}/newsboat-yank}" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
-# macro y set browser "echo %u | xsel --input --primary; echo %u | xsel --input --clipboard" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
-# macro y set browser "echo %u | xclip -selection 'primary'; echo %u | xclip -selection 'clipboard'" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
+# macro y set browser "printf '%s' %u | xsel --input --primary; printf '%s' %u | xsel --input --clipboard" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
+# macro y set browser "printf '%s' %u | xclip -selection 'primary'; printf '%s' %u | xclip -selection 'clipboard'" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 
 # Yank Article
 macro Y pipe-to "cat >>${VIMSTYLENEWSBOAT_YANKFILE:-${HOME}/newsboat-yank}"
