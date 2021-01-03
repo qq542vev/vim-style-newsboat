@@ -11,8 +11,8 @@
 ## Metadata:
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.3.0
-##   date - 2020-12-21
+##   version - 1.3.1
+##   date - 2021-01-02
 ##   since - 2020-08-22
 ##   copyright - Copyright (C) 2020 qq542vev. Some rights reserved.
 ##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
@@ -23,13 +23,13 @@
 ##   * Project homepage - <https://github.com/qq542vev/vim-style-newsboat>
 ##   * Bag report - <https://github.com/qq542vev/vim-style-newsboat/issues>
 
-macro 0 set browser "echo 'Enter the command to open the URL. Exit if not entered'; read -r 'browser'; case ${browser-} in ?*) ${browser} %u;; esac" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
+macro 0 set browser "echo 'Enter the command to open the URL. Exit if not entered'; printf 'Command: '; read -r 'browser'; case ${browser-} in ?*) ${browser} %u;; esac" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 macro 1 set browser "firefox %u &" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 macro 2 set browser "chromium %u &" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 
-macro 3 set browser "case ${MAILER-} in '') echo 'Enter the command to open the E-Mail. Exit if not entered.'; read -r 'MAILER';; esac; case ${MAILER-} in ?*) ${MAILER} mailto:?body=$(echo %u | urlencode);; esac" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
-# macro 3 pipe-to "case ${MAILER-} in '') echo 'Enter the command to open the E-Mail. Exit if not entered.'; read -r 'MAILER' <'/dev/tty';; esac; case ${MAILER-} in ?*) ${MAILER} mailto:?body=$(urlencode) <'/dev/tty';; esac"
-macro 4 set browser "qrencode -t 'UTF8' -- %u; read -r 'tmp'" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
+macro 3 set browser "case ${MAILER-} in '') echo 'Enter the command to open the E-Mail. Exit if not entered.'; printf 'Command: '; read -r 'MAILER';; esac; case ${MAILER-} in ?*) ${MAILER} mailto:?body=$(echo %u | urlencode);; esac" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
+# macro 3 pipe-to "case ${MAILER-} in '') echo 'Enter the command to open the E-Mail. Exit if not entered.'; printf 'Command: '; read -r 'MAILER' <'/dev/tty';; esac; case ${MAILER-} in ?*) ${MAILER} mailto:?body=$(urlencode) <'/dev/tty';; esac"
+macro 4 set browser "qrencode -t 'UTF8' -- %u; printf 'Exit with Ctrl-C or Enter Key'; read -r 'tmp'" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 
 macro 5 set browser "lynx -- %u" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 macro 6 set browser "w3m %u" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
