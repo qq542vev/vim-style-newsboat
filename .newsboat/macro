@@ -11,8 +11,8 @@
 ## Metadata:
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.3.1
-##   date - 2021-01-02
+##   version - 1.4.0
+##   date - 2021-01-05
 ##   since - 2020-08-22
 ##   copyright - Copyright (C) 2020 qq542vev. Some rights reserved.
 ##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
@@ -40,10 +40,12 @@ macro 9 set browser "youtube-dl -q -- %u &" ; open-in-browser ; set browser "${B
 
 macro ^ view-dialogs ; open
 macro $ view-dialogs ; open ; prev-dialog
-macro i pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; ${VISUAL:-${EDITOR:-vi --}} ${tmpFile}; rm -f -- ${tmpFile}"
+macro b open ; prev-dialog
+macro i pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; ${VISUAL:-${EDITOR:-vi --}} ${tmpFile} <'/dev/tty'; rm -f -- ${tmpFile}"
 macro m view-dialogs ; open ; set-filter "feedtitle = \"Flagged Articles\"" ; open
 macro o set browser "tmpFile=$(mktemp); echo %u >${tmpFile}; ${VISUAL:-${EDITOR:-vi --}} ${tmpFile}; ${BROWSER:-lynx --} $(cat -- ${tmpFile}; rm -f -- ${tmpFile})" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 macro O set browser "echo %u >>${HOME}/tmpfile-newsboat" ; open-all-unread-in-browser ; set browser "tmpFile=${HOME}/tmpfile-newsboat; ${VISUAL:-${EDITOR:-vi --}} ${tmpFile}; ${BROWSER:-lynx --} $(cat -- ${tmpFile}; rm -f ${tmpFile}) # %u" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
+macro w pipe-to "${PAGER}"
 
 # Yank URL
 macro y set browser "echo %u >>${VIMSTYLENEWSBOAT_YANKFILE:-${HOME}/newsboat-yank}" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
