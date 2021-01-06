@@ -1,0 +1,130 @@
+## File: color
+##
+## Color schemes for Newsbeuter.
+##
+## Usage:
+##
+##   (start code)
+##   include "~/.newsbeuter/color"
+##   (end)
+##
+## Metadata:
+##
+##   author - qq542vev <https://purl.org/meta/me/>
+##   version - 1.1.1
+##   date - 2020-09-01
+##   since - 2020-08-22
+##   copyright - Copyright (C) 2020 qq542vev. Some rights reserved.
+##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
+##   package - vim-style-newsboat
+##
+## See Also:
+##
+##   * Project homepage - <https://github.com/qq542vev/vim-style-newsboat>
+##   * Bag report - <https://github.com/qq542vev/vim-style-newsboat/issues>
+
+# # Colors
+color background        white  black
+color listnormal        white  black bold
+color listfocus         yellow blue  bold
+color listnormal_unread green  black bold
+color listfocus_unread  yellow blue  bold
+color info              yellow blue  bold
+color article           white  black
+
+# # Highlights
+
+# ## Feed List
+
+highlight feedlist "(data|fax|file|ftp|https?|mailto|tel):(//(([A-Za-z0-9._~!$&'()*+,;=:-]|%[0-9A-Fa-f]{2})*@)?(\\[(((([0-9A-F]{1,4}:){6}|::([0-9A-F]{1,4}:){5}|([0-9A-F]{1,4})?::([0-9A-F]{1,4}:){4}|(([0-9A-F]{1,4}:){0,1}[0-9A-F]{1,4})?::([0-9A-F]{1,4}:){3}|(([0-9A-F]{1,4}:){0,2}[0-9A-F]{1,4})?::([0-9A-F]{1,4}:){2}|(([0-9A-F]{1,4}:){0,3}[0-9A-F]{1,4})?::[0-9A-F]{1,4}:|(([0-9A-F]{1,4}:){0,4}[0-9A-F]{1,4})?::)([0-9A-F]{1,4}:[0-9A-F]{1,4}|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-F]{1,4}:){0,5}[0-9A-F]{1,4})?::[0-9A-F]{1,4}|(([0-9A-F]{1,4}:){0,6}[0-9A-F]{1,4})?::)|v[0-9A-F]+\\.[A-Za-z0-9._~!$&'()*+,;=:-]+)]|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([A-Za-z0-9._~!$&'()*+,;=-]|%[0-9A-Fa-f]{2})*)(:[0-9]*)?(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*|/((([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))+(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*)?|(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))+(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*)(\\?([A-Za-z0-9._~!$&'()*+,;=:@/?-]|%[0-9A-Fa-f]{2})*)?(#([A-Za-z0-9._~!$&'()*+,;=:@/?-]|%[0-9A-Fa-f]{2})*)?" yellow red bold
+
+# ## Article List
+
+highlight articlelist " !" red black bold
+
+# ## Article
+
+# URI
+highlight article "(data|fax|file|ftp|https?|mailto|tel):(//(([A-Za-z0-9._~!$&'()*+,;=:-]|%[0-9A-Fa-f]{2})*@)?(\\[(((([0-9A-F]{1,4}:){6}|::([0-9A-F]{1,4}:){5}|([0-9A-F]{1,4})?::([0-9A-F]{1,4}:){4}|(([0-9A-F]{1,4}:){0,1}[0-9A-F]{1,4})?::([0-9A-F]{1,4}:){3}|(([0-9A-F]{1,4}:){0,2}[0-9A-F]{1,4})?::([0-9A-F]{1,4}:){2}|(([0-9A-F]{1,4}:){0,3}[0-9A-F]{1,4})?::[0-9A-F]{1,4}:|(([0-9A-F]{1,4}:){0,4}[0-9A-F]{1,4})?::)([0-9A-F]{1,4}:[0-9A-F]{1,4}|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-F]{1,4}:){0,5}[0-9A-F]{1,4})?::[0-9A-F]{1,4}|(([0-9A-F]{1,4}:){0,6}[0-9A-F]{1,4})?::)|v[0-9A-F]+\\.[A-Za-z0-9._~!$&'()*+,;=:-]+)]|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([A-Za-z0-9._~!$&'()*+,;=-]|%[0-9A-Fa-f]{2})*)(:[0-9]*)?(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*|/((([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))+(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*)?|(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))+(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*)(\\?([A-Za-z0-9._~!$&'()*+,;=:@/?-]|%[0-9A-Fa-f]{2})*)?(#([A-Za-z0-9._~!$&'()*+,;=:@/?-]|%[0-9A-Fa-f]{2})*)?" blue black
+# Email address
+highlight article "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+(.[a-zA-Z0-9-]+)*" cyan black
+# Image
+highlight article "\\[image [0-9]+(: [^]]+)?\\]" green black
+# Annotation
+highlight article "\\[[0-9]+\\]" yellow black
+
+# Catalan
+# highlight article "^Font: |^Título: |^Autor: |^Fecha: |^Enllaç: |^Indicadors: |^URL de descàrrega del podcast: " white black bold
+# highlight article "^Enllaços: $" white black bold
+
+# English
+# highlight article "^Feed: |^Title: |^Author: |^Date: |^Link: |^Flags: |^Podcast Download URL: " white black bold
+# highlight article "^Links: $" white black bold
+
+# German
+# highlight article "^Feed: |^Titel: |^Autor: |^Datum: |^Link: |^Flags: |^Podcast-Download-URL: " white black bold
+# highlight article "^Links: $" white black bold
+
+# Spanish
+# highlight article "^Fuente: |^Título: |^Autor: |^Fecha: |^Enlace: |^Marcas: |^URL de descarga del pódcast: " white black bold
+# highlight article "^Enlaces: $" white black bold
+
+# French
+# highlight article "^Fil : |^Titre : |^Auteur : |^Date : |^Lien : |^Signaux : |^Lien de téléchargement du podcast : " white black bold
+# highlight article "^Liens : $" white black bold
+
+# Hungarian
+# highlight article "^Forrás: |^Cím: |^Szerzõ: |^Dátum: |^Link: |^Jelzõk: |^Podcast letöltés URL: " white black bold
+# highlight article "^Linkek: $" white black bold
+
+# Italian
+# highlight article "^Feed: |^Titolo: |^Autore: |^Data: |^Collegamento: |^Flag: |^URL scaricamento podcast: " white black bold
+# highlight article "^Collegamenti: $" white black bold
+
+# Japanese
+# highlight article "^フィード：|^見出し：|^作者：|^日付：|^リンク：|^Flags: |^コンテンツ：" white black bold
+# highlight article "^Links: $" white black bold
+
+# Norwegian bokmål
+# highlight article "^Strøm: |^Tittel: |^Forfatter: |^Dato: |^Lenke: |^Flagg: |^Podkastnedlastings-URL: " white black bold
+# highlight article "^Lenker: $" white black bold
+
+# Dutch
+# highlight article "^Feed: |^Titel: |^Auteur: |^Datum: |^Koppeling: |^Vlaggen: |^Download-URL podcast: " white black bold
+# highlight article "^Koppelingen: $" white black bold
+
+# Polish
+# highlight article "^Kanał: |^Tytuł: |^Autor: |^Data: |^Odsyłacz: |^Flagi: |^Adres podcastu: " white black bold
+# highlight article "^Odsyłacze: $" white black bold
+
+# Portuguese (Brazil)
+# highlight article "^Fonte: |^Título: |^Autor: |^Data: |^Link: |^Sinalizações: |^URL para baixar Podcast: " white black bold
+# highlight article "^Links: $" white black bold
+
+# Russian
+# highlight article "^Лента: |^Заголовок: |^Автор: |^Дата: |^Ссылка: |^Флаги: |^Ссылка загрузки подкаста: " white black bold
+# highlight article "^Ссылки: $" white black bold
+
+# Slovak
+# highlight article "^Kanál: |^Titulok: |^Autor: |^Dátum: |^Odkaz: |^Príznaky (flags): |^Podcast Download URL: " white black bold
+# highlight article "^Odkazy: $" white black bold
+
+# Swedish
+# highlight article "^Webbflöde: |^Titel: |^Författare: |^Datum: |^Länk: |^Flaggor: |^Hämtnings-URL för poddsändning: " white black bold
+# highlight article "^Länkar: $" white black bold
+
+# Turkish
+# highlight article "^Besleme: |^Başlık: |^Yazar: |^Tarih: |^Bağlantı: |^Bayraklar: |^Podcast İndirme Adresi: " white black bold
+# highlight article "^Bağlantılar: $" white black bold
+
+# Ukrainian
+# highlight article "^Тема: |^Назва: |^Автор: |^Дата: |^Посилання: |^Флаги: |^Посилання на завантаження Podcast: " white black bold
+# highlight article "^Посилання: $" white black bold
+
+# Chinese
+# highlight article "^种子: |^标题: |^作者: |^日期: |^链接: |^标记: |^播客下载的地址: " white black bold
+# highlight article "^所有链接$" white black bold
+
+# Chinese (Taiwan)
+# highlight article "^來源: |^標題: |^作者: |^日期: |^鏈結: |^標記: |^Pocast下載網址: " white black bold
+# highlight article "^所有鏈結$" white black bold

@@ -1,11 +1,11 @@
 ## File: filter
 ##
-## Filters for Newsboat.
+## Filters for Newsbeuter.
 ##
 ## Usage:
 ##
 ##   (start code)
-##   include "~/.newsboat/filter"
+##   include "~/.newsbeuter/filter"
 ##   (end)
 ##
 ## Metadata:

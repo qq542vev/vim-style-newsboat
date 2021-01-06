@@ -1,11 +1,11 @@
 ## File: keymap
 ##
-## Keymap for Newsboat.
+## Keymap for Newsbeuter.
 ##
 ## Usage:
 ##
 ##   (start code)
-##   include "~/.newsboat/keymap"
+##   include "~/.newsbeuter/keymap"
 ##   (end)
 ##
 ## Metadata:
@@ -176,6 +176,7 @@ unbind-key "F12"
 
 bind-key "ENTER" open
 
+bind-key "d" quit
 bind-key "BACKSPACE" quit
 bind-key "q" quit
 bind-key "Q" hard-quit
@@ -188,7 +189,7 @@ bind-key "R" reload-all
 bind-key "^A" mark-all-feeds-read
 
 bind-key "s" save
-bind-key "S" save-all
+# bind-key "S" save-all
 
 bind-key "J" next-unread articlelist
 bind-key "K" prev-unread articlelist
@@ -261,7 +262,7 @@ bind-key "h" prev-feed articlelist
 bind-key "LEFT" prev-feed articlelist
 
 bind-key "x" delete-article
-bind-key "X" delete-all-articles
+bind-key "X" delete-all-article
 # bind-key purge-deleted
 
 bind-key "b" view-dialogs
@@ -299,11 +300,9 @@ bind-key "@" macro-prefix
 # bind-key "TAB" switch-focus filebrowser
 # bind-key "TAB" switch-focus dirbrowser
 
-bind-key "^S" pb-download podboat
-bind-key "^C" pb-cancel podboat
-bind-key "ENTER" pb-play podboat
-bind-key "m" pb-mark-as-finished podboat
-bind-key "D" pb-delete podboat
-bind-key "a" pb-toggle-download-all podboat
-bind-key "+" pb-increase-max-dls podboat
-# bind-key "-" pb-decrease-max-dls podboat
+bind-key "^S" pb-download podbeuter                                   bind-key "^C" pb-cancel podbeuter
+bind-key "ENTER" pb-play podbeuter
+bind-key "m" pb-mark-as-finished podbeuter                            bind-key "D" pb-delete podbeuter
+bind-key "a" pb-toggle-download-all podbeuter
+bind-key "+" pb-increase-max-dls podbeuter
+bind-key "-" pb-decrease-max-dls podbeuter
