@@ -41,7 +41,7 @@ highlight article "^Links: $" white black bold
 
 .i so'o la'o .gy. Macro .gy. zvati la'o .gy. Vim Style Newsboat .gy. .i tcidu fi la'o .gy. `~/.newsboat/macro` .gy. .inaja ka'e plino .i va'o lo se galfi ku la'o .gy. `@` .gy. li'enrafsi la'o .gy. Macro .gy. .ije ba la'o .gy. `@` .gy. catke da pe lo tekla ku .inaja bapli lo bavla'i fasnu ku
 
-| tekla | ciksi                                                                                                                       |
+| .i tekla | .i ciksi                                                                                                                       |
 | ----- | --------------------------------------------------------------------------------------------------------------------------- |
 | `^`  | .i movdu lo pa mai gidva notci ku                                                                                            |
 | `$`  | .i movdu lo ro mai  gidva notci ku                                                                                           |
@@ -67,11 +67,11 @@ macro y set browser "echo %u | xsel --input --primary; echo %u | xsel --input --
 macro Y pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; cat -- ${tmpFile} | xsel --input --primary; cat -- ${tmpFile} | xsel --input --clipboard; rm -f -- ${tmpFile}"
 ~~~
 
-## ni'o lo vanbi se fancu ku
+## .i ni'o lo vanbi se fancu ku
 
 .i la'o .gy. Vim Style Newsboat .gy. lanli lo vanbi goilka'i ku pe lo bavla'i liste ku .i seja'e lo nu galfi lo vanbi goilka'i ku kei ku ka'e cenba lo zu'o zukte kei ku
 
-| vanbi goilka'i cmene        | tcila ciksi |
+| .i vanbi goilka'i cmene        | .i tcila ciksi |
 | --------------------------- | ----------- |
 | `BROWSER`                   | le namcu ku me lo pilno kibyca'o ku .i na zvati le vanbi goilka'i ku .ijonai lo namcu ku kunti .inaja pilno la'o .gy. `lynx` .gy. |
 | `EDITOR`                   | le namcu ku me lo pilno ve ciska ku .i na zvati le vanbi goilka'i ku .ijonai lo namcu ku kunti .inaja pilno la'o .gy. `vi` .gy. |
@@ -87,7 +87,7 @@ macro Y pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; cat -- ${tmpFile} | xsel --
 
 ja'i la'o .gy. CC BY 4.0 .gy. to'e mipri la'o .gy. Vim Style Newsboat .gy. .i zifre lo nu galfi ja to'e mipri kei ku lo di'u tinbe la'o .gy. CC BY 4.0 .gy. kei ku .i tcila lo te bilga ku .ije e'o catlu la'o .gy. [LICENSE](LICENSE) .gy.
 
-# ckire
+# .i ckire
 
 .i pu lo nu finti la'o .gy. Vim Style Newsboat .gy. kei ku lanli lo samtci ku pe lo vi liste ku .i ckire loi ro finti ku be lo vi samtci ku .io
 
