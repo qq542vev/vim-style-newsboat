@@ -45,19 +45,19 @@ Vim Style Newsboatでは幾つのマクロが定義されており、`~/.newsboa
 | ---- | ----------------------------------------------------------------------------------------------- |
 | `^`  | 最初のダイアログに移動します。                                                                  |
 | `$`  | 最後のダイアログに移動します。                                                                  |
-| `0`  | フィードリンクのURLまたは記事のURLを任意のプログラムで開きます。                               |
-| `1`  | フィードリンクのURLまたは記事のURLを[FireFox](https://www.mozilla.org/firefox/)で開きます。     |
-| `2`  | フィードリンクのURLまたは記事のURLを[Chromium](https://www.chromium.org/Home)で開きます。       |
-| `3`  | フィードリンクのURLまたは記事のURLをEメールで送信します。                                       |
-| `4`  | フィードリンクのURLまたは記事のURLをQRコードに変換します。                                      |
-| `5`  | フィードリンクのURLまたは記事のURLを[Lynx](http://lynx.browser.org/)で開きます。                |
-| `6`  | フィードリンクのURLまたは記事のURLを[w3m](http://w3m.sourceforge.net/)で開きます。              |
-| `7`  | フィードリンクのURLまたは記事のURLを[GNU Wget](https://www.gnu.org/software/wget/)で開きます。  |
-| `8`  | フィードリンクのURLまたは記事のURLを[curl](https://curl.haxx.se/)で開きます。                   |
-| `9`  | フィードリンクのURLまたは記事のURLを[youtube-dl](https://youtube-dl.org/)で開きます。           |
+| `0`  | フィードリンクのURIまたは記事のURIを任意のプログラムで開きます。                               |
+| `1`  | フィードリンクのURIまたは記事のURIを[FireFox](https://www.mozilla.org/firefox/)で開きます。     |
+| `2`  | フィードリンクのURIまたは記事のURIを[Chromium](https://www.chromium.org/Home)で開きます。       |
+| `3`  | フィードリンクのURIまたは記事のURIをEメールで送信します。                                       |
+| `4`  | フィードリンクのURIまたは記事のURIをQRコードに変換します。                                      |
+| `5`  | フィードリンクのURIまたは記事のURIを[Lynx](http://lynx.browser.org/)で開きます。                |
+| `6`  | フィードリンクのURIまたは記事のURIを[w3m](http://w3m.sourceforge.net/)で開きます。              |
+| `7`  | フィードリンクのURIまたは記事のURIを[GNU Wget](https://www.gnu.org/software/wget/)で開きます。  |
+| `8`  | フィードリンクのURIまたは記事のURIを[curl](https://curl.haxx.se/)で開きます。                   |
+| `9`  | フィードリンクのURIまたは記事のURIを[youtube-dl](https://youtube-dl.org/)で開きます。           |
 | `i`  | 現在の記事をテキストエディタで開きます。                               　　　　　               |
 | `m`  | フラグが付けられた記事の一覧を開きます。                                         　　　　　     |
-| `o`  | フィードリンクのURLまたは記事のURLをテキストエディタで開き、そのURLをWebブラウザーで開きます。 |
+| `o`  | フィードリンクのURIまたは記事のURIをテキストエディタで開き、そのURLをWebブラウザーで開きます。 |
 | `O`  | 未読記事のURLをテキストエディタで開き、そのURLをWebブラウザーで開きます。                       |
 | `y`  | フィードリンクのURLまたは記事のURLをヤンクします。                                              |
 | `Y`  | 現在の記事の内容をヤンクする。                                                                  |
