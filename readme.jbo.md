@@ -1,5 +1,3 @@
-# Vim Style Newsboat
-
 # .i ni'o la'o .gy. Vim Style Newsboat .gy.
 
 [![.i vidnyxra lo karni liste ku](images/thumbnails/color-feedlist.png)](images/color-feedlist.png ".i vidnyxra lo karni liste ku") [![.i vidnyxra lo nuzba liste ku](images/thumbnails/color-articlelist.png)](images/color-articlelist.png ".i vidnyxra lo nuzba liste ku") [![.i vidnyxra lo nuzba ku](images/thumbnails/color-article.png)](images/color-article.png ".i vidnyxra lo nuzba ku")
