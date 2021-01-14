@@ -2,7 +2,7 @@
 
 [![.i vidnyxra lo karni liste ku](images/thumbnails/color-feedlist.png)](images/color-feedlist.png ".i vidnyxra lo karni liste ku") [![.i vidnyxra lo nuzba liste ku](images/thumbnails/color-articlelist.png)](images/color-articlelist.png ".i vidnyxra lo nuzba liste ku") [![.i vidnyxra lo nuzba ku](images/thumbnails/color-article.png)](images/color-article.png ".i vidnyxra lo nuzba ku")
 
-.i la'o .gy. Vim Style Newsboat .gy. gungunma tezu'e lo nu fuktra lo lercu'aca'a sazri ku pe la'o .gy. [Vim](https://www.vim.org/) .gy. .a la'o .gy. [Pentadactyl](https://github.com/pentadactyl/pentadactyl) .gy. la'o .gy. Newsboat .gy. kei ku
+.i la'o .gy. Vim Style Newsboat .gy. gungunma tezu'e lo nu fuktra lo lercu'aca'a sazri ku pe la'o .gy. [Vim](https://www.vim.org/) .gy. .a la'o .gy. [Pentadactyl](https://github.com/pentadactyl/pentadactyl) .gy. la'o .gy. [Newsboat](https://newsboat.org/) .gy. .a la'o .gy. [Newsbeuter](https://github.com/akrennmair/newsbeuter) kei ku
 
 .i la'o .gy. Vim .gy. me lo ve ciska be fi lo skami ku ku .i la'o .gy. Pentadactyl .gy. me lo jmina tutci ku pe lo la'o .gy. [Pale Moon](https://www.palemoon.org/) .gy. kibyca'o ku .i la'o .gy. Newsboat .gy. .e la'o .gy. Newsbeuter .gy. me lo skami tutci be lo du'u cpacu la'o .gy. Feed(RSS/Atom) .gy. kei ku .i fuktra ro lo lercu'aca'a sazri ku .inaje ba'o fuktra lo jicmu sazri ku
 
@@ -37,7 +37,7 @@ highlight article "^Links: $" white black bold
 
 .i zukte la'o .gy. Newsboat .gy. .ije jarco lo ka skari tai lo vidnyxra ku kei ku .ije sepu'e la'o .gy. `j`, `k` .gy. pe lo lercu'aca'a ku muvdu ka'e sazri .inaja snada lo te ciste ku
 
-## .i ni'o la'o .gy. Macro .gy.
+# .i ni'o la'o .gy. Macro .gy.
 
 .i so'o la'o .gy. Macro .gy. zvati la'o .gy. Vim Style Newsboat .gy. .i seja'e lo nu tcidu fi la'o .gy. `~/.newsboat/macro` .gy. kei ku ka'e plino .i va'o lo se galfi ku zoi .gy. `@` .gy. li'enrafsi la'o .gy. Macro .gy. .i lo nu ba zoi .gy. `@` .gy. catke lo bavla'i tekla ku kei ku rinka lo bavla'i fasnu ku
 
@@ -67,7 +67,7 @@ macro y set browser "echo %u | xsel --input --primary; echo %u | xsel --input --
 macro Y pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; cat -- ${tmpFile} | xsel --input --primary; cat -- ${tmpFile} | xsel --input --clipboard; rm -f -- ${tmpFile}"
 ~~~
 
-## .i ni'o vanbi goilka'i
+# .i ni'o vanbi goilka'i
 
 .i la'o .gy. Vim Style Newsboat .gy. lanli lo vanbi goilka'i ku pe lo bavla'i liste ku .i seja'e lo nu galfi lo vanbi goilka'i namcu ku kei ku ka'e cenba lo zu'o zukte kei ku
 
@@ -79,7 +79,7 @@ macro Y pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; cat -- ${tmpFile} | xsel --
 | `VIMSTYLENEWSBOAT_YANKFILE` | le namcu ku me lo jai bu'u datnyvei ku poi jmina lo fukpi jufra ku ke'a ku'o .i le vanbi goilka'i ku na zvati .ijonai lo namcu ku kunti .inaja pilno la'o .gy. `${HOME}/newsboat-yank` .gy. |
 | `VISUAL`                    | le namcu ku me lo pilno ve ciska ku .i le vanbi goilka'i ku na zvati .ijonai le namcu ku kunti .inaja pilno la'o .gy. `${EDITOR}` .gy. |
 
-# .i ba gasnu
+# .i ni'o liste lo'i ba se gasnu ku
 
  * ブックマークへ追加するプログラムの作成
 
