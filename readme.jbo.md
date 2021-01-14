@@ -2,9 +2,9 @@
 
 [![.i vidnyxra lo karni liste ku](images/thumbnails/color-feedlist.png)](images/color-feedlist.png ".i vidnyxra lo karni liste ku") [![.i vidnyxra lo nuzba liste ku](images/thumbnails/color-articlelist.png)](images/color-articlelist.png ".i vidnyxra lo nuzba liste ku") [![.i vidnyxra lo nuzba ku](images/thumbnails/color-article.png)](images/color-article.png ".i vidnyxra lo nuzba ku")
 
-.i la'o .gy. Vim Style Newsboat .gy. gungunma tezu'e lo nu fuktra lo lercu'aca'a sazri ku pe la'o .gy. [Vim](https://www.vim.org/) .gy. .a la'o .gy. [Pentadactyl](https://github.com/pentadactyl/pentadactyl) .gy. la'o .gy. [Newsboat](https://newsboat.org/) .gy. .a la'o .gy. [Newsbeuter](https://github.com/akrennmair/newsbeuter) kei ku
+.i la'o .gy. Vim Style Newsboat .gy. gungunma tezu'e lo nu fuktra lo lercu'aca'a sazri ku pe la'o .gy. [Vim](https://www.vim.org/) .gy. .a la'o .gy. [Pentadactyl](https://github.com/pentadactyl/pentadactyl) .gy. la'o .gy. [Newsboat](https://newsboat.org/) .gy. .a la'o .gy. [Newsbeuter](https://github.com/akrennmair/newsbeuter) .gy. kei ku
 
-.i la'o .gy. Vim .gy. me lo ve ciska be fi lo skami ku ku .i la'o .gy. Pentadactyl .gy. me lo jmina tutci ku pe lo la'o .gy. [Pale Moon](https://www.palemoon.org/) .gy. kibyca'o ku .i la'o .gy. Newsboat .gy. .e la'o .gy. Newsbeuter .gy. me lo skami tutci be lo du'u cpacu la'o .gy. Feed(RSS/Atom) .gy. kei ku .i fuktra ro lo lercu'aca'a sazri ku .inaje ba'o fuktra lo jicmu sazri ku
+.i la'o .gy. Vim .gy. me lo ve ciska be fi lo skami ku ku pe la'o .gy. CLI .gy. .i la'o .gy. Pentadactyl .gy. me lo jmina tutci ku pe lo la'o .gy. [Pale Moon](https://www.palemoon.org/) .gy. kibyca'o ku .i la'o .gy. Newsboat .gy. .e la'o .gy. Newsbeuter .gy. me lo skami tutci be lo du'u cpacu la'o .gy. Feed(RSS/Atom) .gy. kei ku ku pe la'o .gy. CLI .gy. .i fuktra ro lo lercu'aca'a sazri ku .inaje ku'i ba'o fuktra lo jicmu sazri ku
 
 .i ca ca'o gasnu lo nu va'o la'o .gy. newsboat r2.22 .gy. .e la'o .gy. newsbeuter 2.9 .gy. cipra kei ku .i na djuno lo jei va'o da'a re lo ve farvi ku zukte kei ku
 
@@ -57,6 +57,9 @@ highlight article "^Links: $" white black bold
 | `9`      | .i sepi'o la'o .gy. [youtube-dl](https://youtube-dl.org/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku          |
 | `i`      | .i sepi'o lo ve ciska be fi skami ku kargau lo nuzba ku                                                                      |
 | `m`      | .i jarco lo liste be lo'i nuzba pe la'o .gy. Flag .gy.                                                                       |
+| `o`      | .i sepi'o lo ve ciska be fi skami ku kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku .ije lo kibyca'o ku kargau ta ne la'o .gy. URI .gy.                                        |
+| `O`      | .i sepi'o lo ve ciska be fi skami ku kargau la'o .gy. URI .gy. pe lo na catlu nuzba ku .ije lo kibyca'o ku kargau ta ne la'o .gy. URI .gy.                                        |
+
 | `y`      | .i gasnu lo nu fukpi la'o .gy. URI .gy. pe lo karni jonai nuzba ku kei ku                                                    |
 | `Y`      | .i gasnu lo nu fukpi lo jufra ku pe lo nuzba ku kei ku                                                                       |
 
@@ -89,8 +92,9 @@ macro Y pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; cat -- ${tmpFile} | xsel --
 
 # .i ni'o ckire
 
-.i pu lo nu co'a finti la'o .gy. Vim Style Newsboat .gy. kei ku lanli lo samtci ku pe lo bavla'i liste ku i ca'o ckire ro loi finti be lo va samtci ku ku .io
+.i pu lo nu co'a finti la'o .gy. Vim Style Newsboat .gy. kei ku lanli lo tcila be lo samtci ku pe lo bavla'i liste ku ku .i ca'o ckire ro loi finti be lo va samtci ku ku .io
 
  * .i la'o .gy. [Newsboat](https://newsboat.org/) .gy.
+ * .i la'o .gy. [Newsbeuter](https://github.com/akrennmair/newsbeuter) .gy.
  * .i la'o .gy. [Vim](https://www.vim.org/) .gy.
  * .i la'o .gy. [Pentadactyl](https://github.com/pentadactyl/pentadactyl) .gy.
