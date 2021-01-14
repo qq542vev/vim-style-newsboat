@@ -79,7 +79,7 @@ macro Y pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; cat -- ${tmpFile} | xsel --
 | `VIMSTYLENEWSBOAT_YANKFILE` | le namcu ku me lo jai bu'u datnyvei ku poi jmina lo fukpi jufra ku ke'a ku'o .i le vanbi goilka'i ku na zvati .ijonai lo namcu ku kunti .inaja pilno la'o .gy. `${HOME}/newsboat-yank` .gy. |
 | `VISUAL`                    | le namcu ku me lo pilno ve ciska ku .i le vanbi goilka'i ku na zvati .ijonai le namcu ku kunti .inaja pilno la'o .gy. `${EDITOR}` .gy. |
 
-# ToDo
+# .i ba gasnu
 
  * ブックマークへ追加するプログラムの作成
 
@@ -87,7 +87,7 @@ macro Y pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; cat -- ${tmpFile} | xsel --
 
 .i ja'i la'o .gy. CC BY 4.0 .gy. to'e mipri la'o .gy. Vim Style Newsboat .gy. .i zifre lo nu galfi ja to'e mipri kei ku lo du'u tinbe la'o .gy. CC BY 4.0 .gy. kei ku .i lo tcila be lo te bilga ku ku zo'u catlu e'o la'o .gy. [LICENSE](LICENSE) .gy.
 
-# .i ckire
+# .i ni'o ckire
 
 .i pu lo nu co'a finti la'o .gy. Vim Style Newsboat .gy. kei ku lanli lo samtci ku pe lo bavla'i liste ku i ca'o ckire ro loi finti be lo va samtci ku ku .io
 
