@@ -59,7 +59,6 @@ highlight article "^Links: $" white black bold
 | `m`      | .i jarco lo liste be lo'i nuzba pe la'o .gy. Flag .gy.                                                                       |
 | `o`      | .i sepi'o lo ve ciska be fi skami ku kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku .ije lo kibyca'o ku kargau ta ne la'o .gy. URI .gy.                                        |
 | `O`      | .i sepi'o lo ve ciska be fi skami ku kargau la'o .gy. URI .gy. pe lo na catlu nuzba ku .ije lo kibyca'o ku kargau ta ne la'o .gy. URI .gy.                                        |
-
 | `y`      | .i gasnu lo nu fukpi la'o .gy. URI .gy. pe lo karni jonai nuzba ku kei ku                                                    |
 | `Y`      | .i gasnu lo nu fukpi lo jufra ku pe lo nuzba ku kei ku                                                                       |
 
