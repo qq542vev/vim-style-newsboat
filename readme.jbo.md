@@ -91,7 +91,7 @@ macro Y pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; cat -- ${tmpFile} | xsel --
 
 # .i ni'o ckire
 
-.i pu lo nu co'a finti la'o .gy. Vim Style Newsboat .gy. kei ku lanli lo tcila be lo samtci ku pe lo bavla'i liste ku ku .i punai ca'o ckire ro loi finti be lo va samtci ku ku .io
+.i banai lo nu finti la'o .gy. Vim Style Newsboat .gy. kei ku lanli lo tcila be lo samtci ku pe lo bavla'i liste ku ku .i punai ca'o ckire ro loi finti be lo va samtci ku ku .io
 
  * .i la'o .gy. [Newsboat](https://newsboat.org/) .gy.
  * .i la'o .gy. [Newsbeuter](https://github.com/akrennmair/newsbeuter) .gy.
