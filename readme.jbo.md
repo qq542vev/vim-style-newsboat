@@ -80,6 +80,7 @@ highlight article "^Links: $" white black bold
 | `m` | .i jarco lo liste be lo'i nuzba pe la'o .gy. Flag .gy. |
 | `o` | .i ba lo nu sepi'o lo ve ciska be fi lo skami ku ku kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku kei ku lo kibyca'o ku kargau ra ne la'o .gy. URI .gy. |
 | `O` | .i ba lo nu sepi'o lo ve ciska be fi lo skami ku ku kargau la'o .gy. URI .gy. pe lo na'e catlu nuzba ku kei ku lo kibyca'o ku kargau ra ne la'o .gy. URI .gy. |
+| `p` | .i lo du'u zukte kei ku pavdzakai la'o .gy. Newsboat .gy. .i sepi'o la'o .gy. GNU Wget .gy. .a la'o .gy. curl .gy. kibycpa fi lo pa moi ve uebjugau ku .i ti plixau fi la'o .gy. Podcast .gy. |
 | `y` | .i gasnu lo nu fukpi la'o .gy. URI .gy. pe lo karni jonai nuzba ku kei ku |
 | `Y` | .i gasnu lo nu fukpi lo jufra ku pe lo nuzba ku kei ku |
 
