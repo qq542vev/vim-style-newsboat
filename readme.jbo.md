@@ -55,10 +55,10 @@ highlight article "^Links: $" white black bold
 | `7` | .i sepi'o la'o .gy. [GNU Wget](https://www.gnu.org/software/wget/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku |
 | `8` | .i sepi'o la'o .gy. [curl](https://curl.haxx.se/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku |
 | `9` | .i sepi'o la'o .gy. [youtube-dl](https://youtube-dl.org/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku |
-| `i` | .i sepi'o lo ve ciska be fi skami ku kargau lo nuzba ku |
+| `i` | .i sepi'o lo ve ciska be fi lo skami ku ku kargau lo nuzba ku |
 | `m` | .i jarco lo liste be lo'i nuzba pe la'o .gy. Flag .gy. |
-| `o` | .i sepi'o lo ve ciska be fi skami ku kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku .ije lo kibyca'o ku kargau ta ne la'o .gy. URI .gy. |
-| `O` | .i sepi'o lo ve ciska be fi skami ku kargau la'o .gy. URI .gy. pe lo na catlu nuzba ku .ije lo kibyca'o ku kargau ta ne la'o .gy. URI .gy. |
+| `o` | .i ba lo nu sepi'o lo ve ciska be fi lo skami ku ku kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku kei ku lo kibyca'o ku kargau ra ne la'o .gy. URI .gy. |
+| `O` | .i ba lo nu sepi'o lo ve ciska be fi lo skami ku ku kargau la'o .gy. URI .gy. pe lo na'e catlu nuzba ku kei ku lo kibyca'o ku kargau ra ne la'o .gy. URI .gy. |
 | `y` | .i gasnu lo nu fukpi la'o .gy. URI .gy. pe lo karni jonai nuzba ku kei ku |
 | `Y` | .i gasnu lo nu fukpi lo jufra ku pe lo nuzba ku kei ku |
 
@@ -91,7 +91,7 @@ macro Y pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; cat -- ${tmpFile} | xsel --
 
 # .i ni'o ckire
 
-.i pu lo nu co'a finti la'o .gy. Vim Style Newsboat .gy. kei ku lanli lo tcila be lo samtci ku pe lo bavla'i liste ku ku .i ca'o ckire ro loi finti be lo va samtci ku ku .io
+.i pu lo nu co'a finti la'o .gy. Vim Style Newsboat .gy. kei ku lanli lo tcila be lo samtci ku pe lo bavla'i liste ku ku .i punai ca'o ckire ro loi finti be lo va samtci ku ku .io
 
  * .i la'o .gy. [Newsboat](https://newsboat.org/) .gy.
  * .i la'o .gy. [Newsbeuter](https://github.com/akrennmair/newsbeuter) .gy.
