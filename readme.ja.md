@@ -1,3 +1,24 @@
+<!--
+## File: readme.ja.md
+##
+## Manual(Japanese) for Vim Style Newsboat.
+##
+## Metadata:
+##
+##   author - qq542vev <https://purl.org/meta/me/>
+##   version - 1.0.0
+##   date - 2021-01-15
+##   since - 2020-08-15
+##   copyright - Copyright (C) 2020 - 2021 qq542vev. Some rights reserved.
+##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
+##   package - vim-style-newsboat
+##
+## See Also:
+##
+##   * Project homepage - <https://github.com/qq542vev/vim-style-newsboat>
+##   * Bag report - <https://github.com/qq542vev/vim-style-newsboat/issues>
+-->
+
 # Vim Style Newsboat
 
 [![Screenshot of Feed List](images/thumbnails/color-feedlist.png)](images/color-feedlist.png "Screenshot of Feed List") [![Screenshot of Article List](images/thumbnails/color-articlelist.png)](images/color-articlelist.png "Screenshot of Article List") [![Screenshot of Article](images/thumbnails/color-article.png)](images/color-article.png "Screenshot of Article")
