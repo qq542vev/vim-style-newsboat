@@ -1,3 +1,24 @@
+<!--
+## File: readme.jbo.md
+##
+## Manual(Lojban) for Vim Style Newsboat.
+##
+## Metadata:
+##
+##   author - qq542vev <https://purl.org/meta/me/>
+##   version - 1.0.0
+##   date - 2021-01-15
+##   since - 2021-01-15
+##   copyright - Copyright (C) 2021 qq542vev. Some rights reserved.
+##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
+##   package - vim-style-newsboat
+##
+## See Also:
+##
+##   * Project homepage - <https://github.com/qq542vev/vim-style-newsboat>
+##   * Bag report - <https://github.com/qq542vev/vim-style-newsboat/issues>
+-->
+
 # .i ni'o la'o .gy. Vim Style Newsboat .gy.
 
 [![.i vidnyxra lo karni liste ku](images/thumbnails/color-feedlist.png)](images/color-feedlist.png ".i vidnyxra lo karni liste ku") [![.i vidnyxra lo nuzba liste ku](images/thumbnails/color-articlelist.png)](images/color-articlelist.png ".i vidnyxra lo nuzba liste ku") [![.i vidnyxra lo nuzba ku](images/thumbnails/color-article.png)](images/color-article.png ".i vidnyxra lo nuzba ku")
