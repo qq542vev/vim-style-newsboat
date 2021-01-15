@@ -41,26 +41,26 @@ highlight article "^Links: $" white black bold
 
 .i so'o la'o .gy. Macro .gy. zvati la'o .gy. Vim Style Newsboat .gy. .i seja'e lo nu tcidu fi la'o .gy. `~/.newsboat/macro` .gy. kei ku ka'e plino .i va'o lo se galfi ku zoi .gy. `@` .gy. li'enrafsi la'o .gy. Macro .gy. .i lo nu ba zoi .gy. `@` .gy. catke lo bavla'i tekla ku kei ku rinka lo bavla'i fasnu ku
 
-| .i tekla | .i tcila ciksi                                                                                                               |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `^`      | .i movdu lo pa mai gidva notci ku                                                                                            |
-| `$`      | .i movdu lo ro mai gidva notci ku                                                                                            |
-| `0`      | .i ba lo nu preti da kei ku sepi'o da kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku                                   |
-| `1`      | .i sepi'o la'o .gy. [FireFox](https://www.mozilla.org/firefox/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku    |
-| `2`      | .i sepi'o la'o .gy. [Chromium](https://www.chromium.org/Home) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku      |
-| `3`      | .i benji la'o .gy. URI .gy. pe lo karni jonai nuzba ku fu lo kibro mrilu ku                                                  |
-| `4`      | .i jarco la'o .gy. QR Code .gy. poi galfi la'o .gy. URI .gy. pe lo karni jonai nuzba ku ke'a ku'o                            |
-| `5`      | .i sepi'o la'o .gy. [Lynx](http://lynx.browser.org/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku               |
-| `6`      | .i sepi'o la'o .gy. [w3m](http://w3m.sourceforge.net/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku             |
-| `7`      | .i sepi'o la'o .gy. [GNU Wget](https://www.gnu.org/software/wget/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku |
-| `8`      | .i sepi'o la'o .gy. [curl](https://curl.haxx.se/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku                  |
-| `9`      | .i sepi'o la'o .gy. [youtube-dl](https://youtube-dl.org/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku          |
-| `i`      | .i sepi'o lo ve ciska be fi skami ku kargau lo nuzba ku                                                                      |
-| `m`      | .i jarco lo liste be lo'i nuzba pe la'o .gy. Flag .gy.                                                                       |
-| `o`      | .i sepi'o lo ve ciska be fi skami ku kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku .ije lo kibyca'o ku kargau ta ne la'o .gy. URI .gy.                                        |
-| `O`      | .i sepi'o lo ve ciska be fi skami ku kargau la'o .gy. URI .gy. pe lo na catlu nuzba ku .ije lo kibyca'o ku kargau ta ne la'o .gy. URI .gy.                                        |
-| `y`      | .i gasnu lo nu fukpi la'o .gy. URI .gy. pe lo karni jonai nuzba ku kei ku                                                    |
-| `Y`      | .i gasnu lo nu fukpi lo jufra ku pe lo nuzba ku kei ku                                                                       |
+| .i tekla | .i tcila ciksi |
+| -------- | -------------- |
+| `^` | .i movdu lo pa mai gidva notci ku |
+| `$` | .i movdu lo ro mai gidva notci ku |
+| `0` | .i ba lo nu preti da kei ku sepi'o da kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku |
+| `1` | .i sepi'o la'o .gy. [FireFox](https://www.mozilla.org/firefox/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku |
+| `2` | .i sepi'o la'o .gy. [Chromium](https://www.chromium.org/Home) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku |
+| `3` | .i benji la'o .gy. URI .gy. pe lo karni jonai nuzba ku fu lo kibro mrilu ku |
+| `4` | .i jarco la'o .gy. QR Code .gy. poi galfi la'o .gy. URI .gy. pe lo karni jonai nuzba ku ke'a ku'o |
+| `5` | .i sepi'o la'o .gy. [Lynx](http://lynx.browser.org/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku |
+| `6` | .i sepi'o la'o .gy. [w3m](http://w3m.sourceforge.net/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku |
+| `7` | .i sepi'o la'o .gy. [GNU Wget](https://www.gnu.org/software/wget/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku |
+| `8` | .i sepi'o la'o .gy. [curl](https://curl.haxx.se/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku |
+| `9` | .i sepi'o la'o .gy. [youtube-dl](https://youtube-dl.org/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku |
+| `i` | .i sepi'o lo ve ciska be fi skami ku kargau lo nuzba ku |
+| `m` | .i jarco lo liste be lo'i nuzba pe la'o .gy. Flag .gy. |
+| `o` | .i sepi'o lo ve ciska be fi skami ku kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku .ije lo kibyca'o ku kargau ta ne la'o .gy. URI .gy. |
+| `O` | .i sepi'o lo ve ciska be fi skami ku kargau la'o .gy. URI .gy. pe lo na catlu nuzba ku .ije lo kibyca'o ku kargau ta ne la'o .gy. URI .gy. |
+| `y` | .i gasnu lo nu fukpi la'o .gy. URI .gy. pe lo karni jonai nuzba ku kei ku |
+| `Y` | .i gasnu lo nu fukpi lo jufra ku pe lo nuzba ku kei ku |
 
 .i la'o .gy. `xsel` .gy. .a la'o .gy. `xcrip` .gy. zvati lo skami ku .inaja sepi'o la .kuripubod. ka'e fukpi gasnu .i e'o galfi lo du'u ne'i la'o .gy. `~/.newsboat/macro` .gy. ra'a la'o .gy. Yank .gy. pinpau kei ku .i mu'a pilno la'o .gy. `xsel` .gy. .inaja e'o galfi ra lo bavla'i jufla ku
 
@@ -73,13 +73,13 @@ macro Y pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; cat -- ${tmpFile} | xsel --
 
 .i la'o .gy. Vim Style Newsboat .gy. lanli lo vanbi goilka'i ku pe lo bavla'i liste ku .i seja'e lo nu galfi lo vanbi goilka'i namcu ku kei ku ka'e cenba lo zu'o zukte kei ku
 
-| .i vanbi goilka'i cmene        | .i tcila ciksi |
-| --------------------------- | ----------- |
-| `BROWSER`                   | le namcu ku me lo pilno kibyca'o ku .i le vanbi goilka'i ku na zvati .ijonai le namcu ku kunti .inaja pilno la'o .gy. `lynx` .gy. |
-| `EDITOR`                   | le namcu ku me lo pilno ve ciska ku .i le vanbi goilka'i ku na zvati .ijonai le namcu ku kunti .inaja pilno la'o .gy. `vi` .gy. |
-| `MAILER`                    | le namcu ku me lo jai sepi'o kibro mrilu ku .i nitcu ri poi sepu'e la'o .gy. [mailto URI Scheme](https://www.ietf.org/rfc/rfc6068.txt) .gy. ke'a zukte ku'o |
+| .i vanbi goilka'i cmene | .i tcila ciksi |
+| ----------------------- | -------------- |
+| `BROWSER` | le namcu ku me lo pilno kibyca'o ku .i le vanbi goilka'i ku na zvati .ijonai le namcu ku kunti .inaja pilno la'o .gy. `lynx` .gy. |
+| `EDITOR` | le namcu ku me lo pilno ve ciska ku .i le vanbi goilka'i ku na zvati .ijonai le namcu ku kunti .inaja pilno la'o .gy. `vi` .gy. |
+| `MAILER` | le namcu ku me lo jai sepi'o kibro mrilu ku .i nitcu ri poi sepu'e la'o .gy. [mailto URI Scheme](https://www.ietf.org/rfc/rfc6068.txt) .gy. ke'a zukte ku'o |
 | `VIMSTYLENEWSBOAT_YANKFILE` | le namcu ku me lo jai bu'u datnyvei ku poi jmina lo fukpi jufra ku ke'a ku'o .i le vanbi goilka'i ku na zvati .ijonai lo namcu ku kunti .inaja pilno la'o .gy. `${HOME}/newsboat-yank` .gy. |
-| `VISUAL`                    | le namcu ku me lo pilno ve ciska ku .i le vanbi goilka'i ku na zvati .ijonai le namcu ku kunti .inaja pilno la'o .gy. `${EDITOR}` .gy. |
+| `VISUAL` | le namcu ku me lo pilno ve ciska ku .i le vanbi goilka'i ku na zvati .ijonai le namcu ku kunti .inaja pilno la'o .gy. `${EDITOR}` .gy. |
 
 # .i ni'o liste lo'i ba se gasnu ku
 
