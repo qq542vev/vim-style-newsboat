@@ -6,7 +6,7 @@
 ## Metadata:
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.1.0
+##   version - 1.1.1
 ##   date - 2021-01-17
 ##   since - 2021-01-15
 ##   copyright - Copyright (C) 2021 qq542vev. Some rights reserved.
@@ -77,8 +77,8 @@ highlight article "^Links: $" white black bold
 | `8` | .i sepi'o la'o .gy. [curl](https://curl.haxx.se/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku |
 | `9` | .i sepi'o la'o .gy. [youtube-dl](https://youtube-dl.org/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku |
 | `i` | .i sepi'o lo ve ciska be fi lo skami ku ku kargau lo nuzba ku |
-| `J` | .i lo du'u zukte kei ku pavdzakai la'o .gy. Newsboat .gy. .i gasnu lo nu ne'i lo liste be lo'i nuzba ku ku ba'o tcidu muno lo ke ca'o cuxna je cinta ke'e nuzba ku kei ku |
-| `K` | .i lo du'u zukte kei ku pavdzakai la'o .gy. Newsboat .gy. .i gasnu lo nu ne'i lo liste be lo'i nuzba ku ku ba'o tcidu fi muno lo ke ca'o cuxna je gapru ke'e nuzba ku kei ku |
+| `J` | .i gasnu lo nu ne'i lo liste be lo'i nuzba ku ku ba'o tcidu muno lo ke ca'o cuxna je cinta ke'e nuzba ku kei ku |
+| `K` | .i gasnu lo nu ne'i lo liste be lo'i nuzba ku ku ba'o tcidu fi muno lo ke ca'o cuxna je gapru ke'e nuzba ku kei ku |
 | `m` | .i jarco lo liste be lo'i nuzba pe la'o .gy. Flag .gy. |
 | `o` | .i ba lo nu sepi'o lo ve ciska be fi lo skami ku ku kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku kei ku lo kibyca'o ku kargau ra ne la'o .gy. URI .gy. |
 | `O` | .i ba lo nu sepi'o lo ve ciska be fi lo skami ku ku kargau la'o .gy. URI .gy. pe lo na'e catlu nuzba ku kei ku lo kibyca'o ku kargau ra ne la'o .gy. URI .gy. |
@@ -103,6 +103,7 @@ macro Y pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; cat -- ${tmpFile} | xsel --
 | `BROWSER` | le namcu ku me lo pilno kibyca'o ku .i le vanbi goilka'i ku na zvati .ijonai le namcu ku kunti .inaja pilno la'o .gy. `lynx` .gy. |
 | `EDITOR` | le namcu ku me lo pilno ve ciska ku .i le vanbi goilka'i ku na zvati .ijonai le namcu ku kunti .inaja pilno la'o .gy. `vi` .gy. |
 | `MAILER` | le namcu ku me lo jai sepi'o kibro mrilu ku .i nitcu ri poi sepu'e la'o .gy. [mailto URI Scheme](https://www.ietf.org/rfc/rfc6068.txt) .gy. ke'a zukte ku'o |
+| `PAGER` | le namcu ku me lo pilno ve zgana ku .i le vanbi goilka'i ku na zvati .ijonai le namcu ku kunti .inaja pilno la'o .gy. `less` .gy. |
 | `VIMSTYLENEWSBOAT_YANKFILE` | le namcu ku me lo jai bu'u datnyvei ku poi jmina lo fukpi jufra ku ke'a ku'o .i le vanbi goilka'i ku na zvati .ijonai lo namcu ku kunti .inaja pilno la'o .gy. `${HOME}/newsboat-yank` .gy. |
 | `VISUAL` | le namcu ku me lo pilno ve ciska ku .i le vanbi goilka'i ku na zvati .ijonai le namcu ku kunti .inaja pilno la'o .gy. `${EDITOR}` .gy. |
 
