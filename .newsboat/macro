@@ -11,10 +11,10 @@
 ## Metadata:
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.4.0
-##   date - 2021-01-05
+##   version - 1.5.0
+##   date - 2021-01-17
 ##   since - 2020-08-22
-##   copyright - Copyright (C) 2020 qq542vev. Some rights reserved.
+##   copyright - Copyright (C) 2020 - 2021 qq542vev. Some rights reserved.
 ##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
 ##   package - vim-style-newsboat
 ##
@@ -23,7 +23,11 @@
 ##   * Project homepage - <https://github.com/qq542vev/vim-style-newsboat>
 ##   * Bag report - <https://github.com/qq542vev/vim-style-newsboat/issues>
 
+macro ^ view-dialogs ; open
+macro $ view-dialogs ; open ; prev-dialog
+
 macro 0 set browser "echo 'Enter the command to open the URL. Exit if not entered'; printf 'Command: '; read -r 'browser'; case ${browser-} in ?*) ${browser} %u;; esac" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
+
 macro 1 set browser "firefox %u &" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 macro 2 set browser "chromium %u &" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 
@@ -38,15 +42,15 @@ macro 7 set browser "wget -b -- %u" ; open-in-browser ; set browser "${BROWSER:-
 macro 8 set browser "curl -L -O -sS -- %u &" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 macro 9 set browser "youtube-dl -q -- %u &" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 
-macro ^ view-dialogs ; open
-macro $ view-dialogs ; open ; prev-dialog
 macro b open ; prev-dialog
 macro i pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; ${VISUAL:-${EDITOR:-vi --}} ${tmpFile} <'/dev/tty'; rm -f -- ${tmpFile}"
+macro J open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down
+macro K open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down
 macro m view-dialogs ; open ; set-filter "feedtitle = \"Flagged Articles\"" ; open
 macro o set browser "tmpFile=$(mktemp); echo %u >${tmpFile}; ${VISUAL:-${EDITOR:-vi --}} ${tmpFile}; ${BROWSER:-lynx --} $(cat -- ${tmpFile}; rm -f -- ${tmpFile})" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 macro O set browser "echo %u >>${HOME}/tmpfile-newsboat" ; open-all-unread-in-browser ; set browser "tmpFile=${HOME}/tmpfile-newsboat; ${VISUAL:-${EDITOR:-vi --}} ${tmpFile}; ${BROWSER:-lynx --} $(cat -- ${tmpFile}; rm -f ${tmpFile}) # %u" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
-macro w pipe-to "${PAGER}"
 macro p set browser "if [ -x '/usr/bin/wget' ]; then wget -b -- %u; elif [ -x '/usr/bin/curl' ]; then curl -L -O -sS -- %u & fi" ; one ; set browser "${BROWSER:-lynx --} %u"
+macro w pipe-to "${PAGER}"
 
 # Yank URL
 macro y set browser "echo %u >>${VIMSTYLENEWSBOAT_YANKFILE:-${HOME}/newsboat-yank}" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"

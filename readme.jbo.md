@@ -6,8 +6,8 @@
 ## Metadata:
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.0.0
-##   date - 2021-01-15
+##   version - 1.1.0
+##   date - 2021-01-17
 ##   since - 2021-01-15
 ##   copyright - Copyright (C) 2021 qq542vev. Some rights reserved.
 ##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
@@ -77,10 +77,13 @@ highlight article "^Links: $" white black bold
 | `8` | .i sepi'o la'o .gy. [curl](https://curl.haxx.se/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku |
 | `9` | .i sepi'o la'o .gy. [youtube-dl](https://youtube-dl.org/) .gy. kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku |
 | `i` | .i sepi'o lo ve ciska be fi lo skami ku ku kargau lo nuzba ku |
+| `J` | .i lo du'u zukte kei ku pavdzakai la'o .gy. Newsboat .gy. .i gasnu lo nu ne'i lo liste be lo'i nuzba ku ku ba'o tcidu muno lo ke ca'o cuxna je cinta ke'e nuzba ku kei ku |
+| `K` | .i lo du'u zukte kei ku pavdzakai la'o .gy. Newsboat .gy. .i gasnu lo nu ne'i lo liste be lo'i nuzba ku ku ba'o tcidu fi muno lo ke ca'o cuxna je gapru ke'e nuzba ku kei ku |
 | `m` | .i jarco lo liste be lo'i nuzba pe la'o .gy. Flag .gy. |
 | `o` | .i ba lo nu sepi'o lo ve ciska be fi lo skami ku ku kargau la'o .gy. URI .gy. pe lo karni jonai nuzba ku kei ku lo kibyca'o ku kargau ra ne la'o .gy. URI .gy. |
 | `O` | .i ba lo nu sepi'o lo ve ciska be fi lo skami ku ku kargau la'o .gy. URI .gy. pe lo na'e catlu nuzba ku kei ku lo kibyca'o ku kargau ra ne la'o .gy. URI .gy. |
 | `p` | .i lo du'u zukte kei ku pavdzakai la'o .gy. Newsboat .gy. .i sepi'o la'o .gy. GNU Wget .gy. .a la'o .gy. curl .gy. kibycpa fi lo pa moi ve uebjugau ku .i ti plixau fi la'o .gy. Podcast .gy. |
+| `w` | .i sepi'o lo ve zgana be lo papri ku ku kargau lo nuzba ku |
 | `y` | .i gasnu lo nu fukpi la'o .gy. URI .gy. pe lo karni jonai nuzba ku kei ku |
 | `Y` | .i gasnu lo nu fukpi lo jufra ku pe lo nuzba ku kei ku |
 

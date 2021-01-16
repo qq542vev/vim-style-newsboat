@@ -6,8 +6,8 @@
 ## Metadata:
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.0.0
-##   date - 2021-01-15
+##   version - 1.1.0
+##   date - 2021-01-17
 ##   since - 2020-08-15
 ##   copyright - Copyright (C) 2020 - 2021 qq542vev. Some rights reserved.
 ##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
@@ -77,10 +77,13 @@ Vim Style Newsboatでは幾つのマクロが定義されており、`~/.newsboa
 | `8` | フィードリンクのURIまたは記事のURIを[curl](https://curl.haxx.se/)で開きます。 |
 | `9` | フィードリンクのURIまたは記事のURIを[youtube-dl](https://youtube-dl.org/)で開きます。 |
 | `i` | 現在の記事をテキストエディタで開きます。 |
+| `J` | Newsboatのみで動作します。記事のリスト内で現在選択中の記事以下の50記事を既読にします。 |
+| `K` | Newsboatのみで動作します。記事のリスト内で現在選択中の記事以上の50記事を既読にします。 |
 | `m` | フラグが付けられた記事の一覧を開きます。 |
 | `o` | フィードリンクのURIまたは記事のURIをテキストエディタで開き、そのURLをWebブラウザーで開きます。 |
 | `O` | 未読記事のURLをテキストエディタで開き、そのURLをWebブラウザーで開きます。 |
 | `p` | Newsboatのみで動作します。記事内の1番目のリンクをGNU Wgetまたはcurlでダウンロードします。これはPodcastで便利です。 |
+| `w` | 記事をページャーで開きます。 |
 | `y` | フィードリンクのURIまたは記事のURLをヤンクします。 |
 | `Y` | 現在の記事の内容をヤンクします。 |
 
