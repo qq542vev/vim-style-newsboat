@@ -43,13 +43,13 @@ umask '0022'
 IFS=$(printf ' \t\n$'); IFS="${IFS%$}"
 export 'IFS'
 
-htmlEscape() (
+htmlEscape() {
 	sed -e 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g'
-)
+}
 
-sedEscape() (
+sedEscape() {
 	sed -e 's/[].\*/[]/\\&/g; 1s/^^/\\^/; $s/$$/\\$/'
-)
+}
 
 usage() {
 	sed -e '/^## *(start code)/,/^## *(end)/!d' -- "${0}" | sed -e '1d; $d; s/^## */Usage: /'
@@ -73,7 +73,7 @@ version() {
 
 error() {
 	printf '%s\n' "${1}"
-  return '64'
+	return '64'
 }
 
 # @getoptions
