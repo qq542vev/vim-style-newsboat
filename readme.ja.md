@@ -6,7 +6,7 @@
 ## Metadata:
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.1.1
+##   version - 1.1.2
 ##   date - 2021-09-11
 ##   since - 2020-08-15
 ##   copyright - Copyright (C) 2020 - 2021 qq542vev. Some rights reserved.
