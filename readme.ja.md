@@ -7,7 +7,7 @@
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
 ##   version - 1.1.1
-##   date - 2021-01-17
+##   date - 2021-09-11
 ##   since - 2020-08-15
 ##   copyright - Copyright (C) 2020 - 2021 qq542vev. Some rights reserved.
 ##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
@@ -109,7 +109,7 @@ Vim Style Newsboatでは次の環境変数を参照します。環境変数の�
 
 # ToDoリスト
 
- * ブックマークへ追加するプログラムの作成
+ * ~~ブックマークへ追加するプログラムの作成~~
 
 # ライセンス
 
