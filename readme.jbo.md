@@ -6,8 +6,8 @@
 ## Metadata:
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.1.1
-##   date - 2021-01-17
+##   version - 1.1.2
+##   date - 2021-09-11
 ##   since - 2021-01-15
 ##   copyright - Copyright (C) 2021 qq542vev. Some rights reserved.
 ##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
@@ -109,7 +109,7 @@ macro Y pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; cat -- ${tmpFile} | xsel --
 
 # .i ni'o liste lo'i ba se gasnu ku
 
- * ブックマークへ追加するプログラムの作成
+ * ~~ブックマークへ追加するプログラムの作成~~
 
 # .i ni'o nupre
 
