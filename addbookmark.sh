@@ -27,7 +27,7 @@
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
 ##   version - 1.0.0
-##   date - 2021-09-09
+##   date - 2021-09-13
 ##   since - 2021-09-09
 ##   copyright - Copyright (C) 2021 qq542vev. Some rights reserved.
 ##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
@@ -42,6 +42,26 @@ set -efu
 umask '0022'
 IFS=$(printf ' \t\n$'); IFS="${IFS%$}"
 export 'IFS'
+
+trap 'endCall ${EXIT_STATUS+"${EXIT_STATUS}"}' 0 # EXIT
+trap 'endCall 129' 1 # SIGHUP
+trap 'endCall 130' 2 # SIGINT
+trap 'endCall 131' 3 # SIGQUIT
+trap 'endCall 143' 15 # SIGTERM
+
+endCall() {
+	previousExitStatus="${?}"
+
+	rm -f -- ${tmpFile+"${tmpFile}"}
+
+	if [ -n "${1-}" ]; then
+		exit "${1}"
+	elif [ "${previousExitStatus}" -ne '0' ]; then
+		exit '70'
+	fi
+
+	exit '0'
+}
 
 htmlEscape() {
 	sed -e 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g'
@@ -73,6 +93,7 @@ version() {
 
 error() {
 	printf '%s\n' "${1}"
+	EXIT_STATUS='64'
 	return '64'
 }
 
