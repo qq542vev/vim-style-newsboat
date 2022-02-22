@@ -306,4 +306,4 @@ bind-key "m" pb-mark-as-finished podboat
 bind-key "D" pb-delete podboat
 bind-key "a" pb-toggle-download-all podboat
 bind-key "+" pb-increase-max-dls podboat
-# bind-key "-" pb-decrease-max-dls podboat
+#bind-key "-" pb-decrease-max-dls podboat
