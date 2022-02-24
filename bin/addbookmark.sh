@@ -448,4 +448,4 @@ awk \
 	-- "${awkScript}" "${bookmarkFile}" \
 	>"${tmpFile}"
 
-mv -f -- "${tmpFile}" "${bookmarkFile}"
+cat -- "${tmpFile}" >"${bookmarkFile}"
