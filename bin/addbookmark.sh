@@ -7,7 +7,7 @@
 ## Usage:
 ##
 ##   (start code)
-##   addbookmark.sh [options...] uri [title] [description] [feedTitle]
+##   addbookmark.sh [options...] URI [title] [description] [feed-title]
 ##   (end)
 ##
 ## Options:
@@ -269,7 +269,7 @@ parse ${@+"${@}"}
 eval "set -- ${REST}"
 
 case "${#}" in
-	'0') error 'Requires an argument: uri';;
+	'0') error 'Requires an argument: URI';;
 esac
 
 if [ -d "${bookmarkFile}" ]; then
