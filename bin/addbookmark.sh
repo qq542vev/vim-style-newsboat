@@ -33,8 +33,8 @@
 ## Metadata:
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.0.0
-##   date - 2022-02-22
+##   version - 1.1.0
+##   date - 2022-02-24
 ##   since - 2021-09-09
 ##   copyright - Copyright (C) 2021 qq542vev. Some rights reserved.
 ##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
@@ -404,13 +404,19 @@ awkScript=$(
 
 tmpDir=$(mktemp -d)
 tmpFile="${tmpDir}/file"
+
+while
+	random=$(tr -dc 'ADCBEFGHIJLKMNOPQRSTUVWYXZ' <'/dev/urandom' | fold -w '256' | head -n '1')
+	grep -Fq -e "${random}" -- "${bookmarkFile}"
+do :; done
+
 uri=$(printf '%s' "${1}" | htmlEscape)
 title=$(printf '%s' "${2:-${1}}" | htmlEscape)
 description=$(printf '%s' "${3-}" | htmlEscape)
 feedTitle=$(printf '%s' "${4:-Unsorted Bookmarks}" | htmlEscape)
-item=$(eval "cat <<83bpgibEzYgMijIjB5fJAMNdzN9EGv7m
+item=$(eval "cat <<${random}
 ${itemTemplate}
-83bpgibEzYgMijIjB5fJAMNdzN9EGv7m"
+${random}"
 )
 
 if [ ! -e "${bookmarkFile}" ] || [ ! -s "${bookmarkFile}" ]; then
@@ -418,6 +424,7 @@ if [ ! -e "${bookmarkFile}" ] || [ ! -s "${bookmarkFile}" ]; then
 fi
 
 awk \
+	-v "RS=${random}" \
 	-v "uri=${uri}" \
 	-v "feedTitle=${feedTitle}" \
 	-v "item=${item}" \
