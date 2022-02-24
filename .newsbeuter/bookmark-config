@@ -1,0 +1,46 @@
+## File: bookmark-config
+##
+## Configuration for the bookmarking program for Newsbeuter.
+##
+## Usage:
+##
+##   (start code)
+##   include "~/.newsbeuter/bookmark-config"
+##   (end)
+##
+## Metadata:
+##
+##   author - qq542vev <https://purl.org/meta/me/>
+##   version - 1.0.0
+##   date - 2022-02-24
+##   since - 2022-02-24
+##   copyright - Copyright (C) 2022 qq542vev. Some rights reserved.
+##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
+##   package - vim-style-newsboat
+##
+## See Also:
+##
+##   * Project homepage - <https://github.com/qq542vev/vim-style-newsboat>
+##   * Bag report - <https://github.com/qq542vev/vim-style-newsboat/issues>
+
+####  bookmark-cmd
+#
+# If set, then <command> will be used as bookmarking plugin. See the
+# documentation on bookmarking for further information.
+#
+# Syntax: <command>
+#
+# Default value: ""
+#
+bookmark-cmd "addbookmark.sh --purge"
+
+####  bookmark-interactive
+#
+# If set to `yes`, then the configured bookmark command is an interactive
+# program.
+#
+# Syntax: [yes/no]
+#
+# Default value: no
+#
+bookmark-interactive no
