@@ -100,7 +100,7 @@ parser_definition() {
 	param bookmarkFile  -f --file           init:'bookmarkFile="${HOME}/bookmark.html"'
 	flag  purgeFlag     -p --{no-}purge     init:@no no:0
 	flag  removeFlag    -r --{no-}remove    init:@no no:0
-	param itemTemplate  -t --template       init:='<li><a href="${uri}">${title}</a>${description:+"<p>${description}</p>"}</li>'
+	param itemTemplate  -t --template       init:='<li><a rel="noreferrer" href="${uri}">${title}</a>${description:+"<p>${description}</p>"}</li>'
 	disp  :usage        -h --help
 	disp  :version      -v --version
 }
@@ -114,7 +114,7 @@ duplicateFlag='0'
 bookmarkFile="${HOME}/bookmark.html"
 purgeFlag='0'
 removeFlag='0'
-itemTemplate='<li><a href="${uri}">${title}</a>${description:+"<p>${description}</p>"}</li>'
+itemTemplate='<li><a rel="noreferrer" href="${uri}">${title}</a>${description:+"<p>${description}</p>"}</li>'
 REST=''
 parse() {
   OPTIND=$(($#+1))
