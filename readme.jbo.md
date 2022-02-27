@@ -6,8 +6,8 @@
 ## Metadata:
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.1.2
-##   date - 2021-09-11
+##   version - 1.1.3
+##   date - 2022-02-18
 ##   since - 2021-01-15
 ##   copyright - Copyright (C) 2021 qq542vev. Some rights reserved.
 ##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
@@ -25,7 +25,7 @@
 
 .i la'o .gy. Vim Style Newsboat .gy. gunka gunma tezu'e lo nu fukpi tarti lo ka sazri la'o .gy. Keybord .gy. va'o la'o .gy. [Vim](https://www.vim.org/) .gy. .a la'o .gy. [Pentadactyl](https://github.com/pentadactyl/pentadactyl) .gy. la'o .gy. [Newsboat](https://newsboat.org/) .gy. .a la'o .gy. [Newsbeuter](https://github.com/akrennmair/newsbeuter) .gy. kei ku
 
-.i la'o .gy. Vim .gy. me lo ve ciska be fi lo skami ku bei va'o la'o .gy. CLI .gy. ku .i la'o .gy. Pentadactyl .gy. me lo skami tutci be va'o la'o .gy. [Pale Moon](https://www.palemoon.org/) .gy. ku .i la'o .gy. Newsboat .gy. .e la'o .gy. Newsbeuter .gy. me lo skami tutci be lo nu tcidu fi la'o .gy. Feed(RSS/Atom) .gy. kei ku bei va'o la'o .gy. CLI .gy. ku .i fukpi tarti ro lo ka sazri la'o .gy. Keybord .gy. kei ku .inaje ku'i ba'o fukpi tarti lo ka jicmu sazri kei ku
+.i la'o .gy. Vim .gy. me lo ve ciska be fi lo skami ku bei va'o la'o .gy. CLI .gy. ku .i la'o .gy. Pentadactyl .gy. me lo skami tutci be va'o la'o .gy. [Pale Moon](https://www.palemoon.org/) .gy. ku .i la'o .gy. Newsboat .gy. .e la'o .gy. Newsbeuter .gy. me lo skami tutci be lo nu tcidu fi la'o .gy. Feed (RSS / Atom) .gy. kei ku bei va'o la'o .gy. CLI .gy. ku .i fukpi tarti ro lo ka sazri la'o .gy. Keybord .gy. kei ku .inaje ku'i ba'o fukpi tarti lo ka jicmu sazri kei ku
 
 .i ca ca'o gasnu lo nu va'o la'o .gy. newsboat r2.26 .gy. .e la'o .gy. newsbeuter 2.9 .gy. cipra kei ku .i na djuno lo jei va'o lo drata ve farvi ku ka'e zukte kei ku
 
