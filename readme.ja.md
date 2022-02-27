@@ -25,7 +25,7 @@
 
 Vim Style Newsboat は [Vim](https://www.vim.org/) と [Pentadactyl](https://github.com/pentadactyl/pentadactyl) のキーボード操作を [Newsboat](https://newsboat.org/) 及び [Newsbeuter](https://www.newsbeuter.org/) でも実現する試みのプロジェクトです。
 
-Vim は CLI のスクリーンエディタ、Pentadactyl は Webブラウザーである [Pale Moon](https://www.palemoon.org/) のアドオン、 Newsboat と Newsbeuter は CLI の Feed(RSS / Atom) リーダーです。ソフトウェアの性質の違い故に全てのキーボード操作を模倣出来ている訳ではありませんが、基本的な操作の模倣は完了しております。
+Vim は CLI のスクリーンエディタ、Pentadactyl は Webブラウザーである [Pale Moon](https://www.palemoon.org/) のアドオン、 Newsboat と Newsbeuter は CLI の Feed (RSS / Atom) リーダーです。ソフトウェアの性質の違い故に全てのキーボード操作を模倣出来ている訳ではありませんが、基本的な操作の模倣は完了しております。
 
 テストは newsboat r2.26 と newsbeuter 2.9 で行っています。それ以外のバーションでの動作は未確認です。
 
