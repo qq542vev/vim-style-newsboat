@@ -11,8 +11,8 @@
 ## Metadata:
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.1.0
-##   date - 2021-01-06
+##   version - 1.1.1
+##   date - 2022-02-28
 ##   since - 2020-08-22
 ##   copyright - Copyright (C) 2020 qq542vev. Some rights reserved.
 ##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
@@ -186,7 +186,8 @@ bind-key "r" reload
 bind-key "F5" reload
 bind-key "R" reload-all
 
-bind-key "^A" mark-all-feeds-read
+bind-key "^A" mark-all-feeds-read feedlist
+bind-key "^A" mark-feed-read articlelist
 
 bind-key "s" save
 # bind-key "S" save-all
@@ -300,9 +301,9 @@ bind-key "@" macro-prefix
 # bind-key "TAB" switch-focus filebrowser
 # bind-key "TAB" switch-focus dirbrowser
 
-bind-key "^S" pb-download podbeuter                                   bind-key "^C" pb-cancel podbeuter
+bind-key "^S" pb-download podbeuter                             bind-key "^C" pb-cancel podbeuter
 bind-key "ENTER" pb-play podbeuter
-bind-key "m" pb-mark-as-finished podbeuter                            bind-key "D" pb-delete podbeuter
+bind-key "m" pb-mark-as-finished podbeuter                      bind-key "D" pb-delete podbeuter
 bind-key "a" pb-toggle-download-all podbeuter
 bind-key "+" pb-increase-max-dls podbeuter
 bind-key "-" pb-decrease-max-dls podbeuter
