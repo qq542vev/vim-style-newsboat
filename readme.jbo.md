@@ -27,7 +27,7 @@
 
 .i la'o .gy. Vim .gy. me lo ve ciska be fi lo skami ku bei va'o la'o .gy. CLI .gy. ku .i la'o .gy. Pentadactyl .gy. me lo skami tutci be va'o la'o .gy. [Pale Moon](https://www.palemoon.org/) .gy. ku .i la'o .gy. Newsboat .gy. .e la'o .gy. Newsbeuter .gy. me lo skami tutci be lo nu tcidu fi la'o .gy. Feed(RSS/Atom) .gy. kei ku bei va'o la'o .gy. CLI .gy. ku .i fukpi tarti ro lo ka sazri la'o .gy. Keybord .gy. kei ku .inaje ku'i ba'o fukpi tarti lo ka jicmu sazri kei ku
 
-.i ca ca'o gasnu lo nu va'o la'o .gy. newsboat r2.22 .gy. .e la'o .gy. newsbeuter 2.9 .gy. cipra kei ku .i na djuno lo jei va'o lo drata ve farvi ku ka'e zukte kei ku
+.i ca ca'o gasnu lo nu va'o la'o .gy. newsboat r2.26 .gy. .e la'o .gy. newsbeuter 2.9 .gy. cipra kei ku .i na djuno lo jei va'o lo drata ve farvi ku ka'e zukte kei ku
 
 # .i ni'o tcila
 
@@ -42,13 +42,14 @@
 .i e'o pa moi gasnu lo nu da noi ke'a nenri la'o .gy. Home Directory ku'o fukpi la'o .gy. Directory .gy. .e la'o .gy. File .gy. vu'o noi gunka gunma sefi'e ke'a ku'o kei ku .i e'o re moi jmina lo vi jufla ku la'o .gy. `~/.newsboat/config` .gy.
 
 ~~~
+include "~/.newsboat/bookmark-config"
 include "~/.newsboat/color"
 include "~/.newsboat/filter"
 include "~/.newsboat/keymap"
 include "~/.newsboat/macro"
 ~~~
 
-.i e'o sepa'a lo bangu vanbi be lo skami ciste ku ku galfi lo pagbu be la'o .gy. `~/.newsboat/color` .gy. ku .i mu'a va vanbi lo ponjo bangu ku .inaja e'o galfi ra lo vi jufla ku
+.i e'o sepa'a lo bangu vanbi be lo skami ciste ku ku galfi lo pagbu be la'o .gy. `~/.newsboat/color` .gy. ku .i mu'a lo ponjo bangu ku vanbi .inaja e'o galfi ra lo vi jufla ku
 
 ~~~
 # Japanese
@@ -123,4 +124,3 @@ macro Y pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; cat -- ${tmpFile} | xsel --
  * .i la'o .gy. [Newsbeuter](https://github.com/akrennmair/newsbeuter) .gy.
  * .i la'o .gy. [Vim](https://www.vim.org/) .gy.
  * .i la'o .gy. [Pentadactyl](https://github.com/pentadactyl/pentadactyl) .gy.
-
