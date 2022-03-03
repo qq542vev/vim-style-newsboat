@@ -33,8 +33,8 @@
 ## Metadata:
 ##
 ##   author - qq542vev <https://purl.org/meta/me/>
-##   version - 1.1.0
-##   date - 2022-02-24
+##   version - 1.1.1
+##   date - 2022-03-03
 ##   since - 2021-09-09
 ##   copyright - Copyright (C) 2021 qq542vev. Some rights reserved.
 ##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
@@ -308,6 +308,8 @@ htmlTemplate=$(
 awkScript=$(
 	cat <<-'EOF'
 	BEGIN {
+		RS = "\03"
+
 		uri = html_escape(uri)
 		title = html_escape(title)
 		description = html_escape(description)
@@ -429,13 +431,7 @@ if [ ! -e "${bookmarkFile}" ] || [ ! -s "${bookmarkFile}" ]; then
 	printf '%s' "${htmlTemplate}" >"${bookmarkFile}"
 fi
 
-while
-	random=$(tr -dc 'ADCBEFGHIJLKMNOPQRSTUVWYXZ' <'/dev/urandom' | fold -w '256' | head -n '1')
-	grep -Fq -e "${random}" -- "${bookmarkFile}"
-do :; done
-
 awk \
-	-v "RS=${random}" \
 	-v "uri=${1}" \
 	-v "title=${2:-${1}}"  \
 	-v "description=${3-}" \
