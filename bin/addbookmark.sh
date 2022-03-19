@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-## File: addbookmark.sh
+## Script: addbookmark.sh
 ##
 ## Add a bookmark.
 ##
@@ -32,18 +32,18 @@
 ##
 ## Metadata:
 ##
-##   author - qq542vev <https://purl.org/meta/me/>
+##   author - <qq542vev at https://purl.org/meta/me/>
 ##   version - 1.1.1
-##   date - 2022-03-03
+##   date - 2022-03-20
 ##   since - 2021-09-09
-##   copyright - Copyright (C) 2021 qq542vev. Some rights reserved.
-##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
+##   copyright - Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.
+##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
 ##   package - vim-style-newsboat
 ##
 ## See Also:
 ##
-##   * Project homepage - <https://github.com/qq542vev/vim-style-newsboat>
-##   * Bag report - <https://github.com/qq542vev/vim-style-newsboat/issues>
+##   * <Project homepage at https://github.com/qq542vev/vim-style-newsboat>
+##   * <Bag report at https://github.com/qq542vev/vim-style-newsboat/issues>
 
 set -efu
 umask '0022'
