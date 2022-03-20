@@ -10,23 +10,33 @@
 ##
 ## Metadata:
 ##
-##   author - qq542vev <https://purl.org/meta/me/>
+##   author - <qq542vev at https://purl.org/meta/me/>
 ##   version - 1.1.1
 ##   date - 2022-02-28
 ##   since - 2020-08-22
 ##   copyright - Copyright (C) 2020 qq542vev. Some rights reserved.
-##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
+##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
 ##   package - vim-style-newsboat
 ##
 ## See Also:
 ##
-##   * Project homepage - <https://github.com/qq542vev/vim-style-newsboat>
-##   * Bag report - <https://github.com/qq542vev/vim-style-newsboat/issues>
+##   * <Project homepage at https://github.com/qq542vev/vim-style-newsboat>
+##   * <Bag report at https://github.com/qq542vev/vim-style-newsboat/issues>
 
-# Reset key bind
+####  unbind-key
+#
+# Unbind key <key>. This means that no operation is called when <key> is
+# pressed. Optionally, you can specify a dialog (for a list of available
+# dialogs, see `bind-key` above). If you specify one, the key binding will only
+# be unbound for the specified dialog.
+#
+# Syntax: <key> [<dialog>]
+#
+# Default value: n/a
+#
+# unbind-key R
 
 # unbind-key "-a"
-
 unbind-key "^A"
 unbind-key "^B"
 unbind-key "^C"
@@ -172,7 +182,21 @@ unbind-key "F12"
 # unbind-key "ESC"
 # unbind-key "TAB"
 
-# Custom key bind
+####  bind-key
+#
+# Bind key <key> to <operation>. This means that whenever <key> is pressed,
+# then <operation> is executed (if applicable in the current dialog). A list of
+# available operations can be found below. Optionally, you can specify a
+# dialog. If you specify one, the key binding will only be added to the
+# specified dialog. Available dialogs are `all` (default if none is specified),
+# `feedlist`, `filebrowser`, `help`, `articlelist`, `article`, `tagselection`,
+# `filterselection`, `urlview` and `podbeuter`.
+#
+# Syntax: <key> <operation> [<dialog>]
+#
+# Default value: n/a
+#
+# bind-key ^R reload-all
 
 bind-key "ENTER" open
 
@@ -301,9 +325,11 @@ bind-key "@" macro-prefix
 # bind-key "TAB" switch-focus filebrowser
 # bind-key "TAB" switch-focus dirbrowser
 
-bind-key "^S" pb-download podbeuter                             bind-key "^C" pb-cancel podbeuter
+bind-key "^S" pb-download podbeuter
+bind-key "^C" pb-cancel podbeuter
 bind-key "ENTER" pb-play podbeuter
-bind-key "m" pb-mark-as-finished podbeuter                      bind-key "D" pb-delete podbeuter
+bind-key "m" pb-mark-as-finished podbeuter
+bind-key "D" pb-delete podbeuter
 bind-key "a" pb-toggle-download-all podbeuter
 bind-key "+" pb-increase-max-dls podbeuter
 bind-key "-" pb-decrease-max-dls podbeuter

@@ -10,18 +10,29 @@
 ##
 ## Metadata:
 ##
-##   author - qq542vev <https://purl.org/meta/me/>
+##   author - <qq542vev at https://purl.org/meta/me/>
 ##   version - 1.5.1
 ##   date - 2022-02-28
 ##   since - 2020-08-22
 ##   copyright - Copyright (C) 2020 - 2021 qq542vev. Some rights reserved.
-##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
+##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
 ##   package - vim-style-newsboat
 ##
 ## See Also:
 ##
-##   * Project homepage - <https://github.com/qq542vev/vim-style-newsboat>
-##   * Bag report - <https://github.com/qq542vev/vim-style-newsboat/issues>
+##   * <Project homepage at https://github.com/qq542vev/vim-style-newsboat>
+##   * <Bag report at https://github.com/qq542vev/vim-style-newsboat/issues>
+
+####  macro
+#
+# With this command, you can define a macro key and specify a list of commands
+# that shall be executed when the macro prefix and the macro key are pressed.
+#
+# Syntax: <macro key> <command list>
+#
+# Default value: n/a
+#
+# macro k open ; reload ; quit
 
 macro ^ view-dialogs ; open
 macro $ view-dialogs ; open ; prev-dialog

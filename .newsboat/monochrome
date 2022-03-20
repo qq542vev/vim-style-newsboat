@@ -10,20 +10,30 @@
 ##
 ## Metadata:
 ##
-##   author - qq542vev <https://purl.org/meta/me/>
+##   author - <qq542vev at https://purl.org/meta/me/>
 ##   version - 1.0.0
 ##   date - 2020-09-03
 ##   since - 2020-09-03
 ##   copyright - Copyright (C) 2020 qq542vev. Some rights reserved.
-##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
+##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
 ##   package - vim-style-newsboat
 ##
 ## See Also:
 ##
-##   * Project homepage - <https://github.com/qq542vev/vim-style-newsboat>
-##   * Bag report - <https://github.com/qq542vev/vim-style-newsboat/issues>
+##   * <Project homepage at https://github.com/qq542vev/vim-style-newsboat>
+##   * <Bag report at https://github.com/qq542vev/vim-style-newsboat/issues>
 
-# # Colors
+####  color
+#
+# Set the foreground color, background color and optional attributes for a
+# certain element.
+#
+# Syntax: <element> <fgcolor> <bgcolor> [<attribute> ...]
+#
+# Default value: n/a
+#
+# color background white black
+
 color background        default default
 color listnormal        default default
 color listfocus         default default bold reverse
@@ -32,17 +42,27 @@ color listfocus_unread  default default bold reverse
 color info              default default bold reverse
 color article           default default
 
-# # Highlights
+####  highlight
+#
+# With this command, you can highlight text parts in the feed list, the article
+# list and the article view. For a detailed documentation, see the chapter on
+# highlighting.
+#
+# Syntax: <target> <regex> <fgcolor> [<bgcolor> [<attribute> ...]]
+#
+# Default value: n/a
+#
+# highlight all "newsboat" red
 
-# ## Feed List
+# # Feed List
 
 highlight feedlist "(data|fax|file|ftp|https?|mailto|tel):(//(([A-Za-z0-9._~!$&'()*+,;=:-]|%[0-9A-Fa-f]{2})*@)?(\\[(((([0-9A-F]{1,4}:){6}|::([0-9A-F]{1,4}:){5}|([0-9A-F]{1,4})?::([0-9A-F]{1,4}:){4}|(([0-9A-F]{1,4}:){0,1}[0-9A-F]{1,4})?::([0-9A-F]{1,4}:){3}|(([0-9A-F]{1,4}:){0,2}[0-9A-F]{1,4})?::([0-9A-F]{1,4}:){2}|(([0-9A-F]{1,4}:){0,3}[0-9A-F]{1,4})?::[0-9A-F]{1,4}:|(([0-9A-F]{1,4}:){0,4}[0-9A-F]{1,4})?::)([0-9A-F]{1,4}:[0-9A-F]{1,4}|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-F]{1,4}:){0,5}[0-9A-F]{1,4})?::[0-9A-F]{1,4}|(([0-9A-F]{1,4}:){0,6}[0-9A-F]{1,4})?::)|v[0-9A-F]+\\.[A-Za-z0-9._~!$&'()*+,;=:-]+)]|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([A-Za-z0-9._~!$&'()*+,;=-]|%[0-9A-Fa-f]{2})*)(:[0-9]*)?(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*|/((([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))+(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*)?|(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))+(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*)(\\?([A-Za-z0-9._~!$&'()*+,;=:@/?-]|%[0-9A-Fa-f]{2})*)?(#([A-Za-z0-9._~!$&'()*+,;=:@/?-]|%[0-9A-Fa-f]{2})*)?" default default bold reverse
 
-# ## Article List
+# # Article List
 
 highlight articlelist " !" default default bold
 
-# ## Article
+# # Article
 
 # URI
 highlight article "(data|fax|file|ftp|https?|mailto|tel):(//(([A-Za-z0-9._~!$&'()*+,;=:-]|%[0-9A-Fa-f]{2})*@)?(\\[(((([0-9A-F]{1,4}:){6}|::([0-9A-F]{1,4}:){5}|([0-9A-F]{1,4})?::([0-9A-F]{1,4}:){4}|(([0-9A-F]{1,4}:){0,1}[0-9A-F]{1,4})?::([0-9A-F]{1,4}:){3}|(([0-9A-F]{1,4}:){0,2}[0-9A-F]{1,4})?::([0-9A-F]{1,4}:){2}|(([0-9A-F]{1,4}:){0,3}[0-9A-F]{1,4})?::[0-9A-F]{1,4}:|(([0-9A-F]{1,4}:){0,4}[0-9A-F]{1,4})?::)([0-9A-F]{1,4}:[0-9A-F]{1,4}|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))|(([0-9A-F]{1,4}:){0,5}[0-9A-F]{1,4})?::[0-9A-F]{1,4}|(([0-9A-F]{1,4}:){0,6}[0-9A-F]{1,4})?::)|v[0-9A-F]+\\.[A-Za-z0-9._~!$&'()*+,;=:-]+)]|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])|([A-Za-z0-9._~!$&'()*+,;=-]|%[0-9A-Fa-f]{2})*)(:[0-9]*)?(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*|/((([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))+(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*)?|(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))+(/(([A-Za-z0-9._~!$&'()*+,;=:@-]|%[0-9A-Fa-f]{2}))*)*)(\\?([A-Za-z0-9._~!$&'()*+,;=:@/?-]|%[0-9A-Fa-f]{2})*)?(#([A-Za-z0-9._~!$&'()*+,;=:@/?-]|%[0-9A-Fa-f]{2})*)?" default default underline

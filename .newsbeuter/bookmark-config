@@ -10,18 +10,18 @@
 ##
 ## Metadata:
 ##
-##   author - qq542vev <https://purl.org/meta/me/>
+##   author - <qq542vev at https://purl.org/meta/me/>
 ##   version - 1.0.0
 ##   date - 2022-02-24
 ##   since - 2022-02-24
 ##   copyright - Copyright (C) 2022 qq542vev. Some rights reserved.
-##   license - CC-BY <https://creativecommons.org/licenses/by/4.0/>
+##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
 ##   package - vim-style-newsboat
 ##
 ## See Also:
 ##
-##   * Project homepage - <https://github.com/qq542vev/vim-style-newsboat>
-##   * Bag report - <https://github.com/qq542vev/vim-style-newsboat/issues>
+##   * <Project homepage at https://github.com/qq542vev/vim-style-newsboat>
+##   * <Bag report at https://github.com/qq542vev/vim-style-newsboat/issues>
 
 ####  bookmark-cmd
 #
@@ -32,6 +32,8 @@
 #
 # Default value: ""
 #
+# bookmark-cmd ""
+
 bookmark-cmd "addbookmark.sh --purge"
 
 ####  bookmark-interactive
@@ -43,4 +45,6 @@ bookmark-cmd "addbookmark.sh --purge"
 #
 # Default value: no
 #
+# bookmark-interactive yes
+
 bookmark-interactive no
