@@ -1,5 +1,5 @@
 <!--
-## Doc: readme.jbo.md
+## Document: readme.jbo.md
 ##
 ## Manual (Lojban) for Vim Style Newsboat.
 ##

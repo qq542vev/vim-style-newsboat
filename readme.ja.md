@@ -1,5 +1,5 @@
 <!--
-## Doc: readme.ja.md
+## Document: readme.ja.md
 ##
 ## Manual (Japanese) for Vim Style Newsboat.
 ##
