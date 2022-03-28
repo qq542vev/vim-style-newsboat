@@ -11,8 +11,8 @@
 ## Metadata:
 ##
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 1.1.1
-##   date - 2022-02-28
+##   version - 1.1.2
+##   date - 2022-03-29
 ##   since - 2020-08-22
 ##   copyright - Copyright (C) 2020 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -241,7 +241,7 @@ bind-key "A" toggle-article-read
 bind-key "z" toggle-show-read-feeds
 
 bind-key ";" show-urls article
-# bind-key "TAB" show-urls article
+bind-key "TAB" show-urls article
 
 bind-key "t" set-tag
 
@@ -307,10 +307,10 @@ bind-key "j" down
 # bind-key "DOWN" down
 
 bind-key "^B" pageup
-# bind-key PPAGE pageup
+# bind-key "PPAGE" pageup
 
 bind-key "^F" pagedown
-# bind-key "SPACE" pagedown
+bind-key "SPACE" pagedown
 # bind-key "NPAGE" pagedown
 
 bind-key "g" home

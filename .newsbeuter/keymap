@@ -308,7 +308,7 @@ bind-key "j" down
 # bind-key "DOWN" down
 
 bind-key "^B" pageup
-# bind-key PPAGE pageup
+# bind-key "PPAGE" pageup
 
 bind-key "^F" pagedown
 # bind-key "SPACE" pagedown
