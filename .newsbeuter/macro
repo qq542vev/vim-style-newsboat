@@ -11,8 +11,8 @@
 ## Metadata:
 ##
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 1.5.1
-##   date - 2022-02-28
+##   version - 1.5.2
+##   date - 2022-03-29
 ##   since - 2020-08-22
 ##   copyright - Copyright (C) 2020 - 2021 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -33,6 +33,8 @@
 # Default value: n/a
 #
 # macro k open ; reload ; quit
+
+macro ^R set auto-reload!
 
 macro ^ view-dialogs ; open
 macro $ view-dialogs ; open ; prev-dialog
