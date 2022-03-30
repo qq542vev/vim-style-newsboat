@@ -6,8 +6,8 @@
 ## Metadata:
 ##
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 1.1.3
-##   date - 2022-03-20
+##   version - 1.1.4
+##   date - 2022-03-30
 ##   since - 2020-08-15
 ##   copyright - Copyright (C) 2020 - 2022 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -87,6 +87,7 @@ Vim Style Newsboat では幾つのマクロが定義されており、 `~/.newsb
 | `w` | 記事をページャーで開きます。 |
 | `y` | フィードリンクの URI または記事の URI をヤンクします。 |
 | `Y` | 現在の記事の内容をヤンクします。 |
+| `Ctrl-R` | `auto-reload` を(有効 / 無効)にします。 |
 
 `xsel` や `xclip` がインストールされている環境では、ヤンクにクリップボードを使用することも可能です。 `~/.newsboat/macro` 内のヤンクに関する当該行をコメントアウトしてください。例えば `xsel` を使用する場合は次の行を有効にしてください。
 

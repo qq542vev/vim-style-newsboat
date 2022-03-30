@@ -34,8 +34,6 @@
 #
 # macro k open ; reload ; quit
 
-macro ^R set auto-reload!
-
 macro ^ view-dialogs ; open
 macro $ view-dialogs ; open ; prev-dialog
 
@@ -57,6 +55,7 @@ macro 9 set browser "youtube-dl -q -- %u &" ; open-in-browser ; set browser "${B
 
 macro b open ; prev-dialog
 macro i pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; ${VISUAL:-${EDITOR:-vi --}} ${tmpFile} <'/dev/tty'; rm -f -- ${tmpFile}"
+
 macro J open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit ; down ; open ; quit
 macro K open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit ; up ; open ; quit
 
@@ -80,3 +79,5 @@ macro Y pipe-to "cat >>${VIMSTYLENEWSBOAT_YANKFILE:-${HOME}/newsboat-yank}"
 # macro Y pipe-to "sed -n -e '/^ *$/{:start; n; p; b start}' >>${VIMSTYLENEWSBOAT_YANKFILE:-${HOME}/newsboat-yank}"
 # macro Y pipe-to "tmpFile=$(mktemp); sed -n -e '/^ *$/{:start; n; p; b start}' >${tmpFile}; cat -- ${tmpFile} | xsel --input --primary; cat -- ${tmpFile} | xsel --input --clipboard; rm -f -- ${tmpFile}"
 # macro Y pipe-to "tmpFile=$(mktemp); sed -n -e '/^ *$/{:start; n; p; b start}' >${tmpFile}; cat -- ${tmpFile} | xclip -selection 'primary'; cat -- ${tmpFile} | xclip -selection 'clipboard'; rm -f -- ${tmpFile}"
+
+macro ^R set auto-reload!

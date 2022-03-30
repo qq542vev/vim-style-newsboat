@@ -6,8 +6,8 @@
 ## Metadata:
 ##
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 1.1.3
-##   date - 2022-03-20
+##   version - 1.1.4
+##   date - 2022-03-30
 ##   since - 2021-01-15
 ##   copyright - Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -87,6 +87,7 @@ highlight article "^Links: $" white black bold
 | `w` | .i sepi'o lo tutci be lo nu tcidu be fi lo papri ku kei ku ku jarco lo nuzba ku |
 | `y` | .i gasnu lo nu fukpi la'o .gy. URI .gy. noi ke'a judri lo karni najo nuzba ku ku'o kei ku |
 | `Y` | .i gasnu lo nu fukpi lo jufra be lo nuzba ku ku kei ku |
+| `Ctrl-r` | .i curmi jonai to'e curmi la'o .zoi. `auto-reload` .zoi. |
 
 .i va'o lo nu la'o .gy. `xsel` .gy. .a la'o .gy. `xcrip` .gy. zvati lo skami ku kei ku sepi'o la'o .gy. .Clipboard. .gy. ka'e fukpi gasnu .i e'o bu'u la'o .gy. `~/.newsboat/macro` .gy. galfi lo pinta pagbu ku noi ke'a srana la'o .gy. Yank .gy. ku'o .i mu'a pilno la'o .gy. `xsel` .gy. .inaja e'o galfi ra lo vi jufla ku
 
