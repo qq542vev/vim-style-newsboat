@@ -33,8 +33,8 @@
 ## Metadata:
 ##
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 1.1.1
-##   date - 2022-03-20
+##   version - 1.1.2
+##   date - 2022-04-03
 ##   since - 2021-09-09
 ##   copyright - Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -310,18 +310,18 @@ awkScript=$(
 	BEGIN {
 		RS = "\03"
 
-		uri = html_escape(uri)
-		title = html_escape(title)
-		description = html_escape(description)
-		feedTitle = html_escape(feedTitle)
+		uri = htmlEscape(uri)
+		title = htmlEscape(title)
+		description = htmlEscape(description)
+		feedTitle = htmlEscape(feedTitle)
 
 		beginBookmarkSymbol = "<!-- *** BEGIN-BOOKMARK-SECTION *** -->"
 		endBookmarkSymbol = "<!-- *** END-BOOKMARK-SECTION *** -->"
-		beginSectionSymbol = sprintf("<!-- *** BEGIN-SECTION: \"%s\" *** -->", feedTitle)
+		beginSectionSymbol = sprintf("<!-- *** BEGIN-SECTION: \"%s\" *** -->", hyphenEscape(feedTitle))
 		endSectionSymbol = "<!-- *** END-SECTION *** -->"
 		beginListSymbol = "<!-- *** BEGIN-LIST *** -->"
 		endListSymbol = "<!-- *** END-LIST *** -->"
-		beginItemSymbol = sprintf("<!-- *** BEGIN-ITEM: \"%s\" *** -->", uri)
+		beginItemSymbol = sprintf("<!-- *** BEGIN-ITEM: \"%s\" *** -->", hyphenEscape(uri))
 		endItemSymbol = "<!-- *** END-ITEM *** -->"
 
 		sprintf("uri='%s'; title='%s'; description='%s'; feedTitle='%s'; cat <<%s\n%s\n%s", uri, title, description, feedTitle, RS, itemTemplate, RS) | getline item
@@ -329,7 +329,7 @@ awkScript=$(
 		item = beginItemSymbol substr(item, 1, length(item) - 1) endItemSymbol
 	}
 
-	function html_escape(string) {
+	function htmlEscape(string) {
 		gsub(/&/, "\\&amp;", string)
 		gsub(/</, "\\&lt;", string)
 		gsub(/>/, "\\&gt;", string)
@@ -339,14 +339,20 @@ awkScript=$(
 		return string
 	}
 
-	function regexp_escspe(string) {
+	function hyphenEscape(string) {
+		gsub(/-/, "\\&#45;", string)
+
+		return string
+	}
+
+	function regexpEscspe(string) {
 		gsub(/[$(){}\[\]|*+?]/, "\\\\&", string)
 
 		return string
 	}
 
 	function fsub(string, replacement, target) {
-		string = regexp_escspe(string)
+		string = regexpEscspe(string)
 		gsub(/&/, "\\\\&", replacement)
 		sub(string, replacement, target)
 
@@ -408,7 +414,7 @@ awkScript=$(
 
 			tmpHtml = tmpHtml \
 				substr(html, 1, start - 1) \
-				(match(section, regexp_escspe(beginListSymbol) "[\t\n\r ]*" regexp_escspe(endListSymbol)) ? \
+				(match(section, regexpEscspe(beginListSymbol) "[\t\n\v\r ]*" regexpEscspe(endListSymbol)) ? \
 					"" : \
 					substr(html, start, end - start) \
 				)
