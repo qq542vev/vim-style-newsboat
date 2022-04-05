@@ -12,14 +12,15 @@
 ##
 ## Options:
 ##
-##   -b, --{no-}bottom    - add item to the bottom.
-##   -d, --{no-}duplicate - allow duplicates.
-##   -f, --file           - bookmark file.
-##   -p, --{no-}purge     - remove the empty section.
-##   -r, --{no-}remove    - remove the bookmarked item.
-##   -t, --template       - template for bookmark.
-##   -h, --help           - display this help and exit.
-##   -v, --version        - output version information and exit.
+##   -b, --{no-}bottom      - add item to the bottom.
+##   -d, --{no-}duplicate   - allow duplicates.
+##   -f, --file             - bookmark file.
+##   -p, --{no-}purge       - remove the empty section.
+##   -r, --{no-}remove      - remove the bookmarked item.
+##   -t, --template         - template for bookmark.
+##   -T, --section-template - template for feed-title.
+##   -h, --help             - display this help and exit.
+##   -v, --version          - output version information and exit.
 ##
 ## Exit Status:
 ##
@@ -33,8 +34,8 @@
 ## Metadata:
 ##
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 1.1.2
-##   date - 2022-04-03
+##   version - 2.0.0
+##   date - 2022-04-05
 ##   since - 2021-09-09
 ##   copyright - Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -92,15 +93,28 @@ error() {
 	endCall "${EX_USAGE}"
 }
 
+# https://qiita.com/ko1nksm/items/a22c0ce88e39c9f2dcb0
+
+awkv_escape() {
+	set -- "$1" "$2\\" ""
+	while [ "$2" ]; do
+		set -- "$1" "${2#*\\}" "$3${2%%\\*}\\\\"
+	done
+	set -- "$1" "${3%??}"
+	case $2 in (@*) set -- "$1" "\\100${2#?}"; esac
+	eval "$1=\$2"
+}
+
 # @getoptions
 parser_definition() {
 	setup REST plus:true abbr:true error:error
 	flag  bottomFlag    -b --{no-}bottom    init:@no no:0
 	flag  duplicateFlag -d --{no-}duplicate init:@no no:0
 	param bookmarkFile  -f --file           init:'bookmarkFile="${HOME}/bookmark.html"'
-	flag  purgeFlag     -p --{no-}purge     init:@no no:0
+	flag  purgeFlag     -p --{no-}purge      init:@no no:0
 	flag  removeFlag    -r --{no-}remove    init:@no no:0
-	param itemTemplate  -t --template       init:='<li><a rel="noreferrer" href="${uri}">${title}</a>${description:+"<p>${description}</p>"}</li>'
+	param itemTemplate  -t --template       init:='<li><a rel="noreferrer" href="${uri}"${description:+" title=\"${description}\""}>${title}</a></li>'
+	param sectionTemplate -T --section-template init:='<li>${feedTitle:-Unsorted Bookmarks}<ul>${items}</ul></li>'
 	disp  :usage        -h --help
 	disp  :version      -v --version
 }
@@ -114,7 +128,8 @@ duplicateFlag='0'
 bookmarkFile="${HOME}/bookmark.html"
 purgeFlag='0'
 removeFlag='0'
-itemTemplate='<li><a rel="noreferrer" href="${uri}">${title}</a>${description:+"<p>${description}</p>"}</li>'
+itemTemplate='<li><a rel="noreferrer" href="${uri}"${description:+" title=\"${description}\""}>${title}</a></li>'
+sectionTemplate='<li>${feedTitle:-Unsorted Bookmarks}<ul>${items}</ul></li>'
 REST=''
 parse() {
   OPTIND=$(($#+1))
@@ -162,6 +177,10 @@ parse() {
         "$1") OPTARG=; break ;;
         $1*) OPTARG="$OPTARG --template"
       esac
+      case '--section-template' in
+        "$1") OPTARG=; break ;;
+        $1*) OPTARG="$OPTARG --section-template"
+      esac
       case '--help' in
         "$1") OPTARG=; break ;;
         $1*) OPTARG="$OPTARG --help"
@@ -191,7 +210,7 @@ parse() {
         eval 'set -- "${OPTARG%%\=*}" "${OPTARG#*\=}"' ${1+'"$@"'}
         ;;
       --no-*|--without-*) unset OPTARG ;;
-      -[ft]?*) OPTARG=$1; shift
+      -[ftT]?*) OPTARG=$1; shift
         eval 'set -- "${OPTARG%"${OPTARG#??}"}" "${OPTARG#??}"' ${1+'"$@"'}
         ;;
       -[bdprhv]?*) OPTARG=$1; shift
@@ -229,6 +248,11 @@ parse() {
         [ $# -le 1 ] && set "required" "$1" && break
         OPTARG=$2
         itemTemplate="$OPTARG"
+        shift ;;
+      '-T'|'--section-template')
+        [ $# -le 1 ] && set "required" "$1" && break
+        OPTARG=$2
+        sectionTemplate="$OPTARG"
         shift ;;
       '-h'|'--help')
         usage
@@ -293,12 +317,15 @@ htmlTemplate=$(
 			<meta name="referrer" content="no-referrer" />
 			<meta name="robots" content="noindex,nofollow,noarchive" />
 			<title property="dcterms:title">Bookmark</title>
+			<link rel="profile" href="http://microformats.org/profile/xoxo" />
 		</head>
 		<body>
 			<main id="main" rel="schema:mainContentOfPage" resource="#main">
 				<!-- Do not delete the "*** ~~~ ***" comment. -->
+				<ul class="xoxo">
 				<!-- *** BEGIN-BOOKMARK-SECTION *** -->
 				<!-- *** END-BOOKMARK-SECTION *** -->
+				</ul>
 			</main>
 		</body>
 	</html>
@@ -310,21 +337,21 @@ awkScript=$(
 	BEGIN {
 		RS = "\03"
 
-		uri = htmlEscape(uri)
-		title = htmlEscape(title)
-		description = htmlEscape(description)
-		feedTitle = htmlEscape(feedTitle)
+		escapedUri = htmlEscape(uri)
+		escapedTitle = htmlEscape(title)
+		escapedDescription = htmlEscape(description)
+		escapedFeedTitle = htmlEscape(feedTitle)
 
 		beginBookmarkSymbol = "<!-- *** BEGIN-BOOKMARK-SECTION *** -->"
 		endBookmarkSymbol = "<!-- *** END-BOOKMARK-SECTION *** -->"
-		beginSectionSymbol = sprintf("<!-- *** BEGIN-SECTION: \"%s\" *** -->", hyphenEscape(feedTitle))
+		beginSectionSymbol = sprintf("<!-- *** BEGIN-SECTION: \"%s\" *** -->", hyphenEscape(escapedFeedTitle))
 		endSectionSymbol = "<!-- *** END-SECTION *** -->"
 		beginListSymbol = "<!-- *** BEGIN-LIST *** -->"
 		endListSymbol = "<!-- *** END-LIST *** -->"
-		beginItemSymbol = sprintf("<!-- *** BEGIN-ITEM: \"%s\" *** -->", hyphenEscape(uri))
+		beginItemSymbol = sprintf("<!-- *** BEGIN-ITEM: \"%s\" *** -->", hyphenEscape(escapedUri))
 		endItemSymbol = "<!-- *** END-ITEM *** -->"
 
-		sprintf("uri='%s'; title='%s'; description='%s'; feedTitle='%s'; cat <<%s\n%s\n%s", uri, title, description, feedTitle, RS, itemTemplate, RS) | getline item
+		sprintf("uri='%s'; title='%s'; description='%s'; feedTitle='%s'; rowUri='%s'; rowTitle='%s'; rowDescription='%s'; rowFeedTitle='%s'; cat <<%s\n%s\n%s", escapedUri, escapedTitle, escapedDescription, escapedFeedTitle, uri, title, description, feedTitle, RS, itemTemplate, RS) | getline item
 
 		item = beginItemSymbol substr(item, 1, length(item) - 1) endItemSymbol
 	}
@@ -370,22 +397,14 @@ awkScript=$(
 	}
 
 	!index(html, beginSectionSymbol) {
-		section = \
-			beginSectionSymbol "\n" \
-			"<section>\n" \
-			"<h1>" feedTitle "</h1>\n" \
-			"\n" \
-			"<ul>\n" \
-			beginListSymbol "\n" \
-			endListSymbol "\n" \
-			"</ul>\n" \
-			"</section>\n" \
-			endSectionSymbol
+		sprintf("feedTitle='%s'; rowFeedTitle='%s'; items='%s'; cat <<%s\n%s\n%s", escapedFeedTitle, feedTitle, beginListSymbol endListSymbol, RS, sectionTemplate, RS) | getline section
+
+		section = beginSectionSymbol substr(section, 1, length(section) - 1) endSectionSymbol
 
 		if(bottomFlag) {
-			html = fsub(endBookmarkSymbol, section "\n" endBookmarkSymbol, html)
+			html = fsub(endBookmarkSymbol, section endBookmarkSymbol, html)
 		} else {
-			html = fsub(beginBookmarkSymbol, beginBookmarkSymbol "\n" section, html)
+			html = fsub(beginBookmarkSymbol, beginBookmarkSymbol section, html)
 		}
 	}
 
@@ -398,8 +417,8 @@ awkScript=$(
 		html = \
 			substr(html, 1, start - 1) \
 			(bottomFlag ? \
-				fsub(endListSymbol, item "\n" endListSymbol, section) : \
-				fsub(beginListSymbol, beginListSymbol "\n" item, section) \
+				fsub(endListSymbol, item endListSymbol, section) : \
+				fsub(beginListSymbol, beginListSymbol item, section) \
 			) \
 			substr(html, end)
 	}
@@ -437,16 +456,24 @@ if [ ! -e "${bookmarkFile}" ] || [ ! -s "${bookmarkFile}" ]; then
 	printf '%s' "${htmlTemplate}" >"${bookmarkFile}"
 fi
 
+awkv_escape 'uri' "${1}"
+awkv_escape 'title' "${2:-${1}}"
+awkv_escape 'description' "${3-}"
+awkv_escape 'feedTitle' "${4-}"
+awkv_escape 'itemTemplate' "${itemTemplate}"
+awkv_escape 'sectionTemplate' "${sectionTemplate}"
+
 awk \
-	-v "uri=${1}" \
-	-v "title=${2:-${1}}"  \
-	-v "description=${3-}" \
-	-v "feedTitle=${4:-Unsorted Bookmarks}" \
+	-v "uri=${uri}" \
+	-v "title=${title}"  \
+	-v "description=${description}" \
+	-v "feedTitle=${feedTitle}" \
 	-v "bottomFlag=${bottomFlag}" \
 	-v "duplicateFlag=${duplicateFlag}" \
 	-v "purgeFlag=${purgeFlag}" \
 	-v "removeFlag=${removeFlag}" \
 	-v "itemTemplate=${itemTemplate}" \
+	-v "sectionTemplate=${sectionTemplate}" \
 	-- "${awkScript}" "${bookmarkFile}" \
 	>"${tmpFile}"
 
