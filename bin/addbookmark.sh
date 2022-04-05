@@ -49,7 +49,9 @@
 set -efu
 umask '0022'
 IFS=$(printf ' \t\n$'); IFS="${IFS%$}"
-export 'IFS'
+LC_ALL='C'
+PATH="${PATH-}${PATH:+:}$(command -p getconf 'PATH')"
+export 'IFS' 'PATH' 'LC_ALL'
 
 # See also </usr/include/sysexits.h>
 EX_USAGE='64'
@@ -111,10 +113,10 @@ parser_definition() {
 	flag  bottomFlag    -b --{no-}bottom    init:@no no:0
 	flag  duplicateFlag -d --{no-}duplicate init:@no no:0
 	param bookmarkFile  -f --file           init:'bookmarkFile="${HOME}/bookmark.html"'
-	flag  purgeFlag     -p --{no-}purge      init:@no no:0
+	flag  purgeFlag     -p --{no-}purge     init:@no no:0
 	flag  removeFlag    -r --{no-}remove    init:@no no:0
 	param itemTemplate  -t --template       init:='<li><a rel="noreferrer" href="${uri}"${description:+" title=\"${description}\""}>${title}</a></li>'
-	param sectionTemplate -T --section-template init:='<li>${feedTitle:-Unsorted Bookmarks}<ul>${items}</ul></li>'
+	param sectionTemplate -T --section-template init:='<li>${feedTitle}<ul>${items}</ul></li>'
 	disp  :usage        -h --help
 	disp  :version      -v --version
 }
@@ -459,7 +461,7 @@ fi
 awkv_escape 'uri' "${1}"
 awkv_escape 'title' "${2:-${1}}"
 awkv_escape 'description' "${3-}"
-awkv_escape 'feedTitle' "${4-}"
+awkv_escape 'feedTitle' "${4:-Unsorted Bookmarks}"
 awkv_escape 'itemTemplate' "${itemTemplate}"
 awkv_escape 'sectionTemplate' "${sectionTemplate}"
 
