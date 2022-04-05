@@ -55,7 +55,7 @@ export 'IFS' 'PATH' 'LC_ALL'
 
 # See also </usr/include/sysexits.h>
 EX_USAGE='64'
-EX_SOFTWARE='68'
+EX_SOFTWARE='70'
 EX_CANTCREAT='73'
 
 trap 'endCall $(case "${?}" in [!0]*) echo "${EX_SOFTWARE}";; esac)' 0 # EXIT
