@@ -337,7 +337,7 @@ htmlTemplate=$(
 awkScript=$(
 	cat <<-'EOF'
 	BEGIN {
-		RS = "\03"
+		RS = "\003"
 
 		escapedUri = htmlEscape(uri)
 		escapedTitle = htmlEscape(title)
