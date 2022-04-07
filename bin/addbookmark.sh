@@ -34,8 +34,8 @@
 ## Metadata:
 ##
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 2.0.0
-##   date - 2022-04-05
+##   version - 2.0.1
+##   date - 2022-04-08
 ##   since - 2021-09-09
 ##   copyright - Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -51,12 +51,17 @@ umask '0022'
 IFS=$(printf ' \t\n$'); IFS="${IFS%$}"
 LC_ALL='C'
 PATH="${PATH-}${PATH:+:}$(command -p getconf 'PATH')"
-export 'IFS' 'PATH' 'LC_ALL'
+UNIX_STD='2003' # HP-UX POSIX mode
+XPG_SUS_ENV='ON' # AIX POSIX mode
+XPG_UNIX98='OFF' # AIX UNIX 03 mode
+POSIXLY_CORRECT='1' # GNU Coreutils POSIX mode
+COMMAND_MODE='unix2003' # macOS UNIX 03 mode
+export 'IFS' 'LC_ALL' 'PATH' 'UNIX_STD' 'XPG_SUS_ENV' 'XPG_UNIX98' 'POSIXLY_CORRECT' 'COMMAND_MODE'
 
 # See also </usr/include/sysexits.h>
-EX_USAGE='64'
-EX_SOFTWARE='70'
-EX_CANTCREAT='73'
+readonly 'EX_USAGE=64'       # command line usage error
+readonly 'EX_SOFTWARE=70'    # internal software error
+readonly 'EX_CANTCREAT=73'   # can't create (user) output file
 
 trap 'endCall $(case "${?}" in [!0]*) echo "${EX_SOFTWARE}";; esac)' 0 # EXIT
 trap 'endCall 129' 1 # SIGHUP
