@@ -87,7 +87,7 @@ usage() {
 }
 
 version() {
-	: <<-EOF
+	cat <<-EOF
 		$(sed -n -e 's/^### Script: //p' -- "${0}") ($(sed -n -e 's/^## *package - //p' -- "${0}")) $(sed -n -e 's/^## *version - //p' -- "${0}") (Last update: $(sed -n -e 's/^## *date - //p' -- "${0}"))
 		$(sed -n -e 's/^## *copyright - //p' -- "${0}")
 		$(sed -n -e 's/^## *license - /License: /p' -- "${0}")
