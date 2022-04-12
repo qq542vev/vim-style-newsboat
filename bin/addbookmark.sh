@@ -459,7 +459,7 @@ awkScript=$(
 tmpDir=$(mktemp -d)
 tmpFile="${tmpDir}/file"
 
-if [ ! -e "${bookmarkFile}" ]; then
+if [ '!' -e "${bookmarkFile}" ]; then
 	bookmarkDir=$(dirname -- "${bookmarkFile}"; printf '$')
 	mkdir -p -- "${bookmarkDir%?$}"
 
