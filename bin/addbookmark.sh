@@ -136,7 +136,7 @@ bookmarkFile="${HOME}/bookmark.html"
 purgeFlag='0'
 removeFlag='0'
 itemTemplate='<li><a rel="noreferrer" href="${uri}"${description:+" title=\"${description}\""}>${title}</a></li>'
-sectionTemplate='<li>${feedTitle:-Unsorted Bookmarks}<ul>${items}</ul></li>'
+sectionTemplate='<li>${feedTitle}<ul>${items}</ul></li>'
 REST=''
 parse() {
   OPTIND=$(($#+1))
