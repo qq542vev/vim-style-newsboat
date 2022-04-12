@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-## Script: addbookmark.sh
+### Script: addbookmark.sh
 ##
 ## Add a bookmark.
 ##
@@ -34,8 +34,8 @@
 ## Metadata:
 ##
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 2.0.1
-##   date - 2022-04-08
+##   version - 2.0.2
+##   date - 2022-04-12
 ##   since - 2021-09-09
 ##   copyright - Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -77,7 +77,7 @@ endCall() {
 
 usage() {
 	sed -e '/^## *(start code)/,/^## *(end)/!d' -- "${0}" | sed -e '1d; $d; s/^## */Usage: /'
-	sed -e '/^## File:/,/^## .*:$/!d' -- "${0}" | sed -e '1d; $d; s/^## *//'
+	sed -e '/^### Script:/,/^## .*:$/!d' -- "${0}" | sed -e '1d; $d; s/^## *//'
 
 	printf 'Options\n'
 	sed -n -e '/^## *-.* - /s/^## *//p' -- "${0}" | awk -F ' - ' '{print "  " $1 "  " $2}'
@@ -87,11 +87,11 @@ usage() {
 }
 
 version() {
-	cat <<-EOF
-		$(sed -n -e 's/^## File: //p' -- "${0}") ($(sed -n -e 's/^## *package - //p' -- "${0}")) $(sed -n -e 's/^## *version - //p' -- "${0}") (Last update: $(sed -n -e 's/^## *date - //p' -- "${0}"))
+	: <<-EOF
+		$(sed -n -e 's/^### Script: //p' -- "${0}") ($(sed -n -e 's/^## *package - //p' -- "${0}")) $(sed -n -e 's/^## *version - //p' -- "${0}") (Last update: $(sed -n -e 's/^## *date - //p' -- "${0}"))
 		$(sed -n -e 's/^## *copyright - //p' -- "${0}")
-		License: $(sed -n -e 's/^## *license - //p' -- "${0}")
-		Author: $(sed -n -e 's/^## *author - //p' -- "${0}")
+		$(sed -n -e 's/^## *license - /License: /p' -- "${0}")
+		$(sed -n -e 's/^## *author - /Author: /p' -- "${0}")
 	EOF
 }
 
@@ -459,7 +459,14 @@ awkScript=$(
 tmpDir=$(mktemp -d)
 tmpFile="${tmpDir}/file"
 
-if [ ! -e "${bookmarkFile}" ] || [ ! -s "${bookmarkFile}" ]; then
+if [ ! -e "${bookmarkFile}" ]; then
+	bookmarkDir=$(dirname -- "${bookmarkFile}"; printf '$')
+	mkdir -p -- "${bookmarkDir%?$}"
+
+	: >"${bookmarkFile}"
+fi
+
+if [ '!' -s "${bookmarkFile}" ]; then
 	printf '%s' "${htmlTemplate}" >"${bookmarkFile}"
 fi
 
