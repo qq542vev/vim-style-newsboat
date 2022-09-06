@@ -1,13 +1,13 @@
 <!--
-## Document: readme.jbo.md
+### Document: readme.jbo.md
 ##
 ## Manual (Lojban) for Vim Style Newsboat.
 ##
 ## Metadata:
 ##
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 1.1.4
-##   date - 2022-03-30
+##   version - 1.2.0
+##   date - 2022-09-06
 ##   since - 2021-01-15
 ##   copyright - Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -70,7 +70,7 @@ highlight article "^Links: $" white black bold
 | `0` | .i ba lo nu preti da kei ku gasnu lo nu kalri la'o .gy. URI .gy. noi ke'a judri lo karni najo nuzba ku ku'o kei ku |
 | `1` | .i sepi'o la'o .gy. [FireFox](https://www.mozilla.org/firefox/) .gy. gasnu lo nu kalri la'o .gy. URI .gy. noi ke'a judri lo karni najo nuzba ku ku'o kei ku |
 | `2` | .i sepi'o la'o .gy. [Chromium](https://www.chromium.org/Home) .gy. gasnu lo nu kalri la'o .gy. URI .gy. noi ke'a judri lo karni najo nuzba ku ku'o kei ku |
-| `3` | .i benji la'o .gy. URI .gy. noi ke'a judri lo karni najo nuzba ku ku'o fu lo nu mrilu kei ku |
+| `3` | .i benji lo nuzba ku fu lo nu mrilu kei ku |
 | `4` | .i jarco la'o .gy. QR Code .gy. noi ke'a sinxa la'o .gy. URI .gy. noi ke'a judri lo karni najo nuzba ku ku'o ku'o |
 | `5` | .i sepi'o la'o .gy. [Lynx](http://lynx.browser.org/) .gy. gasnu lo nu kalri la'o .gy. URI .gy. noi ke'a judri lo karni najo nuzba ku ku'o kei ku |
 | `6` | .i sepi'o la'o .gy. [w3m](http://w3m.sourceforge.net/) .gy. gasnu lo nu kalri la'o .gy. URI .gy. noi ke'a judri lo karni najo nuzba ku ku'o kei ku |
@@ -102,10 +102,10 @@ macro Y pipe-to "tmpFile=$(mktemp); cat >${tmpFile}; cat -- ${tmpFile} | xsel --
 
 | .i vanbi namcu cmene | .i tcila ciksi |
 | -------------------- | -------------- |
-| `BROWSER` | .i le namcu ku me lo srana be la'o .gy. Web Browser .gy. noi pilno ke'a ku'o ku .i va'o lo nu le namcu ku na'e zvati najo kunti kei ku pilno la'o .gy. `lynx` .gy. |
-| `EDITOR` | .i le namcu ku me lo srana be lo ve ciska ku ku .i va'o lo nu le namcu ku na'e zvati najo kunti kei ku pilno la'o .gy. `vi` .gy. |
-| `MAILER` | .i le namcu ku me lo srana be lo jai sepi'o mrilu ku ku .i lo nu sepu'e la'o .gy. [mailto URI Scheme](https://www.ietf.org/rfc/rfc6068.txt) .gy. ke'a zukte kei ku sarcu lo nu pilno kei ku |
-| `PAGER` | .i le namcu ku me lo srana be lo jai sepi'o jarco ku ku .i va'o lo nu le namcu ku na'e zvati najo kunti kei ku pilno la'o .gy. `less` .gy. |
+| `BROWSER` | .i le namcu ku me lo srana be la'o .gy. Web Browser .gy. noi pilno ke'a ku'o ku .i va'o lo nu le namcu ku na'e zvati najo kunti kei ku pilno la'o .gy. `lynx --` .gy. |
+| `EDITOR` | .i le namcu ku me lo srana be lo ve ciska ku ku .i va'o lo nu le namcu ku na'e zvati najo kunti kei ku pilno la'o .gy. `vi --` .gy. |
+| `MAILER` | .i le namcu ku me lo srana be lo jai sepi'o mrilu ku ku .i lo nu sepu'e la'o .gy. [mailto URI Scheme](https://www.ietf.org/rfc/rfc6068.txt) .gy. ke'a zukte kei ku sarcu lo nu pilno kei ku .i va'o lo nu le namcu ku na'e zvati najo kunti kei ku pilno la'o .gy. `mutt --` .gy. |
+| `PAGER` | .i le namcu ku me lo srana be lo jai sepi'o jarco ku ku .i va'o lo nu le namcu ku na'e zvati najo kunti kei ku pilno la'o .gy. `less --` .gy. |
 | `VIMSTYLENEWSBOAT_YANKFILE` | .i le namcu ku me lo judri be la'o .gy. File .gy. noi jmina lo fukpi jufra ku ke'a ku'o ku .i va'o lo nu le namcu ku na'e zvati najo kunti kei ku jmina fi la'o .gy. `${HOME}/newsboat-yank` .gy. |
 | `VISUAL` | .i le namcu ku me lo srana be lo ve ciska ku ku .i va'o lo nu le namcu ku na'e zvati najo kunti kei ku pilno la'o .gy. `${EDITOR}` .gy. |
 

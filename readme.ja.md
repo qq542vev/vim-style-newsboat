@@ -1,13 +1,13 @@
 <!--
-## Document: readme.ja.md
+### Document: readme.ja.md
 ##
 ## Manual (Japanese) for Vim Style Newsboat.
 ##
 ## Metadata:
-##
+###
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 1.1.4
-##   date - 2022-03-30
+##   version - 1.2.0
+##   date - 2022-09-06
 ##   since - 2020-08-15
 ##   copyright - Copyright (C) 2020 - 2022 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -70,7 +70,7 @@ Vim Style Newsboat では幾つのマクロが定義されており、 `~/.newsb
 | `0` | フィードリンクの URI 、または記事の URI を任意のプログラムで開きます。 |
 | `1` | フィードリンクの URI 、または記事の URI を [FireFox](https://www.mozilla.org/firefox/) で開きます。 |
 | `2` | フィードリンクの URI 、または記事の URI を [Chromium](https://www.chromium.org/Home) で開きます。 |
-| `3` | フィードリンクの URI 、または記事の URI をEメールで送信します。 |
+| `3` | 現在のの記事をEメールで送信します。 |
 | `4` | フィードリンクの URI 、または記事の URI をQRコードに変換して表示します。 |
 | `5` | フィードリンクの URI 、または記事の URI を [Lynx](http://lynx.browser.org/) で開きます。 |
 | `6` | フィードリンクの URI 、または記事の URI を [w3m](http://w3m.sourceforge.net/) で開きます。 |
@@ -84,7 +84,7 @@ Vim Style Newsboat では幾つのマクロが定義されており、 `~/.newsb
 | `o` | フィードリンクの URI 、または記事の URI をテキストエディタで開き、その URI をWebブラウザーで開きます。 |
 | `O` | 未読記事の URI をテキストエディタで開き、その URI をWebブラウザーで開きます。 |
 | `p` | Newsboat のみで動作します。記事内の1番目のリンクを GNU Wget または curl でダウンロードします。これは Podcast で便利です。 |
-| `w` | 記事をページャーで開きます。 |
+| `w` | 現在の記事をページャーで開きます。 |
 | `y` | フィードリンクの URI または記事の URI をヤンクします。 |
 | `Y` | 現在の記事の内容をヤンクします。 |
 | `Ctrl-r` | `auto-reload` を(有効 / 無効)にします。 |
@@ -102,10 +102,10 @@ Vim Style Newsboat では次の環境変数を参照します。環境変数の�
 
 | 環境変数名 | 詳細説明 |
 | ---------- | -------- |
-| `BROWSER` | 使用するWebブラウザーを指定します。この変数が存在しない場合か、値が空文字列の場合には `lynx` を使用します。 |
-| `EDITOR` | 使用するテキストエディタを指定します。この変数が存在しない場合か、値が空文字列の場合には `vi` を使用します。 |
-| `MAILER` | 使用するメーラーを指定します。メーラーは [mailto URI Scheme](https://www.ietf.org/rfc/rfc6068.txt) が処理可能である必要があります。 |
-| `PAGER` | 使用するページャーを指定します。この変数が存在しない場合か、値が空文字列の場合には `less` を使用します。 |
+| `BROWSER` | 使用するWebブラウザーを指定します。この変数が存在しない場合か、値が空文字列の場合には `lynx --` を使用します。 |
+| `EDITOR` | 使用するテキストエディタを指定します。この変数が存在しない場合か、値が空文字列の場合には `vi --` を使用します。 |
+| `MAILER` | 使用するメーラーを指定します。メーラーは [mailto URI Scheme](https://www.ietf.org/rfc/rfc6068.txt) が処理可能である必要があります。この変数が存在しない場合か、値が空文字列の場合には `mutt --` を使用します。 |
+| `PAGER` | 使用するページャーを指定します。この変数が存在しない場合か、値が空文字列の場合には `less --` を使用します。 |
 | `VIMSTYLENEWSBOAT_YANKFILE` | ヤンクした内容を追加するファイルのパスを指定します。この変数が存在しない場合か、値が空文字列の場合には `${HOME}/newsboat-yank` を使用します。 |
 | `VISUAL` | 使用するテキストエディタを指定します。この変数が存在しない場合か、値が空文字列の場合には `${EDITOR}` を使用します。 |
 
