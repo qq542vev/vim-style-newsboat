@@ -4,7 +4,8 @@
 ## Manual (Japanese) for Vim Style Newsboat.
 ##
 ## Metadata:
-###
+##
+##   id - d7a51617-7ce6-47ea-8e4b-9a5daa116901
 ##   author - <qq542vev at https://purl.org/meta/me/>
 ##   version - 1.2.0
 ##   date - 2022-09-06
