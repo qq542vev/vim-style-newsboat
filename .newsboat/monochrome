@@ -1,3 +1,5 @@
+#!/usr/bin/newsboat -C
+
 ### File: monochrome
 ##
 ## Color schemes for Newsboat.

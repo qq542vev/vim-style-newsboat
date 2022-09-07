@@ -1,3 +1,5 @@
+#!/usr/bin/newsbeuter -C
+
 ### File: macro
 ##
 ## Macros for Newsbeuter.

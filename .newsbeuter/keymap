@@ -1,3 +1,5 @@
+#!/usr/bin/newsbeuter -C
+
 ### File: keymap
 ##
 ## Keymap for Newsbeuter.

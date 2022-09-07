@@ -1,3 +1,5 @@
+#!/usr/bin/newsboat -u
+
 ### File: urls
 ##
 ## URLs for Newsboat.

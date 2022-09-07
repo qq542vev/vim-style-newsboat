@@ -1,3 +1,5 @@
+#!/usr/bin/newsbeuter -C
+
 ### File: color
 ##
 ## Color schemes for Newsbeuter.

@@ -1,3 +1,5 @@
+#!/usr/bin/newsbeuter -C
+
 ### File: bookmark-config
 ##
 ## Configuration for the bookmarking program for Newsbeuter.
