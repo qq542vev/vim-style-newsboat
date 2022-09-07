@@ -1,0 +1,1 @@
+﻿NDSummary.OnToolTipsLoaded("File:.newsboat/filter",{13:"<div class=\"NDToolTip TFile LNewsboat\"><div class=\"TTSummary\">Filters for Newsboat.</div></div>"});

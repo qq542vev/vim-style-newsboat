@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("col",["File"],[["color",,[[,,"Newsbeuter",,0,"File:.newsbeuter/color:color"],[,,"Newsboat",,0,"File:.newsboat/color:color"]]]]);

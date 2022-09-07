@@ -1,0 +1,1 @@
+﻿NDFramePage.OnPageTitleLoaded("File:.newsboat/filter","filter");NDSummary.OnSummaryLoaded("File:.newsboat/filter",[["Newsboat","Newsboat"]],[["Files","File"]],[[13,0,0,"filter","filter"]]);

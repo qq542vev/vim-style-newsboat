@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("key",["File"],[["keymap",,[[,,"Newsbeuter",,0,"File:.newsbeuter/keymap:keymap"],[,,"Newsboat",,0,"File:.newsboat/keymap:keymap"]]]]);

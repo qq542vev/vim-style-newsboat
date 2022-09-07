@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("fil",["File"],[["filter",,[[,,"Newsbeuter",,0,"File:.newsbeuter/filter:filter"],[,,"Newsboat",,0,"File:.newsboat/filter:filter"]]]]);

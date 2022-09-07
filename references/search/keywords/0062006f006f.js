@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("boo",["File"],[["bookmark-config",,[[,,"Newsbeuter",,0,"File:.newsbeuter/bookmark-config:bookmark-config"],[,,"Newsboat",,0,"File:.newsboat/bookmark-config:bookmark-config"]]]]);

@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("mon",["File"],[["monochrome",,[[,,"Newsbeuter",,0,"File:.newsbeuter/monochrome:monochrome"],[,,"Newsboat",,0,"File:.newsboat/monochrome:monochrome"]]]]);

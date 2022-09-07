@@ -1,0 +1,1 @@
+﻿NDSummary.OnToolTipsLoaded("File:bin/addbookmark.sh",{2:"<div class=\"NDToolTip TFile LShellScript\"><div class=\"TTSummary\">Add a bookmark.</div></div>"});

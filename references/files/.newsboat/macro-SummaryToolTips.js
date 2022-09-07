@@ -1,0 +1,1 @@
+﻿NDSummary.OnToolTipsLoaded("File:.newsboat/macro",{9:"<div class=\"NDToolTip TFile LNewsboat\"><div class=\"TTSummary\">Macros for Newsboat.</div></div>"});
