@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:.newsbeuter/bookmark-config",{7:"<div class=\"NDToolTip TFile LNewsbeuter\"><div class=\"TTSummary\">Configuration for the bookmarking program for Newsbeuter.</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:.newsbeuter/bookmark-config",{6:"<div class=\"NDToolTip TFile LNewsbeuter\"><div class=\"TTSummary\">Configuration for the bookmarking program for Newsbeuter.</div></div>"});
