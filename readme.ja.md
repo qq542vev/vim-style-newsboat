@@ -1,23 +1,22 @@
-<!--
-### Document: readme.ja.md
-##
-## Manual (Japanese) for Vim Style Newsboat.
-##
-## Metadata:
-##
-##   id - d7a51617-7ce6-47ea-8e4b-9a5daa116901
-##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 1.2.0
-##   date - 2022-09-06
-##   since - 2020-08-15
-##   copyright - Copyright (C) 2020 - 2022 qq542vev. Some rights reserved.
-##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
-##   package - vim-style-newsboat
-##
-## See Also:
-##
-##   * <Project homepage at https://github.com/qq542vev/vim-style-newsboat>
-##   * <Bag report at https://github.com/qq542vev/vim-style-newsboat/issues>
+<!-- Document: readme.ja.md
+
+	Manual (Japanese) for Vim Style Newsboat.
+
+	Metadata:
+
+		id - d7a51617-7ce6-47ea-8e4b-9a5daa116901
+		author - <qq542vev at https://purl.org/meta/me/>
+		version - 1.2.0
+		date - 2022-09-06
+		since - 2020-08-15
+		copyright - Copyright (C) 2020 - 2022 qq542vev. Some rights reserved.
+		license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
+		package - vim-style-newsboat
+
+	See Also:
+
+		* <Project homepage at https://github.com/qq542vev/vim-style-newsboat>
+		* <Bag report at https://github.com/qq542vev/vim-style-newsboat/issues>
 -->
 
 # Vim Style Newsboat

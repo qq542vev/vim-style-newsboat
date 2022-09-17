@@ -28,6 +28,13 @@ Language: ShellScript
    Block Comment: <<'__DOCMENTATION__' __DOCMENTATION__
 
 
+Language: Markdown
+
+   Extension: md
+
+   Block Comment: <!-- -->
+
+
 Language: Newsbeuter
 
    Shebang String: newsbeuter

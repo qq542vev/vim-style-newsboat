@@ -1,23 +1,22 @@
-<!--
-### Document: readme.jbo.md
-##
-## Manual (Lojban) for Vim Style Newsboat.
-##
-## Metadata:
-##
-##   id - 9d0ce703-a338-4212-9478-a256cdfe2a29
-##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 1.2.0
-##   date - 2022-09-06
-##   since - 2021-01-15
-##   copyright - Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.
-##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
-##   package - vim-style-newsboat
-##
-## See Also:
-##
-##   * <Project homepage at https://github.com/qq542vev/vim-style-newsboat>
-##   * <Bag report at https://github.com/qq542vev/vim-style-newsboat/issues>
+<!-- Document: readme.jbo.md
+
+	Manual (Lojban) for Vim Style Newsboat.
+
+	Metadata:
+
+		id - 9d0ce703-a338-4212-9478-a256cdfe2a29
+		author - <qq542vev at https://purl.org/meta/me/>
+		version - 1.2.0
+		date - 2022-09-06
+		since - 2021-01-15
+		copyright - Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.
+		license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
+		package - vim-style-newsboat
+
+	See Also:
+
+		* <Project homepage at https://github.com/qq542vev/vim-style-newsboat>
+		* <Bag report at https://github.com/qq542vev/vim-style-newsboat/issues>
 -->
 
 # .i ni'o la'o .gy. Vim Style Newsboat .gy.
