@@ -25,14 +25,14 @@
 
 Vim Style Newsboat は [Vim](https://www.vim.org/) と [Pentadactyl](https://github.com/pentadactyl/pentadactyl) のキーボード操作を [Newsboat](https://newsboat.org/) 及び [Newsbeuter](https://www.newsbeuter.org/) でも実現する試みのプロジェクトです。
 
-Vim は CLI のスクリーンエディタ、Pentadactyl は Webブラウザーである [Pale Moon](https://www.palemoon.org/) のアドオン、 Newsboat と Newsbeuter は CLI の Feed (RSS / Atom) リーダーです。ソフトウェアの性質の違い故に全てのキーボード操作を模倣出来ている訳ではありませんが、基本的な操作の模倣は完了しております。
+Vim は CLI のスクリーンエディタ、Pentadactyl は Webブラウザーである [Pale Moon](https://www.palemoon.org/) のアドオン、Newsboat と Newsbeuter は CLI の Feed (RSS / Atom) リーダーです。ソフトウェアの性質の違い故に全てのキーボード操作を模倣出来ている訳ではありませんが、基本的な操作の模倣は完了しております。
 
 テストは newsboat r2.26 と newsbeuter 2.9 で行っています。それ以外のバーションでの動作は未確認です。
 
 # 機能
 
  * `h`, `j`, `k`, `l`, `^F`, `^B`, `G`, `:`, `!`, `/` などの Vim 風のキーボード操作
- * `r`, `a`, `f`, `;`, `m`, `b`, `^N`, `^P`, `d`などの Pentadactyl 風のキーボード操作
+ * `r`, `a`, `f`, `;`, `m`, `b`, `^N`, `^P`, `d` などの Pentadactyl 風のキーボード操作
  * ダークとモノクロームの2種類のカラースキーム
  * Webブラウザーの切り替えやヤンクなどのマクロを定義
  * 便利なフィルターとクエリの定義
@@ -57,11 +57,11 @@ highlight article "^フィード：|^見出し：|^作者：|^日付：|^リン�
 highlight article "^Links: $" white black bold
 ~~~
 
-Newsboat を起動してスクリーンショットのような彩色が反映され、`j`, `k`などで移動操作が出来れば初期設定は完了です。
+Newsboat を起動してスクリーンショットのような彩色が反映され、`j`, `k` などで移動操作が可能ならば初期設定は完了です。
 
 ## マクロ
 
-Vim Style Newsboat では幾つのマクロが定義されており、 `~/.newsboat/macro` を読み込むと使用可能です。デフォルトのマクロプレフィックスは `@` であり、それに続けて次のキーを押すと次の動作を行います。
+Vim Style Newsboat では幾つかのマクロが定義されており、`~/.newsboat/macro` を読み込むと使用可能です。デフォルトのマクロプレフィックスは `@` であり、それに続けて次のキーを押すと次の動作を行います。
 
 | キー | 詳細説明 |
 | ---- | -------- |
@@ -85,11 +85,11 @@ Vim Style Newsboat では幾つのマクロが定義されており、 `~/.newsb
 | `O` | 未読記事の URI をテキストエディタで開き、その URI をWebブラウザーで開きます。 |
 | `p` | Newsboat のみで動作します。記事内の1番目のリンクを GNU Wget または curl でダウンロードします。これは Podcast で便利です。 |
 | `w` | 現在の記事をページャーで開きます。 |
-| `y` | フィードリンクの URI または記事の URI をヤンクします。 |
-| `Y` | 現在の記事の内容をヤンクします。 |
+| `y` | フィードリンクの URI または記事の URI のヤンクを行います。 |
+| `Y` | 現在の記事の内容のヤンク行います。 |
 | `Ctrl-r` | `auto-reload` を(有効 / 無効)にします。 |
 
-`xsel` や `xclip` がインストールされている環境では、ヤンクにクリップボードを使用することも可能です。 `~/.newsboat/macro` 内のヤンクに関する当該行をコメントアウトしてください。例えば `xsel` を使用する場合は次の行を有効にしてください。
+`xsel` や `xclip` がインストールされている環境では、ヤンクにクリップボードを使用することも可能です。`~/.newsboat/macro` 内のヤンクに関する当該行をコメントアウトしてください。例えば `xsel` を使用する場合は次の行を有効にしてください。
 
 ~~~
 macro y set browser "echo %u | xsel --input --primary; echo %u | xsel --input --clipboard" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
@@ -104,9 +104,9 @@ Vim Style Newsboat では次の環境変数を参照します。環境変数の�
 | ---------- | -------- |
 | `BROWSER` | 使用するWebブラウザーを指定します。この変数が存在しない場合か、値が空文字列の場合には `lynx --` を使用します。 |
 | `EDITOR` | 使用するテキストエディタを指定します。この変数が存在しない場合か、値が空文字列の場合には `vi --` を使用します。 |
-| `MAILER` | 使用するメーラーを指定します。メーラーは [mailto URI Scheme](https://www.ietf.org/rfc/rfc6068.txt) が処理可能である必要があります。この変数が存在しない場合か、値が空文字列の場合には `mutt --` を使用します。 |
+| `MAILER` | 使用するメーラーを指定します。メーラーは [mailto URI Scheme](https://www.ietf.org/rfc/rfc6068.txt) の処理が可能である必要があります。この変数が存在しない場合か、値が空文字列の場合には `mutt --` を使用します。 |
 | `PAGER` | 使用するページャーを指定します。この変数が存在しない場合か、値が空文字列の場合には `less --` を使用します。 |
-| `VIMSTYLENEWSBOAT_YANKFILE` | ヤンクした内容を追加するファイルのパスを指定します。この変数が存在しない場合か、値が空文字列の場合には `${HOME}/newsboat-yank` を使用します。 |
+| `VIMSTYLENEWSBOAT_YANKFILE` | ヤンクを行った値を追加するファイルのパスを指定します。この変数が存在しない場合か、値が空文字列の場合には `${HOME}/newsboat-yank` を使用します。 |
 | `VISUAL` | 使用するテキストエディタを指定します。この変数が存在しない場合か、値が空文字列の場合には `${EDITOR}` を使用します。 |
 
 # ToDoリスト
@@ -115,7 +115,7 @@ Vim Style Newsboat では次の環境変数を参照します。環境変数の�
 
 # ライセンス
 
-Vim Style Newsboat はCC BY 4.0で配布されています。このライセンスに従う限りに於いて自由に改変や再配布を行えます。ライセンスの詳細は [LICENSE](LICENSE) を参照してください。
+Vim Style Newsboat は CC BY 4.0 で配布されています。このライセンスに従う限りに於いて自由に改変や再配布を行えます。ライセンスの詳細は [LICENSE](LICENSE) を参照してください。
 
 # 謝辞
 
