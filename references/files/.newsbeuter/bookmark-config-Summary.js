@@ -1,1 +1,1 @@
-﻿NDFramePage.OnPageTitleLoaded("File:.newsbeuter/bookmark-config","bookmark-config");NDSummary.OnSummaryLoaded("File:.newsbeuter/bookmark-config",[["Newsbeuter","Newsbeuter"]],[["Files","File"]],[[6,0,0,"bookmark-config","bookmark-config"]]);
+﻿NDFramePage.OnPageTitleLoaded("File:.newsbeuter/bookmark-config","bookmark-config");NDSummary.OnSummaryLoaded("File:.newsbeuter/bookmark-config",[["Newsbeuter","Newsbeuter"]],[["Files","File"]],[[13,0,0,"bookmark-config","bookmark-config"]]);
