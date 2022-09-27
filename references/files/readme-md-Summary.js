@@ -1,0 +1,1 @@
+﻿NDFramePage.OnPageTitleLoaded("File:readme.md","readme.md");NDSummary.OnSummaryLoaded("File:readme.md",[["Markdown","Markdown"]],[["Files","File"]],[[18,0,0,"readme.ja.md","readme.ja.md"]]);
