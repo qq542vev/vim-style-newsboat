@@ -4,39 +4,11 @@
 ##
 ## Add a bookmark.
 ##
-## Usage:
-##
-##   (start code)
-##   addbookmark.sh [options...] URI [title] [description] [feed-title]
-##   (end)
-##
-## Options:
-##
-##   -b, --{no-}bottom      - add item to the bottom.
-##   -d, --{no-}duplicate   - allow duplicates.
-##   -f, --file             - bookmark file.
-##   -p, --{no-}purge       - remove the empty section.
-##   -r, --{no-}remove      - remove the bookmarked item.
-##   -t, --template         - template for bookmark.
-##   -T, --section-template - template for feed-title.
-##   -h, --help             - display this help and exit.
-##   -v, --version          - output version information and exit.
-##
-## Exit Status:
-##
-##   0 - Program terminated normally.
-##   64<= to <=78 - Program terminated abnormally. See </usr/include/sysexits.h> for the returned value.
-##   129 - SIGHUP
-##   130 - SIGINT
-##   131 - SIGQUIT
-##   143 - SIGTERM
-##
 ## Metadata:
 ##
-##   id - 7e6fc99c-d745-43e3-9681-19c4cac6bf21
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 2.0.2
-##   date - 2022-04-12
+##   version - 3.0.0
+##   date - 2022-09-28
 ##   since - 2021-09-09
 ##   copyright - Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -46,6 +18,46 @@
 ##
 ##   * <Project homepage at https://github.com/qq542vev/vim-style-newsboat>
 ##   * <Bag report at https://github.com/qq542vev/vim-style-newsboat/issues>
+##
+## Help Output:
+##
+## ------ Text ------
+## Usage:
+##   addbookmark.sh [URL] [TITLE] [DESCRIPTION] [SECTION_NAME]
+## 
+## Options:
+##   -p,     --position 'bottom' | 'none' | 'top' 
+##                               ブックマークアイテムを追加する位置を指定する
+##   -d,     --{no-}duplicate    重複を許容する
+##   -f,     --file FILE         ブックマークファイルを指定する
+##   -e,     --{no-}empty-section 
+##                               空のセクションを許容する
+##   -t,     --template TEMPLATE ブックマークアイテムのテンプレートを指定する
+##   -h,     --help              このヘルプを表示して終了する
+##   -v,     --version           バージョン情報を表示して終了する
+## 
+## Exit Status:
+##     0 - successful termination
+##    64 - command line usage error
+##    65 - data format error
+##    66 - cannot open input
+##    67 - addressee unknown
+##    68 - host name unknown
+##    69 - service unavailable
+##    70 - internal software error
+##    71 - system error (e.g., can't fork)
+##    72 - critical OS file missing
+##    73 - can't create (user) output file
+##    74 - input/output error
+##    75 - temp failure; user is invited to retry
+##    76 - remote error in protocol
+##    77 - permission denied
+##    78 - configuration error
+##   129 - received SIGHUP
+##   130 - received SIGINT
+##   131 - received SIGQUIT
+##   143 - received SIGTERM
+## ------------------
 
 set -efu
 umask '0022'
@@ -64,41 +76,22 @@ readonly 'EX_USAGE=64'       # command line usage error
 readonly 'EX_SOFTWARE=70'    # internal software error
 readonly 'EX_CANTCREAT=73'   # can't create (user) output file
 
-trap 'endCall $(case "${?}" in [!0]*) echo "${EX_SOFTWARE}";; esac)' 0 # EXIT
-trap 'endCall 129' 1 # SIGHUP
-trap 'endCall 130' 2 # SIGINT
-trap 'endCall 131' 3 # SIGQUIT
-trap 'endCall 143' 15 # SIGTERM
+trap 'end_call $(case "${?}" in [!0]*) echo "${EX_SOFTWARE}";; esac)' 0 # EXIT
+trap 'end_call 129' 1 # SIGHUP
+trap 'end_call 130' 2 # SIGINT
+trap 'end_call 131' 3 # SIGQUIT
+trap 'end_call 143' 15 # SIGTERM
 
-endCall() {
+end_call() {
 	trap '' 0 # EXIT
 	rm -fr -- ${tmpDir+"${tmpDir}"}
 	exit "${1:-0}"
 }
 
-usage() {
-	sed -e '/^## *(start code)/,/^## *(end)/!d' -- "${0}" | sed -e '1d; $d; s/^## */Usage: /'
-	sed -e '/^### Script:/,/^## .*:$/!d' -- "${0}" | sed -e '1d; $d; s/^## *//'
-
-	printf 'Options\n'
-	sed -n -e '/^## *-.* - /s/^## *//p' -- "${0}" | awk -F ' - ' '{print "  " $1 "  " $2}'
-
-	printf '\nExit status\n'
-	sed -n -e '/^## *[0-9]\{1,\}.* - /s/^## */  /p' -- "${0}"
-}
-
-version() {
-	cat <<-EOF
-		$(sed -n -e 's/^### Script: //p' -- "${0}") ($(sed -n -e 's/^## *package - //p' -- "${0}")) $(sed -n -e 's/^## *version - //p' -- "${0}") (Last update: $(sed -n -e 's/^## *date - //p' -- "${0}"))
-		$(sed -n -e 's/^## *copyright - //p' -- "${0}")
-		$(sed -n -e 's/^## *license - /License: /p' -- "${0}")
-		$(sed -n -e 's/^## *author - /Author: /p' -- "${0}")
-	EOF
-}
-
-error() {
+option_error() {
 	printf '%s\n' "${1}" >&2
-	endCall "${EX_USAGE}"
+
+	end_call "${EX_USAGE}"
 }
 
 # https://qiita.com/ko1nksm/items/a22c0ce88e39c9f2dcb0
@@ -113,31 +106,164 @@ awkv_escape() {
 	eval "$1=\$2"
 }
 
+# $1: ret, $2: value, $3: from, $4: to
+replace_all_fast() {
+  eval "$1=\${2//\"\$3\"/\"\$4\"}"
+}
+
+# $1: ret, $2: value, $3: from, $4: to
+replace_all_posix() {
+  set -- "$1" "$2" "$3" "$4" ""
+  until [ _"$2" = _"${2#*"$3"}" ] && eval "$1=\$5\$2"; do
+    set -- "$1" "${2#*"$3"}" "$3" "$4" "$5${2%%"$3"*}$4"
+  done
+}
+
+# $1: ret, $2: value, $3: from, $4: to
+replace_all_pattern() {
+  set -- "$1" "$2" "$3" "$4" ""
+  until eval "[ _\"\$2\" = _\"\${2#*$3}\" ] && $1=\$5\$2"; do
+    eval "set -- \"\$1\" \"\${2#*$3}\" \"\$3\" \"\$4\" \"\$5\${2%%$3*}\$4\""
+  done
+}
+
+meta_escape() {
+  # shellcheck disable=SC1003
+  if [ "${1#*\?}" ]; then # posh <= 0.5.4
+    set -- '\\\\:\\\\\\\\' '\\\[:[[]' '\\\?:[?]' '\\\*:[*]' '\\\$:[$]'
+  elif [ "${2%%\\*}" ]; then # bosh = all (>= 20181007), busybox <= 1.22.0
+    set -- '\\\\:\\\\\\\\' '\[:[[]' '\?:[?]' '\*:[*]' '\$:[$]'
+  else # POSIX compliant
+    set -- '\\:\\\\' '\[:[[]' '\?:[?]' '\*:[*]' '\$:[$]'
+  fi
+
+  set "$@" '\(:\\(' '\):\\)' '\|:\\|' '\":\\\"' '\`:\\\`' \
+    '\{:\\{' '\}:\\}' "\\':\\\\'" '\&:\\&' '\=:\\=' '\>:\\>' "end"
+
+  echo 'meta_escape() { set -- "$1" "$2" ""'
+  until [ "$1" = "end" ] && shift && printf '%s\n' "$@"; do
+    set -- "${1%:*}" "${1#*:}" "$@"
+    set -- "$@" 'until [ _"$2" = _"${2#*'"$1"'}" ] && set -- "$1" "$3$2" ""; do'
+    set -- "$@" '  set -- "$1" "${2#*'"$1"'}" "$3${2%%'"$1"'*}'"$2"'"'
+    set -- "$@" 'done'
+    shift 3
+  done
+  echo 'eval "$1=\"\$3\$2\""; }'
+}
+eval "$(meta_escape "a?" "\\")"
+
+replace_all() {
+  (eval 'v="*#*/" p="#*/"; [ "${v//"$p"/-}" = "*-" ]') 2>/dev/null && return 0
+  [ "${1#"$2"}" = "a*b" ] && return 1 || return 2
+}
+eval 'replace_all "a*b" "a[*]" &&:' &&:
+case $? in
+  0) # Fast version (Not POSIX compliant)
+    # ash(busybox)>=1.30.1, bash>=3.1.17, dash>=none, ksh>=93?, mksh>=54
+    # yash>=2.30?, zsh>=3.1.9?, pdksh=none, posh=none, bosh=none
+    replace_all() { replace_all_fast "$@"; }; ;;
+  1) # POSIX version (POSIX compliant)
+    # ash(busybox)>=1.1.3, bash>=2.05b, dash>=0.5.2, ksh>=93q, mksh>=40
+    # yash>=2.30?, zsh>=3.1.9?, pdksh=none, posh=none, bosh=none
+    replace_all() { replace_all_posix "$@"; }; ;;
+  2) # Pattern version
+    replace_all() {
+      meta_escape "$1" "$3"
+      eval "replace_all_pattern \"\$1\" \"\$2\" \"\${$1}\" \"\$4\""
+    }
+esac
+
+replace_multiple() {
+	eval "${1}=\"\${2}\""
+	eval "shift 2; set -- '${1}'" '${@+"${@}"}'
+
+	while [ 2 -le "${#}" ]; do
+		eval 'replace_all "${1}"' "\"\${${1}}\"" '"${2}" "${3-}"'
+
+		case "${#}" in
+			'2') set --;;
+			*) eval "shift 3; set -- '${1}'" '${@+"${@}"}';;
+		esac
+	done
+}
+
+html_escape() {
+	replace_multiple "${1}" "${2}" '&' '&amp;' '<' '&lt;' '>' '&gt;' "'" '&#39;' '"' '&quot;'
+}
+
+remove_control_character() {
+	set -- "${1}" "${2}" "${3}" "$(printf '\000\001\002\003\004\005\006\007\010\011\012\013\014\015\016\017\020\021\022\023\024\025\026\027\028\029\030\031\032\033\034\035\036\037\177\200\201\202\203\204\205\206\207\210\211\212\213\214')"
+
+	while [ -n "${3}" ]; do
+		replace_all "${1}" "${4}" "${3%%${3#?}}" ''
+
+		eval 'set -- "${1}" "${2}" "${3#?}"' "\"\${${1}}\""
+	done
+
+	set -- "${1}" "${2}" "${4}" ''
+
+	while [ -n "${3}" ]; do
+		set -- "${1}" "${2}" "${3#?}" "${4} '${3%%${3#?}}' ''"
+	done
+
+	eval 'replace_multiple "${1}" "${2}"' "${4}"
+}
+
+safe_string() {
+	remove_control_character "${1}" "${2}" "$(printf '\t\n\r')"
+}
+
+comment_escape() {
+	replace_multiple "${1}" "${2}" '
+' '&#10;' '' '&#13;' '-' '&#45;'
+}
+
 # @getoptions
 parser_definition() {
-	setup REST plus:true abbr:true error:error
-	flag  bottomFlag    -b --{no-}bottom    init:@no no:0
-	flag  duplicateFlag -d --{no-}duplicate init:@no no:0
-	param bookmarkFile  -f --file           init:'bookmarkFile="${HOME}/bookmark.html"'
-	flag  purgeFlag     -p --{no-}purge     init:@no no:0
-	flag  removeFlag    -r --{no-}remove    init:@no no:0
-	param itemTemplate  -t --template       init:='<li><a rel="noreferrer" href="${uri}"${description:+" title=\"${description}\""}>${title}</a></li>'
-	param sectionTemplate -T --section-template init:='<li>${feedTitle}<ul>${items}</ul></li>'
-	disp  :usage        -h --help
-	disp  :version      -v --version
+	setup REST plus:true abbr:true error:option_error no:0 help:usage \
+		-- 'Usage:' "  ${2##*/} [URL] [TITLE] [DESCRIPTION] [SECTION_NAME]" \
+		'' 'Options:'
+
+	param position         -p --position           init:='bottom' pattern:'bottom | none | top' var:"'bottom' | 'none' | 'top'" -- 'ブックマークアイテムを追加する位置を指定する'
+	flag  duplicateFlag    -d --{no-}duplicate     init:@no -- '重複を許容する'
+	param bookmarkFile     -f --file               init:'bookmarkFile="${HOME}/bookmark.html"' var:FILE -- 'ブックマークファイルを指定する'
+	flag  emptySectionFlag -e --{no-}empty-section init:@no -- '空のセクションを許容する'
+	param itemTemplate     -t --template           init:='<li><a rel="noreferrer" href="${uri}"${description:+" title=\"${description}\""}>${title}</a></li>' var:TEMPLATE -- 'ブックマークアイテムのテンプレートを指定する'
+	disp  :usage           -h --help -- 'このヘルプを表示して終了する'
+	disp  :version         -v --version -- 'バージョン情報を表示して終了する'
+
+	msg -- '' 'Exit Status:' \
+		'    0 - successful termination' \
+		'   64 - command line usage error' \
+		'   65 - data format error' \
+		'   66 - cannot open input' \
+		'   67 - addressee unknown' \
+		'   68 - host name unknown' \
+		'   69 - service unavailable' \
+		'   70 - internal software error' \
+		"   71 - system error (e.g., can't fork)" \
+		'   72 - critical OS file missing' \
+		"   73 - can't create (user) output file" \
+		'   74 - input/output error' \
+		'   75 - temp failure; user is invited to retry' \
+		'   76 - remote error in protocol' \
+		'   77 - permission denied' \
+		'   78 - configuration error' \
+		'  129 - received SIGHUP' \
+		'  130 - received SIGINT' \
+		'  131 - received SIGQUIT' \
+		'  143 - received SIGTERM'
 }
 # @end
 
-# @gengetoptions parser -i parser_definition parse
+# @gengetoptions parser -i parser_definition parse "${1}"
 # Generated by getoptions (BEGIN)
 # URL: https://github.com/ko1nksm/getoptions (v3.3.0)
-bottomFlag='0'
+position='bottom'
 duplicateFlag='0'
 bookmarkFile="${HOME}/bookmark.html"
-purgeFlag='0'
-removeFlag='0'
+emptySectionFlag='0'
 itemTemplate='<li><a rel="noreferrer" href="${uri}"${description:+" title=\"${description}\""}>${title}</a></li>'
-sectionTemplate='<li>${feedTitle}<ul>${items}</ul></li>'
 REST=''
 parse() {
   OPTIND=$(($#+1))
@@ -145,13 +271,9 @@ parse() {
     set -- "${1%%\=*}" "${1#*\=}" "$@"
     while [ ${#1} -gt 2 ]; do
       case $1 in (*[!a-zA-Z0-9_-]*) break; esac
-      case '--bottom' in
+      case '--position' in
         "$1") OPTARG=; break ;;
-        $1*) OPTARG="$OPTARG --bottom"
-      esac
-      case '--no-bottom' in
-        "$1") OPTARG=; break ;;
-        $1*) OPTARG="$OPTARG --no-bottom"
+        $1*) OPTARG="$OPTARG --position"
       esac
       case '--duplicate' in
         "$1") OPTARG=; break ;;
@@ -165,29 +287,17 @@ parse() {
         "$1") OPTARG=; break ;;
         $1*) OPTARG="$OPTARG --file"
       esac
-      case '--purge' in
+      case '--empty-section' in
         "$1") OPTARG=; break ;;
-        $1*) OPTARG="$OPTARG --purge"
+        $1*) OPTARG="$OPTARG --empty-section"
       esac
-      case '--no-purge' in
+      case '--no-empty-section' in
         "$1") OPTARG=; break ;;
-        $1*) OPTARG="$OPTARG --no-purge"
-      esac
-      case '--remove' in
-        "$1") OPTARG=; break ;;
-        $1*) OPTARG="$OPTARG --remove"
-      esac
-      case '--no-remove' in
-        "$1") OPTARG=; break ;;
-        $1*) OPTARG="$OPTARG --no-remove"
+        $1*) OPTARG="$OPTARG --no-empty-section"
       esac
       case '--template' in
         "$1") OPTARG=; break ;;
         $1*) OPTARG="$OPTARG --template"
-      esac
-      case '--section-template' in
-        "$1") OPTARG=; break ;;
-        $1*) OPTARG="$OPTARG --section-template"
       esac
       case '--help' in
         "$1") OPTARG=; break ;;
@@ -205,7 +315,7 @@ parse() {
         OPTIND=$((($#+1)/2)) OPTARG=$1; shift
         while [ $# -gt "$OPTIND" ]; do OPTARG="$OPTARG, $1"; shift; done
         set "Ambiguous option: $1 (could be $OPTARG)" ambiguous "$@"
-        error "$@" >&2 || exit $?
+        option_error "$@" >&2 || exit $?
         echo "$1" >&2
         exit 1 ;;
       ?*)
@@ -218,20 +328,23 @@ parse() {
         eval 'set -- "${OPTARG%%\=*}" "${OPTARG#*\=}"' ${1+'"$@"'}
         ;;
       --no-*|--without-*) unset OPTARG ;;
-      -[ftT]?*) OPTARG=$1; shift
+      -[pft]?*) OPTARG=$1; shift
         eval 'set -- "${OPTARG%"${OPTARG#??}"}" "${OPTARG#??}"' ${1+'"$@"'}
         ;;
-      -[bdprhv]?*) OPTARG=$1; shift
+      -[dehv]?*) OPTARG=$1; shift
         eval 'set -- "${OPTARG%"${OPTARG#??}"}" -"${OPTARG#??}"' ${1+'"$@"'}
         OPTARG= ;;
       +*) unset OPTARG ;;
     esac
     case $1 in
-      '-b'|'--bottom'|'--no-bottom')
-        [ "${OPTARG:-}" ] && OPTARG=${OPTARG#*\=} && set "noarg" "$1" && break
-        eval '[ ${OPTARG+x} ] &&:' && OPTARG='1' || OPTARG='0'
-        bottomFlag="$OPTARG"
-        ;;
+      '-p'|'--position')
+        [ $# -le 1 ] && set "required" "$1" && break
+        OPTARG=$2
+        case $OPTARG in bottom | none | top) ;;
+          *) set "pattern:bottom | none | top" "$1"; break
+        esac
+        position="$OPTARG"
+        shift ;;
       '-d'|'--duplicate'|'--no-duplicate')
         [ "${OPTARG:-}" ] && OPTARG=${OPTARG#*\=} && set "noarg" "$1" && break
         eval '[ ${OPTARG+x} ] &&:' && OPTARG='1' || OPTARG='0'
@@ -242,25 +355,15 @@ parse() {
         OPTARG=$2
         bookmarkFile="$OPTARG"
         shift ;;
-      '-p'|'--purge'|'--no-purge')
+      '-e'|'--empty-section'|'--no-empty-section')
         [ "${OPTARG:-}" ] && OPTARG=${OPTARG#*\=} && set "noarg" "$1" && break
         eval '[ ${OPTARG+x} ] &&:' && OPTARG='1' || OPTARG='0'
-        purgeFlag="$OPTARG"
-        ;;
-      '-r'|'--remove'|'--no-remove')
-        [ "${OPTARG:-}" ] && OPTARG=${OPTARG#*\=} && set "noarg" "$1" && break
-        eval '[ ${OPTARG+x} ] &&:' && OPTARG='1' || OPTARG='0'
-        removeFlag="$OPTARG"
+        emptySectionFlag="$OPTARG"
         ;;
       '-t'|'--template')
         [ $# -le 1 ] && set "required" "$1" && break
         OPTARG=$2
         itemTemplate="$OPTARG"
-        shift ;;
-      '-T'|'--section-template')
-        [ $# -le 1 ] && set "required" "$1" && break
-        OPTARG=$2
-        sectionTemplate="$OPTARG"
         shift ;;
       '-h'|'--help')
         usage
@@ -290,9 +393,48 @@ parse() {
     notcmd) set "Not a command: $2" "$@" ;;
     *) set "Validation error ($1): $2" "$@"
   esac
-  error "$@" >&2 || exit $?
+  option_error "$@" >&2 || exit $?
   echo "$1" >&2
   exit 1
+}
+usage() {
+cat<<'GETOPTIONSHERE'
+Usage:
+  addbookmark.sh [URL] [TITLE] [DESCRIPTION] [SECTION_NAME]
+
+Options:
+  -p,     --position 'bottom' | 'none' | 'top' 
+                              ブックマークアイテムを追加する位置を指定する
+  -d,     --{no-}duplicate    重複を許容する
+  -f,     --file FILE         ブックマークファイルを指定する
+  -e,     --{no-}empty-section 
+                              空のセクションを許容する
+  -t,     --template TEMPLATE ブックマークアイテムのテンプレートを指定する
+  -h,     --help              このヘルプを表示して終了する
+  -v,     --version           バージョン情報を表示して終了する
+
+Exit Status:
+    0 - successful termination
+   64 - command line usage error
+   65 - data format error
+   66 - cannot open input
+   67 - addressee unknown
+   68 - host name unknown
+   69 - service unavailable
+   70 - internal software error
+   71 - system error (e.g., can't fork)
+   72 - critical OS file missing
+   73 - can't create (user) output file
+   74 - input/output error
+   75 - temp failure; user is invited to retry
+   76 - remote error in protocol
+   77 - permission denied
+   78 - configuration error
+  129 - received SIGHUP
+  130 - received SIGINT
+  131 - received SIGQUIT
+  143 - received SIGTERM
+GETOPTIONSHERE
 }
 # Generated by getoptions (END)
 # @end
@@ -300,35 +442,20 @@ parse() {
 parse ${@+"${@}"}
 eval "set -- ${REST}"
 
-case "${#}" in
-	'0') error 'Requires an argument: URI';;
-esac
-
-if [ -d "${bookmarkFile}" ]; then
-	printf "'%s' is directory.\\n" "${bookmarkFile}" >&2
-	endCall "${EX_CANTCREAT}"
-fi
-
 htmlTemplate=$(
-	cat <<-'EOF'
+	cat <<-'__EOF__'
 	<!DOCTYPE html>
-	<html
-		xmlns="http://www.w3.org/1999/xhtml"
-		lang=""
-		xml:lang=""
-		about=""
-		typeof="foaf:Document"
-	>
+	<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 		<head>
 			<meta charset="UTF-8" />
 			<meta name="generator" content="addbookmark.sh" />
 			<meta name="referrer" content="no-referrer" />
 			<meta name="robots" content="noindex,nofollow,noarchive" />
-			<title property="dcterms:title">Bookmark</title>
+			<title>Bookmark</title>
 			<link rel="profile" href="http://microformats.org/profile/xoxo" />
 		</head>
 		<body>
-			<main id="main" rel="schema:mainContentOfPage" resource="#main">
+			<main id="main">
 				<!-- Do not delete the "*** ~~~ ***" comment. -->
 				<ul class="xoxo">
 				<!-- *** BEGIN-BOOKMARK-SECTION *** -->
@@ -337,132 +464,170 @@ htmlTemplate=$(
 			</main>
 		</body>
 	</html>
-	EOF
+	__EOF__
 )
 
-awkScript=$(
-	cat <<-'EOF'
+awkFunctionScript=$(
+	cat <<-'__EOF__'
+	function shell_argument(string) {
+		gsub(/'+/, "'\"&\"'", string)
+
+		return "'" string "'"
+	}
+
+	function shell_template(template, variables,  varargs,key,separator) {
+		varargs = ""
+
+		for(key in variables) {
+			varargs = sprintf("%s %s=%s;", varargs, key, shell_argument(variables[key]))
+		}
+
+		do {
+			separator = rand();
+		} while(!index(template, separetor))
+
+		return getline_result(sprintf("%s cat <<%s\n%s\n%s", varargs, separator, template, separator))
+	}
+
+	function getline_result(command,  tmpvar,result) {
+		result = ""
+
+		while(0 < (command | getline tmpvar)) {
+			result = result tmpvar "\n"
+		}
+
+		close(command)
+
+		return result
+	}
+	__EOF__
+)
+
+awkAddSectionScript=$(
+	cat <<-'__EOF__'
 	BEGIN {
-		RS = "\003"
-
-		escapedUri = htmlEscape(uri)
-		escapedTitle = htmlEscape(title)
-		escapedDescription = htmlEscape(description)
-		escapedFeedTitle = htmlEscape(feedTitle)
-
-		beginBookmarkSymbol = "<!-- *** BEGIN-BOOKMARK-SECTION *** -->"
-		endBookmarkSymbol = "<!-- *** END-BOOKMARK-SECTION *** -->"
-		beginSectionSymbol = sprintf("<!-- *** BEGIN-SECTION: \"%s\" *** -->", hyphenEscape(escapedFeedTitle))
-		endSectionSymbol = "<!-- *** END-SECTION *** -->"
-		beginListSymbol = "<!-- *** BEGIN-LIST *** -->"
-		endListSymbol = "<!-- *** END-LIST *** -->"
-		beginItemSymbol = sprintf("<!-- *** BEGIN-ITEM: \"%s\" *** -->", hyphenEscape(escapedUri))
-		endItemSymbol = "<!-- *** END-ITEM *** -->"
-
-		sprintf("uri='%s'; title='%s'; description='%s'; feedTitle='%s'; rowUri='%s'; rowTitle='%s'; rowDescription='%s'; rowFeedTitle='%s'; cat <<%s\n%s\n%s", escapedUri, escapedTitle, escapedDescription, escapedFeedTitle, uri, title, description, feedTitle, RS, itemTemplate, RS) | getline item
-
-		item = beginItemSymbol substr(item, 1, length(item) - 1) endItemSymbol
-	}
-
-	function htmlEscape(string) {
-		gsub(/&/, "\\&amp;", string)
-		gsub(/</, "\\&lt;", string)
-		gsub(/>/, "\\&gt;", string)
-		gsub(/"/, "\\&quot;", string)
-		gsub(/'/, "\\&#39;", string)
-
-		return string
-	}
-
-	function hyphenEscape(string) {
-		gsub(/-/, "\\&#45;", string)
-
-		return string
-	}
-
-	function regexpEscspe(string) {
-		gsub(/[$(){}\[\]|*+?]/, "\\\\&", string)
-
-		return string
-	}
-
-	function fsub(string, replacement, target) {
-		string = regexpEscspe(string)
-		gsub(/&/, "\\\\&", replacement)
-		sub(string, replacement, target)
-
-		return target
+		section_flag = 0
+		variables["feed_title"] = feed_title
 	}
 
 	{
-		html = $0
-	}
+		recode = $0
 
-	removeFlag || !duplicateFlag {
-		while(start = index(html, beginItemSymbol)) {
-			html = substr(html, 1, start - 1) substr(html, start - 1 + index(substr(html, start), endItemSymbol) + length(endItemSymbol))
+		if(recode == ENVIRON["ADDBOOKMARK_BEGIN_SECTION_SYMBOL"]) {
+			section_flag = 1
+		} else if(!section_flag && recode == ENVIRON["ADDBOOKMARK_END_BOOKMARK_SYMBOL"]) {
+			printf("%s\n%s%s\n", ENVIRON["ADDBOOKMARK_BEGIN_SECTION_SYMBOL"], shell_template(ENVIRON["ADDBOOKMARK_SECTION_TEMPLATE"], variables), ENVIRON["ADDBOOKMARK_END_SECTION_SYMBOL"])
 		}
+
+		printf("%s\n", recode)
+	}
+	__EOF__
+)
+
+awkAddItemScript=$(
+	cat <<-'__EOF__'
+	BEGIN {
+		section_flag = 0
+		list_flag = 0
+
+		variables["uri"] = uri
+		variables["title"] = title
+		variables["description"] = description
+		variables["feed_title"] = feed_title
+
+		item = ENVIRON["ADDBOOKMARK_BEGIN_ITEM_SYMBOL"] "\n" shell_template(item_template, variables) ENVIRON["ADDBOOKMARK_END_ITEM_SYMBOL"]
 	}
 
-	!index(html, beginSectionSymbol) {
-		sprintf("feedTitle='%s'; rowFeedTitle='%s'; items='%s'; cat <<%s\n%s\n%s", escapedFeedTitle, feedTitle, beginListSymbol endListSymbol, RS, sectionTemplate, RS) | getline section
+	{
+		recode = $0
 
-		section = beginSectionSymbol substr(section, 1, length(section) - 1) endSectionSymbol
+		if(recode == ENVIRON["ADDBOOKMARK_BEGIN_ITEM_SYMBOL"] && !duplicate_flag) {
+			while((0 < (getline recode)) && (recode != ENVIRON["ADDBOOKMARK_END_ITEM_SYMBOL"])) {}
 
-		if(bottomFlag) {
-			html = fsub(endBookmarkSymbol, section endBookmarkSymbol, html)
+			next
+		}
+
+		if(recode == ENVIRON["ADDBOOKMARK_BEGIN_SECTION_SYMBOL"] && !section_flag) {
+			section_flag = 1
+		} else if(recode == ENVIRON["ADDBOOKMARK_BEGIN_LIST_SYMBOL"] && section_flag && !list_flag) {
+			list_flag = 1
+
+			if(position == "top") {
+				recode = recode "\n" item
+			}
+		} else if(recode == ENVIRON["ADDBOOKMARK_END_LIST_SYMBOL"] && list_flag) {
+			list_flag = 0
+
+			if(position == "bottom") {
+				recode = item "\n" recode
+			}
+		} else if(recode == ENVIRON["ADDBOOKMARK_END_SECTION_SYMBOL"] && !list_flag && section_flag) {
+			section_flag = 0
+		}
+
+		printf("%s\n", recode)
+	}
+	__EOF__
+)
+
+awkRemoveSectionScript=$(
+	cat <<-'__EOF__'
+	BEGIN {
+		section_flag = 0
+		list_flag = 0
+		nonempty_flag = 0
+	}
+
+	{
+		recode = $0
+
+		if(section_flag) {
+			if(recode == ENVIRON["ADDBOOKMARK_END_SECTION_SYMBOL"]) {
+				section_flag = 0
+
+				if(nonempty_flag) {
+					printf("%s\n", output recode)
+				}
+
+				nonempty_flag = 0
+			} else if(recode == ENVIRON["ADDBOOKMARK_BEGIN_LIST_SYMBOL"]) {
+				output = output recode "\n"
+
+				while(0 < (getline recode)) {
+					output = output recode "\n"
+
+					if(recode == ENVIRON["ADDBOOKMARK_END_LIST_SYMBOL"]) {
+						break
+					} else if(recode !~ /^[\t ]*$/) {
+						nonempty_flag = 1
+					}
+				}
+			} else {
+				output = output recode "\n"
+			}
 		} else {
-			html = fsub(beginBookmarkSymbol, beginBookmarkSymbol section, html)
+			if(recode == ENVIRON["ADDBOOKMARK_BEGIN_SECTION_SYMBOL"]) {
+				section_flag = 1
+
+				output = recode "\n"
+			} else {
+				printf("%s\n", recode)
+			}
 		}
 	}
-
-	!removeFlag {
-		start = index(html, beginSectionSymbol)
-		len = length(beginSectionSymbol)
-		end = start + len + index(substr(html, start + len), endSectionSymbol) + length(endSectionSymbol) - 1
-		section = substr(html, start, end - start)
-
-		html = \
-			substr(html, 1, start - 1) \
-			(bottomFlag ? \
-				fsub(endListSymbol, item endListSymbol, section) : \
-				fsub(beginListSymbol, beginListSymbol item, section) \
-			) \
-			substr(html, end)
-	}
-
-	purgeFlag {
-		tmpHtml = ""
-
-		while(match(html, /<!-- \*\*\* BEGIN-SECTION: "[^<]*" \*\*\* -->/)) {
-			start = RSTART
-			end = start + RLENGTH + index(substr(html, start + RLENGTH), endSectionSymbol) + length(endSectionSymbol) - 1
-			section = substr(html, start, end - start)
-
-			tmpHtml = tmpHtml \
-				substr(html, 1, start - 1) \
-				(match(section, regexpEscspe(beginListSymbol) "[\t\n\v\r ]*" regexpEscspe(endListSymbol)) ? \
-					"" : \
-					substr(html, start, end - start) \
-				)
-			html = substr(html, end)
-		}
-
-		html = tmpHtml html
-	}
-
-	END {
-		printf("%s", html)
-	}
-	EOF
+	__EOF__
 )
 
 tmpDir=$(mktemp -d)
 tmpFile="${tmpDir}/file"
 
-if [ '!' -e "${bookmarkFile}" ]; then
-	bookmarkDir=$(dirname -- "${bookmarkFile}"; printf '$')
-	mkdir -p -- "${bookmarkDir%?$}"
+if [ -d "${bookmarkFile}" ]; then
+	printf "'%s' is directory.\\n" "${bookmarkFile}" >&2
+
+	end_call "${EX_CANTCREAT}"
+elif [ '!' -e "${bookmarkFile}" ]; then
+	bookmarkDir=$(dirname -- "${bookmarkFile}"; printf '_')
+	mkdir -p -- "${bookmarkDir%?_}"
 
 	: >"${bookmarkFile}"
 fi
@@ -471,25 +636,68 @@ if [ '!' -s "${bookmarkFile}" ]; then
 	printf '%s' "${htmlTemplate}" >"${bookmarkFile}"
 fi
 
-awkv_escape 'uri' "${1}"
-awkv_escape 'title' "${2:-${1}}"
-awkv_escape 'description' "${3-}"
-awkv_escape 'feedTitle' "${4:-Unsorted Bookmarks}"
-awkv_escape 'itemTemplate' "${itemTemplate}"
-awkv_escape 'sectionTemplate' "${sectionTemplate}"
+case "${#}" in
+	'0')
+		${VISUAL:-${EDITOR:-vi --}} "${bookmarkFile}"
 
-awk \
+		exit
+		;;
+esac
+
+safe_string 'uri' "${1}"
+safe_string 'title' "${2:-${1}}"
+safe_string 'description' "${3-}"
+safe_string 'feedTitle' "${4:-Unsorted Bookmarks}"
+safe_string 'itemTemplate' "${itemTemplate}"
+
+html_escape 'uri' "${uri}"
+html_escape 'title' "${title}"
+html_escape 'description' "${description}"
+html_escape 'feedTitle' "${feedTitle}"
+
+comment_escape 'commentURI' "${uri}"
+comment_escape 'commentFeedTitle' "${feedTitle}"
+
+: ${ADDBOOKMARK_BEGIN_BOOKMARK_SYMBOL:='<!-- *** BEGIN-BOOKMARK-SECTION *** -->'}
+: ${ADDBOOKMARK_END_BOOKMARK_SYMBOL:='<!-- *** END-BOOKMARK-SECTION *** -->'}
+: ${ADDBOOKMARK_SECTION_TEMPLATE:="$(printf '<li>${feed_title}\n<ul>\n${ADDBOOKMARK_BEGIN_LIST_SYMBOL}\n${ADDBOOKMARK_END_LIST_SYMBOL}\n</ul>\n</li>')"}
+
+ADDBOOKMARK_BEGIN_SECTION_SYMBOL=$(printf "${ADDBOOKMARK_BEGIN_SECTION_SYMBOL:-<!-- *** BEGIN-SECTION: \"%s\" *** -->}" "${commentFeedTitle}")
+ADDBOOKMARK_END_SECTION_SYMBOL=$(printf "${ADDBOOKMARK_END_SECTION_SYMBOL:-<!-- *** END-SECTION *** -->}" "${commentFeedTitle}")
+ADDBOOKMARK_BEGIN_LIST_SYMBOL=$(printf "${ADDBOOKMARK_BEGIN_LIST_SYMBOL:-<!-- *** BEGIN-LIST *** -->}" "${commentFeedTitle}")
+ADDBOOKMARK_END_LIST_SYMBOL=$(printf "${ADDBOOKMARK_END_LIST_SYMBOL:-<!-- *** END-LIST *** -->}" "${commentFeedTitle}")
+ADDBOOKMARK_BEGIN_ITEM_SYMBOL=$(printf "${ADDBOOKMARK_BEGIN_ITEM_SYMBOL:-<!-- *** BEGIN-ITEM: \"%s\" *** -->}" "${commentURI}")
+ADDBOOKMARK_END_ITEM_SYMBOL=$(printf "${ADDBOOKMARK_END_ITEM_SYMBOL:-<!-- *** END-ITEM *** -->}" "${commentURI}")
+
+export \
+	'ADDBOOKMARK_BEGIN_BOOKMARK_SYMBOL' 'ADDBOOKMARK_END_BOOKMARK_SYMBOL' \
+	'ADDBOOKMARK_BEGIN_SECTION_SYMBOL' 'ADDBOOKMARK_END_SECTION_SYMBOL' \
+	'ADDBOOKMARK_BEGIN_LIST_SYMBOL' 'ADDBOOKMARK_END_LIST_SYMBOL' \
+	'ADDBOOKMARK_BEGIN_ITEM_SYMBOL' 'ADDBOOKMARK_END_ITEM_SYMBOL' \
+	'ADDBOOKMARK_SECTION_TEMPLATE'
+
+awkv_escape 'uri' "${uri}"
+awkv_escape 'title' "${title}"
+awkv_escape 'description' "${description}"
+awkv_escape 'feedTitle' "${feedTitle}"
+awkv_escape 'itemTemplate' "${itemTemplate}"
+
+case "${position}" in
+	'none') cat -- "${bookmarkFile}";;
+	*) awk -v "feed_title=${feedTitle}" -- "${awkFunctionScript}${awkAddSectionScript}" "${bookmarkFile}";;
+esac | awk \
 	-v "uri=${uri}" \
 	-v "title=${title}"  \
 	-v "description=${description}" \
-	-v "feedTitle=${feedTitle}" \
-	-v "bottomFlag=${bottomFlag}" \
-	-v "duplicateFlag=${duplicateFlag}" \
-	-v "purgeFlag=${purgeFlag}" \
-	-v "removeFlag=${removeFlag}" \
-	-v "itemTemplate=${itemTemplate}" \
-	-v "sectionTemplate=${sectionTemplate}" \
-	-- "${awkScript}" "${bookmarkFile}" \
-	>"${tmpFile}"
+	-v "feed_title=${feedTitle}" \
+	-v "item_template=${itemTemplate}" \
+	-v "position=${position}" \
+	-v "duplicate_flag=${duplicateFlag}" \
+	-v "empty_section_flag=${emptySectionFlag}" \
+	-- "${awkFunctionScript}${awkAddItemScript}" \
+| case "${emptySectionFlag}" in
+	'1') cat;;
+	*) awk -- "${awkRemoveSectionScript}";;
+esac >"${tmpFile}"
 
 cat -- "${tmpFile}" >"${bookmarkFile}"

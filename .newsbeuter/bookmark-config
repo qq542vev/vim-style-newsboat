@@ -14,8 +14,8 @@
 ##
 ##   id - e72757a0-1028-4c21-bde0-5005da209e5d
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 1.0.0
-##   date - 2022-02-24
+##   version - 1.0.1
+##   date - 2022-09-28
 ##   since - 2022-02-24
 ##   copyright - Copyright (C) 2022 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -37,7 +37,7 @@
 #
 # bookmark-cmd ""
 
-bookmark-cmd "addbookmark.sh --purge"
+bookmark-cmd "addbookmark.sh --"
 
 ####  bookmark-interactive
 #
