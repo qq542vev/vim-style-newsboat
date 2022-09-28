@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:.newsbeuter/filter",{5:"<div class=\"NDToolTip TFile LNewsbeuter\"><div class=\"TTSummary\">Filters for Newsbeuter.</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:.newsbeuter/filter",{3:"<div class=\"NDToolTip TFile LNewsbeuter\"><div class=\"TTSummary\">Filters for Newsbeuter.</div></div>"});

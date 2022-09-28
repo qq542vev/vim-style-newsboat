@@ -6,9 +6,9 @@
 ##
 ## Usage:
 ##
-##   (start code)
-##   include "~/.newsbeuter/macro"
-##   (end)
+## ------ Text ------
+## include "~/.newsbeuter/macro"
+## ------------------
 ##
 ## Metadata:
 ##

@@ -6,9 +6,9 @@
 ##
 ## Usage:
 ##
-##   (start code)
-##   include "~/.newsbeuter/filter"
-##   (end)
+## ------ Text ------
+## include "~/.newsbeuter/filter"
+## ------------------
 ##
 ## Metadata:
 ##

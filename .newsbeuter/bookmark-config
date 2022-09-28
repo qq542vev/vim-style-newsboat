@@ -6,9 +6,9 @@
 ##
 ## Usage:
 ##
-##   (start code)
-##   include "~/.newsbeuter/bookmark-config"
-##   (end)
+## ------ Text ------
+## include "~/.newsbeuter/bookmark-config"
+## ------------------
 ##
 ## Metadata:
 ##

@@ -1,1 +1,1 @@
-﻿NDFramePage.OnPageTitleLoaded("File:.newsboat/keymap","keymap");NDSummary.OnSummaryLoaded("File:.newsboat/keymap",[["Newsboat","Newsboat"]],[["Files","File"]],[[14,0,0,"keymap","keymap"]]);
+﻿NDFramePage.OnPageTitleLoaded("File:.newsboat/keymap","keymap");NDSummary.OnSummaryLoaded("File:.newsboat/keymap",[["Newsboat","Newsboat"]],[["Files","File"]],[[19,0,0,"keymap","keymap"]]);

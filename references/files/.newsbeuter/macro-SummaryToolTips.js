@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:.newsbeuter/macro",{1:"<div class=\"NDToolTip TFile LNewsbeuter\"><div class=\"TTSummary\">Macros for Newsbeuter.</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:.newsbeuter/macro",{6:"<div class=\"NDToolTip TFile LNewsbeuter\"><div class=\"TTSummary\">Macros for Newsbeuter.</div></div>"});

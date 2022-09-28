@@ -6,9 +6,9 @@
 ##
 ## Usage:
 ##
-##   (start code)
-##   include "~/.newsboat/bookmark-config"
-##   (end)
+## ------ Text ------
+## include "~/.newsboat/bookmark-config"
+## ------------------
 ##
 ## Metadata:
 ##

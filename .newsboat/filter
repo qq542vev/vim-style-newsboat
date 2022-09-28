@@ -6,9 +6,9 @@
 ##
 ## Usage:
 ##
-##   (start code)
-##   include "~/.newsboat/filter"
-##   (end)
+## ------ Text ------
+## include "~/.newsboat/filter"
+## ------------------
 ##
 ## Metadata:
 ##

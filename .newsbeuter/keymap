@@ -6,9 +6,9 @@
 ##
 ## Usage:
 ##
-##   (start code)
-##   include "~/.newsbeuter/keymap"
-##   (end)
+## ------ Text ------
+## include "~/.newsbeuter/keymap"
+## ------------------
 ##
 ## Metadata:
 ##

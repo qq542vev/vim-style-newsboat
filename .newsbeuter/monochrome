@@ -6,9 +6,9 @@
 ##
 ## Usage:
 ##
-##   (start code)
-##   include "~/.newsbeuter/monochrome"
-##   (end)
+## ------ Text ------
+## include "~/.newsbeuter/monochrome"
+## ------------------
 ##
 ## Metadata:
 ##

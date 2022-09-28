@@ -2,6 +2,12 @@
 
 ### File: urls
 ##
+## Usage:
+##
+## ------ Text ------
+## newsbeuter -u ~/.newsbeuter/urls
+## ------------------
+##
 ## URLs for Newsbeuter.
 ##
 ## Metadata:
