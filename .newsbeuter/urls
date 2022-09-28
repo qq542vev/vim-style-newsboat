@@ -2,13 +2,13 @@
 
 ### File: urls
 ##
+## URLs for Newsbeuter.
+##
 ## Usage:
 ##
 ## ------ Text ------
 ## newsbeuter -u ~/.newsbeuter/urls
 ## ------------------
-##
-## URLs for Newsbeuter.
 ##
 ## Metadata:
 ##
