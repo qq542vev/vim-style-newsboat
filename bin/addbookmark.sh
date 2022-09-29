@@ -58,6 +58,8 @@
 ##   143 - received SIGTERM
 ## ------------------
 
+version='addbookmark.sh 3.0.0'
+
 set -efu
 umask '0022'
 IFS=$(printf ' \t\n_'); IFS="${IFS%_}"
@@ -228,7 +230,7 @@ parser_definition() {
 	param bookmarkFile     -f --file               init:'bookmarkFile="${HOME}/bookmark.html"' var:FILE -- 'ブックマークファイルを指定する'
 	param position         -p --position           init:='bottom' pattern:'bottom | none | top' var:"'bottom' | 'none' | 'top'" -- 'ブックマークアイテムを追加する位置を指定する'
 	disp  :usage           -h --help -- 'このヘルプを表示して終了する'
-	disp  :version         -v --version -- 'バージョン情報を表示して終了する'
+	disp  version         -v --version -- 'バージョン情報を表示して終了する'
 
 	msg -- '' 'Exit Status:' \
 		'    0 - successful termination' \
@@ -357,7 +359,7 @@ parse() {
         usage
         exit 0 ;;
       '-v'|'--version')
-        version
+        echo "${version}"
         exit 0 ;;
       --)
         shift
