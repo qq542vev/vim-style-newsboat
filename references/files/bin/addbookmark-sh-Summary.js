@@ -1,1 +1,1 @@
-﻿NDFramePage.OnPageTitleLoaded("File:bin/addbookmark.sh","addbookmark.sh");NDSummary.OnSummaryLoaded("File:bin/addbookmark.sh",[["ShellScript","ShellScript"]],[["Files","File"]],[[16,0,0,"addbookmark.sh","addbookmark.sh"]]);
+﻿NDFramePage.OnPageTitleLoaded("File:bin/addbookmark.sh","addbookmark.sh");NDSummary.OnSummaryLoaded("File:bin/addbookmark.sh",[["ShellScript","ShellScript"]],[["Files","File"]],[[4,0,0,"addbookmark.sh","addbookmark.sh"]]);

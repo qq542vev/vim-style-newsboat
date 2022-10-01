@@ -8,7 +8,7 @@
 ##
 ##   author - <qq542vev at https://purl.org/meta/me/>
 ##   version - 3.0.0
-##   date - 2022-09-28
+##   date - 2022-10-01
 ##   since - 2021-09-09
 ##   copyright - Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -229,7 +229,7 @@ parser_definition() {
 	flag  emptySectionFlag -e --{no-}empty-section init:@no -- '空のセクションを許容する'
 	param bookmarkFile     -f --file               init:'bookmarkFile="${HOME}/bookmark.html"' var:FILE -- 'ブックマークファイルを指定する'
 	param position         -p --position           init:='bottom' pattern:'bottom | none | top' var:"'bottom' | 'none' | 'top'" -- 'ブックマークアイテムを追加する位置を指定する'
-	disp  :usage           -h --help -- 'このヘルプを表示して終了する'
+	disp  :usage           -h --help    -- 'このヘルプを表示して終了する'
 	disp  VERSION          -v --version -- 'バージョン情報を表示して終了する'
 
 	msg -- '' 'Exit Status:' \
