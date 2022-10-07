@@ -60,10 +60,31 @@
 
 readonly VERSION='addbookmark.sh 3.0.0'
 
+readonly 'EX_OK=0'           # successful termination
+readonly 'EX__BASE=64'       # base value for error messages
+
+readonly 'EX_USAGE=64'       # command line usage error
+readonly 'EX_DATAERR=65'     # data format error
+readonly 'EX_NOINPUT=66'     # cannot open input
+readonly 'EX_NOUSER=67'      # addressee unknown
+readonly 'EX_NOHOST=68'      # host name unknown
+readonly 'EX_UNAVAILABLE=69' # service unavailable
+readonly 'EX_SOFTWARE=70'    # internal software error
+readonly 'EX_OSERR=71'       # system error (e.g., can't fork)
+readonly 'EX_OSFILE=72'      # critical OS file missing
+readonly 'EX_CANTCREAT=73'   # can't create (user) output file
+readonly 'EX_IOERR=74'       # input/output error
+readonly 'EX_TEMPFAIL=75'    # temp failure; user is invited to retry
+readonly 'EX_PROTOCOL=76'    # remote error in protocol
+readonly 'EX_NOPERM=77'      # permission denied
+readonly 'EX_CONFIG=78'      # configuration error
+
+readonly 'EX__MAX=78'        # maximum listed value
+
 set -efu
 umask '0022'
-IFS=$(printf ' \t\n_'); IFS="${IFS%_}"
 LC_ALL='C'
+IFS=$(printf ' \t\n_'); IFS="${IFS%_}"
 PATH="${PATH-}${PATH:+:}$(command -p getconf 'PATH')"
 UNIX_STD='2003' # HP-UX POSIX mode
 XPG_SUS_ENV='ON' # AIX POSIX mode
@@ -72,39 +93,74 @@ POSIXLY_CORRECT='1' # GNU Coreutils POSIX mode
 COMMAND_MODE='unix2003' # macOS UNIX 03 mode
 export 'IFS' 'LC_ALL' 'PATH' 'UNIX_STD' 'XPG_SUS_ENV' 'XPG_UNIX98' 'POSIXLY_CORRECT' 'COMMAND_MODE'
 
-# See also </usr/include/sysexits.h>
-readonly 'EX_USAGE=64'       # command line usage error
-readonly 'EX_SOFTWARE=70'    # internal software error
-readonly 'EX_CANTCREAT=73'   # can't create (user) output file
-
-trap 'end_call $(case "${?}" in [!0]*) echo "${EX_SOFTWARE}";; esac)' 0 # EXIT
-trap 'end_call 129' 1 # SIGHUP
-trap 'end_call 130' 2 # SIGINT
-trap 'end_call 131' 3 # SIGQUIT
+trap 'case "${?}" in 0) end_call;; *) end_call "${EX_SOFTWARE}";; esac' 0 # EXIT
+trap 'end_call 129' 1  # SIGHUP
+trap 'end_call 130' 2  # SIGINT
+trap 'end_call 131' 3  # SIGQUIT
 trap 'end_call 143' 15 # SIGTERM
+
+### Function: end_call
+##
+## 一時ディレクトリを削除しスクリプトを終了する。
+##
+## Parameters:
+##
+##   $1 - 終了ステータス。
+##
+## Returns:
+##
+##   $1 の終了ステータス。
 
 end_call() {
 	trap '' 0 # EXIT
-	rm -fr -- ${tmpDir+"${tmpDir}"}
+	rm -fr -- ${tmpDir:+"${tmpDir}"}
 	exit "${1:-0}"
 }
 
+### Function: option_error
+##
+## エラーメッセージを出力する。
+##
+## Parameters:
+##
+##   $1 - エラーメッセージ。
+##
+## Returns:
+##
+##   終了コード64。
+
 option_error() {
-	printf '%s\n' "${1}" >&2
+	printf '%s: %s\n' "${0##*/}" "${1}" >&2
+	printf "詳細については '%s' を実行してください。\\n" "${0##*/} --help" >&2
 
 	end_call "${EX_USAGE}"
 }
 
-# https://qiita.com/ko1nksm/items/a22c0ce88e39c9f2dcb0
+### Function: awkv_escape
+##
+## 文字列内の AWK 特殊文字をエスケープする。
+##
+## Parameters:
+##
+##   $1 - 結果を代入する変数名。
+##   $2 - エスケープする文字列。
+##
+## See Also:
+##
+##   * <4.2 POSIX 準拠シェル 用 at https://qiita.com/ko1nksm/items/a22c0ce88e39c9f2dcb0#42-posix-%E6%BA%96%E6%8B%A0%E3%82%B7%E3%82%A7%E3%83%AB-%E7%94%A8>
 
 awkv_escape() {
-	set -- "$1" "$2\\" ""
-	while [ "$2" ]; do
-		set -- "$1" "${2#*\\}" "$3${2%%\\*}\\\\"
+	set -- "${1}" "${2}" ''
+	until [ "${2#*\\}" '=' "${2}" ]; do
+		set -- "${1}" "${2#*\\}" "${3}${2%%\\*}\\\\"
 	done
-	set -- "$1" "${3%??}"
-	case $2 in (@*) set -- "$1" "\\100${2#?}"; esac
-	eval "$1=\$2"
+
+	set -- "${1}" "${3}${2}"
+	case "${2}" in
+		@*) set -- "${1}" "\\100${2#?}";;
+	esac
+
+	eval "${1}=\${2}"
 }
 
 # $1: ret, $2: value, $3: from, $4: to
@@ -188,9 +244,28 @@ replace_multiple() {
 	done
 }
 
+### Function: html_escape
+##
+## 文字列内の HTML 特殊文字を実態参照に変換する。
+##
+## Parameters:
+##
+##   $1 - 結果を代入する変数名。
+##   $2 - 実態参照に変換する文字列。
+
 html_escape() {
 	replace_multiple "${1}" "${2}" '&' '&amp;' '<' '&lt;' '>' '&gt;' "'" '&#39;' '"' '&quot;'
 }
+
+### Function: remove_control_character
+##
+## 文字列内の C0, C1 制御文字を削除する。
+##
+## Parameters:
+##
+##   $1 - 結果を代入する変数名。
+##   $2 - 対象の文字列。
+##   $3 - 除外する制御文字。
 
 remove_control_character() {
 	set -- "${1}" "${2}" "${3}" "$(printf '\000\001\002\003\004\005\006\007\010\011\012\013\014\015\016\017\020\021\022\023\024\025\026\027\028\029\030\031\032\033\034\035\036\037\177\200\201\202\203\204\205\206\207\210\211\212\213\214')"
@@ -210,9 +285,27 @@ remove_control_character() {
 	eval 'replace_multiple "${1}" "${2}"' "${4}"
 }
 
+### Function: safe_string
+##
+## 文字列内の水平タブ、改行、復帰以外の制御文字を削除する。
+##
+## Parameters:
+##
+##   $1 - 結果を代入する変数名。
+##   $2 - 対象の文字列。
+
 safe_string() {
 	remove_control_character "${1}" "${2}" "$(printf '\t\n\r')"
 }
+
+### Function: comment_escape
+##
+## 文字列内の改行文字、ハイフンを文字参照に変換する。
+##
+## Parameters:
+##
+##   $1 - 結果を代入する変数名。
+##   $2 - 対象の文字列。
 
 comment_escape() {
 	replace_multiple "${1}" "${2}" '
