@@ -1,1 +1,1 @@
-﻿NDSearch.OnPrefixIndexLoaded(["add","boo","col","fil","ja","jbo","key","mac","md","mon","rea","sh","url"]);
+﻿NDSearch.OnPrefixIndexLoaded(["add","awk","boo","col","com","end","fil","htm","ja","jbo","key","mac","md","mon","opt","rea","rem","saf","sh","url"]);

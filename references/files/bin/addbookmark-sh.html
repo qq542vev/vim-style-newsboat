@@ -13,4 +13,43 @@
  <div class="CBody"><p>Add a bookmark.</p><div class="CHeading">Metadata</div><table class="CDefinitionList"><tr><td class="CDLEntry">author</td><td class="CDLDefinition"><p><a href="https://purl.org/meta/me/" target="_top">qq542vev</a></p></td></tr><tr><td class="CDLEntry">version</td><td class="CDLDefinition"><p>3.0.0</p></td></tr><tr><td class="CDLEntry">date</td><td class="CDLDefinition"><p>2022-10-01</p></td></tr><tr><td class="CDLEntry">since</td><td class="CDLDefinition"><p>2021-09-09</p></td></tr><tr><td class="CDLEntry">copyright</td><td class="CDLDefinition"><p>Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.</p></td></tr><tr><td class="CDLEntry">license</td><td class="CDLDefinition"><p><a href="https://creativecommons.org/licenses/by/4.0/" target="_top">CC-BY</a></p></td></tr><tr><td class="CDLEntry">package</td><td class="CDLDefinition"><p>vim-style-newsboat</p></td></tr></table><div class="CHeading">See Also</div><ul><li><p><a href="https://github.com/qq542vev/vim-style-newsboat" target="_top">Project homepage</a></p></li><li><p><a href="https://github.com/qq542vev/vim-style-newsboat/issues" target="_top">Bag report</a></p></li></ul><div class="CHeading">Help Output</div><pre class="CText">Usage:<br />  addbookmark.sh [URL] [TITLE] [DESCRIPTION] [SECTION_NAME]<br /><br />Options:<br />  -d,     --{no-}duplicate    重複を許容する<br />  -e,     --{no-}empty-section<br />                              空のセクションを許容する<br />  -f,     --file FILE         ブックマークファイルを指定する<br />  -p,     --position 'bottom' | 'none' | 'top'<br />                              ブックマークアイテムを追加する位置を指定する<br />  -h,     --help              このヘルプを表示して終了する<br />  -v,     --version           バージョン情報を表示して終了する<br /><br />Exit Status:<br />    0 - successful termination<br />   64 - command line usage error<br />   65 - data format error<br />   66 - cannot open input<br />   67 - addressee unknown<br />   68 - host name unknown<br />   69 - service unavailable<br />   70 - internal software error<br />   71 - system error (e.g., can't fork)<br />   72 - critical OS file missing<br />   73 - can't create (user) output file<br />   74 - input/output error<br />   75 - temp failure; user is invited to retry<br />   76 - remote error in protocol<br />   77 - permission denied<br />   78 - configuration error<br />  129 - received SIGHUP<br />  130 - received SIGINT<br />  131 - received SIGQUIT<br />  143 - received SIGTERM</pre></div>
 </div>
 
+<a name="Functions"></a><a name="Topic16"></a><div class="CTopic TGroup LShellScript">
+ <div class="CTitle">Functions</div>
+</div>
+
+<a name="end_call"></a><a name="Topic20"></a><div class="CTopic TFunction LShellScript">
+ <div class="CTitle">end_call</div>
+ <div class="CBody"><p>一時ディレクトリを削除しスクリプトを終了する。</p><div class="CHeading">Parameters</div><table class="CDefinitionList"><tr><td class="CDLEntry">$1</td><td class="CDLDefinition"><p>終了ステータス。</p></td></tr></table><div class="CHeading">Returns</div><p>$1 の終了ステータス。</p></div>
+</div>
+
+<a name="option_error"></a><a name="Topic21"></a><div class="CTopic TFunction LShellScript">
+ <div class="CTitle">option_error</div>
+ <div class="CBody"><p>エラーメッセージを出力する。</p><div class="CHeading">Parameters</div><table class="CDefinitionList"><tr><td class="CDLEntry">$1</td><td class="CDLDefinition"><p>エラーメッセージ。</p></td></tr></table><div class="CHeading">Returns</div><p>終了コード64。</p></div>
+</div>
+
+<a name="awkv_escape"></a><a name="Topic22"></a><div class="CTopic TFunction LShellScript">
+ <div class="CTitle">awkv_escape</div>
+ <div class="CBody"><p>文字列内の AWK 特殊文字をエスケープする。</p><div class="CHeading">Parameters</div><table class="CDefinitionList"><tr><td class="CDLEntry">$1</td><td class="CDLDefinition"><p>結果を代入する変数名。</p></td></tr><tr><td class="CDLEntry">$2</td><td class="CDLDefinition"><p>エスケープする文字列。</p></td></tr></table><div class="CHeading">See Also</div><ul><li><p><a href="https://qiita.com/ko1nksm/items/a22c0ce88e39c9f2dcb0#42-posix-%E6%BA%96%E6%8B%A0%E3%82%B7%E3%82%A7%E3%83%AB-%E7%94%A8" target="_top">4.2 POSIX 準拠シェル 用</a></p></li></ul></div>
+</div>
+
+<a name="html_escape"></a><a name="Topic23"></a><div class="CTopic TFunction LShellScript">
+ <div class="CTitle">html_escape</div>
+ <div class="CBody"><p>文字列内の HTML 特殊文字を実態参照に変換する。</p><div class="CHeading">Parameters</div><table class="CDefinitionList"><tr><td class="CDLEntry">$1</td><td class="CDLDefinition"><p>結果を代入する変数名。</p></td></tr><tr><td class="CDLEntry">$2</td><td class="CDLDefinition"><p>実態参照に変換する文字列。</p></td></tr></table></div>
+</div>
+
+<a name="remove_control_character"></a><a name="Topic24"></a><div class="CTopic TFunction LShellScript">
+ <div class="CTitle">remove_control_character</div>
+ <div class="CBody"><p>文字列内の C0, C1 制御文字を削除する。</p><div class="CHeading">Parameters</div><table class="CDefinitionList"><tr><td class="CDLEntry">$1</td><td class="CDLDefinition"><p>結果を代入する変数名。</p></td></tr><tr><td class="CDLEntry">$2</td><td class="CDLDefinition"><p>対象の文字列。</p></td></tr><tr><td class="CDLEntry">$3</td><td class="CDLDefinition"><p>除外する制御文字。</p></td></tr></table></div>
+</div>
+
+<a name="safe_string"></a><a name="Topic25"></a><div class="CTopic TFunction LShellScript">
+ <div class="CTitle">safe_string</div>
+ <div class="CBody"><p>文字列内の水平タブ、改行、復帰以外の制御文字を削除する。</p><div class="CHeading">Parameters</div><table class="CDefinitionList"><tr><td class="CDLEntry">$1</td><td class="CDLDefinition"><p>結果を代入する変数名。</p></td></tr><tr><td class="CDLEntry">$2</td><td class="CDLDefinition"><p>対象の文字列。</p></td></tr></table></div>
+</div>
+
+<a name="comment_escape"></a><a name="Topic26"></a><div class="CTopic TFunction LShellScript last">
+ <div class="CTitle">comment_escape</div>
+ <div class="CBody"><p>文字列内の改行文字、ハイフンを文字参照に変換する。</p><div class="CHeading">Parameters</div><table class="CDefinitionList"><tr><td class="CDLEntry">$1</td><td class="CDLDefinition"><p>結果を代入する変数名。</p></td></tr><tr><td class="CDLEntry">$2</td><td class="CDLDefinition"><p>対象の文字列。</p></td></tr></table></div>
+</div>
+
 </body></html>
