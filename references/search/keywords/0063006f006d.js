@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("com",["Function"],[["comment_escape",,[[,,,,0,"File:bin/addbookmark.sh:comment_escape"]]]]);

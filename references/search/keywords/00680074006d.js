@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("htm",["Function"],[["html_escape",,[[,,,,0,"File:bin/addbookmark.sh:html_escape"]]]]);

@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("awk",["Function"],[["awkv_escape",,[[,,,,0,"File:bin/addbookmark.sh:awkv_escape"]]]]);

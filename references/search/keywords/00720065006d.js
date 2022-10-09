@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("rem",["Function"],[["remove_control_character",,[[,,,,0,"File:bin/addbookmark.sh:remove_control_character"]]]]);
