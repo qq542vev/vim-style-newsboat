@@ -58,7 +58,7 @@
 ##   143 - received SIGTERM
 ## ------------------
 
-readonly VERSION='addbookmark.sh 3.0.0'
+readonly 'VERSION=addbookmark.sh 3.0.0'
 
 set -efu
 umask '0022'
