@@ -60,6 +60,18 @@
 
 readonly VERSION='addbookmark.sh 3.0.0'
 
+set -efu
+umask '0022'
+LC_ALL='C'
+IFS=$(printf ' \t\n_'); IFS="${IFS%_}"
+PATH="${PATH-}${PATH:+:}$(command -p getconf 'PATH')"
+UNIX_STD='2003' # HP-UX POSIX mode
+XPG_SUS_ENV='ON' # AIX POSIX mode
+XPG_UNIX98='OFF' # AIX UNIX 03 mode
+POSIXLY_CORRECT='1' # GNU Coreutils POSIX mode
+COMMAND_MODE='unix2003' # macOS UNIX 03 mode
+export 'IFS' 'LC_ALL' 'PATH' 'UNIX_STD' 'XPG_SUS_ENV' 'XPG_UNIX98' 'POSIXLY_CORRECT' 'COMMAND_MODE'
+
 readonly 'EX_OK=0'           # successful termination
 readonly 'EX__BASE=64'       # base value for error messages
 
@@ -80,18 +92,6 @@ readonly 'EX_NOPERM=77'      # permission denied
 readonly 'EX_CONFIG=78'      # configuration error
 
 readonly 'EX__MAX=78'        # maximum listed value
-
-set -efu
-umask '0022'
-LC_ALL='C'
-IFS=$(printf ' \t\n_'); IFS="${IFS%_}"
-PATH="${PATH-}${PATH:+:}$(command -p getconf 'PATH')"
-UNIX_STD='2003' # HP-UX POSIX mode
-XPG_SUS_ENV='ON' # AIX POSIX mode
-XPG_UNIX98='OFF' # AIX UNIX 03 mode
-POSIXLY_CORRECT='1' # GNU Coreutils POSIX mode
-COMMAND_MODE='unix2003' # macOS UNIX 03 mode
-export 'IFS' 'LC_ALL' 'PATH' 'UNIX_STD' 'XPG_SUS_ENV' 'XPG_UNIX98' 'POSIXLY_CORRECT' 'COMMAND_MODE'
 
 trap 'case "${?}" in 0) end_call;; *) end_call "${EX_SOFTWARE}";; esac' 0 # EXIT
 trap 'end_call 129' 1  # SIGHUP
