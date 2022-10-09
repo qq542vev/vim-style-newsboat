@@ -23,7 +23,7 @@
 ##
 ## ------ Text ------
 ## Usage:
-##   addbookmark.sh [URL] [TITLE] [DESCRIPTION] [SECTION_NAME]
+##   addbookmark.sh [OPTION]... [URL] [TITLE] [DESCRIPTION] [SECTION_NAME]
 ##
 ## Options:
 ##   -d,     --{no-}duplicate    重複を許容する
@@ -315,7 +315,7 @@ comment_escape() {
 # @getoptions
 parser_definition() {
 	setup REST plus:true abbr:true error:option_error no:0 help:usage \
-		-- 'Usage:' "  ${2##*/} [URL] [TITLE] [DESCRIPTION] [SECTION_NAME]" \
+		-- 'Usage:' "  ${2##*/} [OPTION]... [URL] [TITLE] [DESCRIPTION] [SECTION_NAME]" \
 		'' 'Options:'
 
 	flag  duplicateFlag    -d --{no-}duplicate     init:@no -- '重複を許容する'
@@ -483,7 +483,7 @@ parse() {
 usage() {
 cat<<'GETOPTIONSHERE'
 Usage:
-  addbookmark.sh [URL] [TITLE] [DESCRIPTION] [SECTION_NAME]
+  addbookmark.sh [OPTION]... [URL] [TITLE] [DESCRIPTION] [SECTION_NAME]
 
 Options:
   -d,     --{no-}duplicate    重複を許容する
