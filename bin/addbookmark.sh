@@ -2,7 +2,7 @@
 
 ### Script: addbookmark.sh
 ##
-## Add a bookmark.
+## ブックマークを追加する。
 ##
 ## Metadata:
 ##
