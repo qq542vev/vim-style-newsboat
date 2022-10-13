@@ -1,1 +1,1 @@
-﻿NDFramePage.OnPageTitleLoaded("File:.newsbeuter/monochrome","monochrome");NDSummary.OnSummaryLoaded("File:.newsbeuter/monochrome",[["Newsbeuter","Newsbeuter"]],[["Files","File"]],[[2,0,0,"monochrome","monochrome"]]);
+﻿NDFramePage.OnPageTitleLoaded("File:.newsbeuter/monochrome","monochrome");NDSummary.OnSummaryLoaded("File:.newsbeuter/monochrome",[["Newsbeuter","Newsbeuter"]],[["Files","File"]],[[14,0,0,"monochrome","monochrome"]]);

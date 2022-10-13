@@ -1,1 +1,1 @@
-﻿NDFramePage.OnPageTitleLoaded("File:.newsboat/color","color");NDSummary.OnSummaryLoaded("File:.newsboat/color",[["Newsboat","Newsboat"]],[["Files","File"]],[[8,0,0,"color","color"]]);
+﻿NDFramePage.OnPageTitleLoaded("File:.newsboat/color","color");NDSummary.OnSummaryLoaded("File:.newsboat/color",[["Newsboat","Newsboat"]],[["Files","File"]],[[7,0,0,"color","color"]]);

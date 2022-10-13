@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:.newsbeuter/color",{1:"<div class=\"NDToolTip TFile LNewsbeuter\"><div class=\"TTSummary\">Color schemes for Newsbeuter.</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:.newsbeuter/color",{6:"<div class=\"NDToolTip TFile LNewsbeuter\"><div class=\"TTSummary\">Color schemes for Newsbeuter.</div></div>"});

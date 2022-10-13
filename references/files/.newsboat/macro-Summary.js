@@ -1,1 +1,1 @@
-﻿NDFramePage.OnPageTitleLoaded("File:.newsboat/macro","macro");NDSummary.OnSummaryLoaded("File:.newsboat/macro",[["Newsboat","Newsboat"]],[["Files","File"]],[[7,0,0,"macro","macro"]]);
+﻿NDFramePage.OnPageTitleLoaded("File:.newsboat/macro","macro");NDSummary.OnSummaryLoaded("File:.newsboat/macro",[["Newsboat","Newsboat"]],[["Files","File"]],[[13,0,0,"macro","macro"]]);

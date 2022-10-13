@@ -1,1 +1,1 @@
-﻿NDFramePage.OnPageTitleLoaded("File:.newsbeuter/urls","urls");NDSummary.OnSummaryLoaded("File:.newsbeuter/urls",[["Newsbeuter","Newsbeuter"]],[["Files","File"]],[[14,0,0,"urls","urls"]]);
+﻿NDFramePage.OnPageTitleLoaded("File:.newsbeuter/urls","urls");NDSummary.OnSummaryLoaded("File:.newsbeuter/urls",[["Newsbeuter","Newsbeuter"]],[["Files","File"]],[[1,0,0,"urls","urls"]]);

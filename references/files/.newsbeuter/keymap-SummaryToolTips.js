@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:.newsbeuter/keymap",{13:"<div class=\"NDToolTip TFile LNewsbeuter\"><div class=\"TTSummary\">Keymap for Newsbeuter.</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:.newsbeuter/keymap",{5:"<div class=\"NDToolTip TFile LNewsbeuter\"><div class=\"TTSummary\">Keymap for Newsbeuter.</div></div>"});

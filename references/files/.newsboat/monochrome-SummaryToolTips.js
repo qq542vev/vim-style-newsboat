@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:.newsboat/monochrome",{9:"<div class=\"NDToolTip TFile LNewsboat\"><div class=\"TTSummary\">Color schemes for Newsboat.</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:.newsboat/monochrome",{8:"<div class=\"NDToolTip TFile LNewsboat\"><div class=\"TTSummary\">Color schemes for Newsboat.</div></div>"});

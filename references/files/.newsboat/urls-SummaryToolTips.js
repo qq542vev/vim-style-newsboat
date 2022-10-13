@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:.newsboat/urls",{11:"<div class=\"NDToolTip TFile LNewsboat\"><div class=\"TTSummary\">URLs for Newsboat.</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:.newsboat/urls",{9:"<div class=\"NDToolTip TFile LNewsboat\"><div class=\"TTSummary\">URLs for Newsboat.</div></div>"});

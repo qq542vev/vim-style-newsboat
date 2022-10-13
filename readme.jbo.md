@@ -16,7 +16,7 @@
 	See Also:
 
 		* <Project homepage at https://github.com/qq542vev/vim-style-newsboat>
-		* <Bag report at https://github.com/qq542vev/vim-style-newsboat/issues>
+		* <Bug report at https://github.com/qq542vev/vim-style-newsboat/issues>
 -->
 
 # .i ni'o la'o .gy. Vim Style Newsboat .gy.

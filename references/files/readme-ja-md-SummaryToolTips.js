@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:readme.ja.md",{17:"<div class=\"NDToolTip TFile LMarkdown\"><div class=\"TTSummary\">Manual (Japanese) for Vim Style Newsboat.</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:readme.ja.md",{15:"<div class=\"NDToolTip TFile LMarkdown\"><div class=\"TTSummary\">Manual (Japanese) for Vim Style Newsboat.</div></div>"});

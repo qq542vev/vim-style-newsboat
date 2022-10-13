@@ -24,7 +24,7 @@
 ## See Also:
 ##
 ##   * <Project homepage at https://github.com/qq542vev/vim-style-newsboat>
-##   * <Bag report at https://github.com/qq542vev/vim-style-newsboat/issues>
+##   * <Bug report at https://github.com/qq542vev/vim-style-newsboat/issues>
 
 "query:Articles within 3 Days:age <= 2" "Query"
 "query:Unread Articles:unread = \"yes\"" "Query"

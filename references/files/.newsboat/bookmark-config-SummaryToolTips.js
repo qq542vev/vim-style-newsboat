@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:.newsboat/bookmark-config",{12:"<div class=\"NDToolTip TFile LNewsboat\"><div class=\"TTSummary\">Configuration for the bookmarking program for Newsboat.</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:.newsboat/bookmark-config",{11:"<div class=\"NDToolTip TFile LNewsboat\"><div class=\"TTSummary\">Configuration for the bookmarking program for Newsboat.</div></div>"});
