@@ -7,7 +7,7 @@
 ## Metadata:
 ##
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 3.0.0
+##   version - 3.0.1
 ##   date - 2022-10-01
 ##   since - 2021-09-09
 ##   copyright - Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.
@@ -30,7 +30,7 @@
 ##   -e,     --{no-}empty-section 
 ##                               空のセクションを許容する
 ##   -f,     --file FILE         ブックマークファイルを指定する
-##   -p,     --position 'bottom' | 'none' | 'top' 
+##   -p,     --position bottom | none | top 
 ##                               ブックマークアイテムを追加する位置を指定する
 ##   -h,     --help              このヘルプを表示して終了する
 ##   -v,     --version           バージョン情報を表示して終了する
@@ -58,7 +58,7 @@
 ##   143 - received SIGTERM
 ## ------------------
 
-readonly 'VERSION=addbookmark.sh 3.0.0'
+readonly 'VERSION=addbookmark.sh 3.0.1'
 
 set -efu
 umask '0022'
@@ -321,7 +321,7 @@ parser_definition() {
 	flag  duplicateFlag    -d --{no-}duplicate     init:@no -- '重複を許容する'
 	flag  emptySectionFlag -e --{no-}empty-section init:@no -- '空のセクションを許容する'
 	param bookmarkFile     -f --file               init:'bookmarkFile="${HOME}/bookmark.html"' var:FILE -- 'ブックマークファイルを指定する'
-	param position         -p --position           init:='bottom' pattern:'bottom | none | top' var:"'bottom' | 'none' | 'top'" -- 'ブックマークアイテムを追加する位置を指定する'
+	param position         -p --position           init:='bottom' pattern:'bottom | none | top' var:"bottom | none | top" -- 'ブックマークアイテムを追加する位置を指定する'
 	disp  :usage           -h --help    -- 'このヘルプを表示して終了する'
 	disp  VERSION          -v --version -- 'バージョン情報を表示して終了する'
 
@@ -490,7 +490,7 @@ Options:
   -e,     --{no-}empty-section 
                               空のセクションを許容する
   -f,     --file FILE         ブックマークファイルを指定する
-  -p,     --position 'bottom' | 'none' | 'top' 
+  -p,     --position bottom | none | top 
                               ブックマークアイテムを追加する位置を指定する
   -h,     --help              このヘルプを表示して終了する
   -v,     --version           バージョン情報を表示して終了する
