@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("she",["Function"],[["shell_argument",,[[,,,,0,"File:bin/addbookmark.sh:shell_argument"]]],["shell_heredoc",,[[,,,,0,"File:bin/addbookmark.sh:shell_heredoc"]]]]);

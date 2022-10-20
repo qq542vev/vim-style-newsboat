@@ -7,8 +7,8 @@
 ## Metadata:
 ##
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 3.0.1
-##   date - 2022-10-01
+##   version - 3.0.2
+##   date - 2022-10-20
 ##   since - 2021-09-09
 ##   copyright - Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -58,7 +58,7 @@
 ##   143 - received SIGTERM
 ## ------------------
 
-readonly 'VERSION=addbookmark.sh 3.0.1'
+readonly 'VERSION=addbookmark.sh 3.0.2'
 
 set -efu
 umask '0022'
@@ -321,7 +321,7 @@ parser_definition() {
 	flag  duplicateFlag    -d --{no-}duplicate     init:@no -- '重複を許容する'
 	flag  emptySectionFlag -e --{no-}empty-section init:@no -- '空のセクションを許容する'
 	param bookmarkFile     -f --file               init:'bookmarkFile="${HOME}/bookmark.html"' var:FILE -- 'ブックマークファイルを指定する'
-	param position         -p --position           init:='bottom' pattern:'bottom | none | top' var:"bottom | none | top" -- 'ブックマークアイテムを追加する位置を指定する'
+	param position         -p --position           init:='bottom' pattern:'bottom | none | top' var:'bottom | none | top' -- 'ブックマークアイテムを追加する位置を指定する'
 	disp  :usage           -h --help    -- 'このヘルプを表示して終了する'
 	disp  VERSION          -v --version -- 'バージョン情報を表示して終了する'
 
@@ -548,43 +548,88 @@ htmlTemplate=$(
 	</html>
 	__EOF__
 )
-
 awkFunctionScript=$(
 	cat <<-'__EOF__'
+	### Function: shell_argument
+	##
+	## 安全な Shell Script 用の引数を生成する。
+	##
+	## Parameters:
+	##
+	##   string - 引数となる文字列。
+	##
+	## Returns:
+	##
+	##   Shell Script 用の引数。
+
 	function shell_argument(string) {
 		gsub(/'+/, "'\"&\"'", string)
 
 		return "'" string "'"
 	}
 
-	function shell_template(template, variables,  varargs,key,separator) {
+	### Function: shell_heredoc
+	##
+	## ヒアドキュメントを展開し結果を取得する。
+	##
+	## Parameters:
+	##
+	##   heredoc - ヒアドキュメント。
+	##   variables - 変数の配列。
+	##   command - 呼び出しコマンド。
+	##
+	## Returns:
+	##
+	##   ヒアドキュメントを展開した文字列。
+
+	function shell_heredoc(heredoc, variables, command, varargs,name,delimiter,result) {
 		varargs = ""
 
-		for(key in variables) {
-			varargs = sprintf("%s %s=%s;", varargs, key, shell_argument(variables[key]))
+		if(command == "") {
+			command = "cat"
+		}
+
+		for(name in variables) {
+			varargs = varargs sprintf(" %s=%s;", name, shell_argument(variables[name]))
 		}
 
 		do {
-			separator = rand();
-		} while(!index(template, separetor))
+			delimiter = "SHELL_HERE_DOCUMENT_DELIMITER_" rand()
+		} while(index(heredoc, delimiter))
 
-		return getline_result(sprintf("%s cat <<%s\n%s\n%s", varargs, separator, template, separator))
+		getline_exec(sprintf("%s %s <<%s\n%s\n%s", varargs, command, delimiter, heredoc, delimiter), result)
+
+		return result["stdout"]
 	}
 
-	function getline_result(command,  tmpvar,result) {
-		result = ""
+	### Function: getline_exec
+	##
+	## コマンドの実行結果を取得する。
+	##
+	## Parameters:
+	##
+	##   string - 引数となる文字列。
+	##   result - 結果を代入する変数。
 
-		while(0 < (command | getline tmpvar)) {
-			result = result tmpvar "\n"
+	function getline_exec(command, result,  tmpvar,i) {
+		split("", result)
+
+		result["stdout"] = ""
+		command = sprintf("(\n%s\n)\n%s", command, "printf '%3d' \"${?}\"")
+
+		for(i = 1; 0 < (command | getline tmpvar); i++) {
+			result["stdout"] = result["stdout"] (i == 1 ? "" : "\n") tmpvar
 		}
 
 		close(command)
 
-		return result
+		result["status"] = substr(result["stdout"], length(result["stdout"]) - 2)
+		gsub(/ /, "", result["status"])
+
+		result["stdout"] = substr(result["stdout"], 1, length(result["stdout"]) - 3)
 	}
 	__EOF__
 )
-
 awkAddSectionScript=$(
 	cat <<-'__EOF__'
 	BEGIN {
@@ -598,14 +643,13 @@ awkAddSectionScript=$(
 		if(recode == ENVIRON["ADDBOOKMARK_BEGIN_SECTION_SYMBOL"]) {
 			section_flag = 1
 		} else if(!section_flag && recode == ENVIRON["ADDBOOKMARK_END_BOOKMARK_SYMBOL"]) {
-			printf("%s\n%s%s\n", ENVIRON["ADDBOOKMARK_BEGIN_SECTION_SYMBOL"], shell_template(ENVIRON["ADDBOOKMARK_SECTION_TEMPLATE"], variables), ENVIRON["ADDBOOKMARK_END_SECTION_SYMBOL"])
+			printf("%s\n%s%s\n", ENVIRON["ADDBOOKMARK_BEGIN_SECTION_SYMBOL"], shell_heredoc(ENVIRON["ADDBOOKMARK_SECTION_TEMPLATE"], variables), ENVIRON["ADDBOOKMARK_END_SECTION_SYMBOL"])
 		}
 
 		printf("%s\n", recode)
 	}
 	__EOF__
 )
-
 awkAddItemScript=$(
 	cat <<-'__EOF__'
 	BEGIN {
@@ -617,7 +661,7 @@ awkAddItemScript=$(
 		variables["description"] = description
 		variables["feed_title"] = feed_title
 
-		item = ENVIRON["ADDBOOKMARK_BEGIN_ITEM_SYMBOL"] "\n" shell_template(ENVIRON["ADDBOOKMARK_ITEM_TEMPLATE"], variables) ENVIRON["ADDBOOKMARK_END_ITEM_SYMBOL"]
+		item = ENVIRON["ADDBOOKMARK_BEGIN_ITEM_SYMBOL"] "\n" shell_heredoc(ENVIRON["ADDBOOKMARK_ITEM_TEMPLATE"], variables) ENVIRON["ADDBOOKMARK_END_ITEM_SYMBOL"]
 	}
 
 	{
@@ -651,7 +695,6 @@ awkAddItemScript=$(
 	}
 	__EOF__
 )
-
 awkRemoveSectionScript=$(
 	cat <<-'__EOF__'
 	BEGIN {
@@ -699,7 +742,6 @@ awkRemoveSectionScript=$(
 	}
 	__EOF__
 )
-
 tmpDir=$(mktemp -d)
 tmpFile="${tmpDir}/file"
 
@@ -718,19 +760,17 @@ if [ '!' -s "${bookmarkFile}" ]; then
 	printf '%s' "${htmlTemplate}" >"${bookmarkFile}"
 fi
 
-case "${#}" in
-	'0')
-		${VISUAL:-${EDITOR:-vi --}} "${bookmarkFile}"
+case "${#}" in '0')
+	${VISUAL:-${EDITOR:-vi --}} "${bookmarkFile}"
 
-		exit
-		;;
+	exit
+	;;
 esac
 
 safe_string 'uri' "${1}"
 safe_string 'title' "${2:-${1}}"
 safe_string 'description' "${3-}"
 safe_string 'feedTitle' "${4:-Unsorted Bookmarks}"
-safe_string 'itemTemplate' "${itemTemplate}"
 
 html_escape 'uri' "${uri}"
 html_escape 'title' "${title}"
@@ -772,7 +812,6 @@ esac | awk \
 	-v "title=${title}"  \
 	-v "description=${description}" \
 	-v "feed_title=${feedTitle}" \
-	-v "item_template=${itemTemplate}" \
 	-v "position=${position}" \
 	-v "duplicate_flag=${duplicateFlag}" \
 	-v "empty_section_flag=${emptySectionFlag}" \
