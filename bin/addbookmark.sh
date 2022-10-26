@@ -792,7 +792,7 @@ if [ '!' -s "${bookmarkFile}" ]; then
 fi
 
 case "${#}" in '0')
-	${VISUAL:-${EDITOR:-vi --}} "${bookmarkFile}"
+	sh -c "${VISUAL:-${EDITOR:-vi --}} \"\${1}\"" 'sh' "${bookmarkFile}"
 
 	exit
 	;;
