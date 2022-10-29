@@ -7,7 +7,7 @@
 ## Metadata:
 ##
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 3.0.8
+##   version - 3.0.3
 ##   date - 2022-10-28
 ##   since - 2021-09-09
 ##   copyright - Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.
@@ -776,15 +776,16 @@ awkRemoveSectionScript=$(
 tmpDir=$(mktemp -d)
 tmpFile="${tmpDir}/file"
 
-if [ -d "${bookmarkFile}" ]; then
-	printf "'%s' is directory.\\n" "${bookmarkFile}" >&2
-
-	end_call "${EX_CANTCREAT}"
-elif [ '!' -e "${bookmarkFile}" ]; then
+if [ '!' -e "${bookmarkFile}" ]; then
 	bookmarkDir=$(dirname -- "${bookmarkFile}"; printf '_')
 	mkdir -p -- "${bookmarkDir%?_}"
 
 	: >"${bookmarkFile}"
+elif [ -d "${bookmarkFile}" ]; then
+	printf "%s: '%s' は通常ファイルではありません。\\n" "${0##*/}" "${bookmarkFile}" >&2
+	printf "詳細については '%s' を実行してください。\\n" "${0##*/} --help" >&2
+
+	end_call "${EX_DATAERR}"
 fi
 
 if [ '!' -s "${bookmarkFile}" ]; then
