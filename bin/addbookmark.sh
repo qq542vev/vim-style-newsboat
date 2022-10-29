@@ -781,11 +781,16 @@ if [ '!' -e "${bookmarkFile}" ]; then
 	mkdir -p -- "${bookmarkDir%?_}"
 
 	: >"${bookmarkFile}"
-elif [ -d "${bookmarkFile}" ]; then
+elif [ '!' -f "${bookmarkFile}" ]; then
 	printf "%s: '%s' は通常ファイルではありません。\\n" "${0##*/}" "${bookmarkFile}" >&2
 	printf "詳細については '%s' を実行してください。\\n" "${0##*/} --help" >&2
 
 	end_call "${EX_DATAERR}"
+elif [ '!' -r "${bookmarkFile}" ]; then
+	printf "%s: '%s' の読み込み許可がありません。\\n" "${0##*/}" "${bookmarkFile}" >&2
+	printf "詳細については '%s' を実行してください。\\n" "${0##*/} --help" >&2
+
+	end_call "${EX_NOINPUT}"
 fi
 
 if [ '!' -s "${bookmarkFile}" ]; then
@@ -793,7 +798,7 @@ if [ '!' -s "${bookmarkFile}" ]; then
 fi
 
 case "${#}" in '0')
-	sh -c "${VISUAL:-${EDITOR:-vi --}} \"\${1}\"" 'sh' "${bookmarkFile}"
+	sh -c "${VISUAL:-${EDITOR:-vi --}} \"\${1}\"" 'sh' "${bookmaarkFile}"
 
 	exit
 	;;
