@@ -7,8 +7,8 @@
 ## Metadata:
 ##
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 3.0.3
-##   date - 2022-10-28
+##   version - 3.0.4
+##   date - 2022-12-03
 ##   since - 2021-09-09
 ##   copyright - Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -68,10 +68,11 @@
 ##   ADDBOOKMARK_ITEM_TEMPLATE         - ブックマークアイテムのテンプレート
 ## ------------------
 
-readonly 'VERSION=addbookmark.sh 3.0.3'
+readonly 'VERSION=addbookmark.sh 3.0.4'
 
 set -efu
 umask '0022'
+readonly "LC_ALL_ORG=${LC_ALL-}"
 LC_ALL='C'
 IFS=$(printf ' \t\n_'); IFS="${IFS%_}"
 PATH="${PATH-}${PATH:+:}$(command -p getconf 'PATH')"
@@ -798,10 +799,9 @@ if [ '!' -s "${bookmarkFile}" ]; then
 fi
 
 case "${#}" in '0')
-	sh -c "${VISUAL:-${EDITOR:-vi --}} \"\${1}\"" 'sh' "${bookmaarkFile}"
+	LC_ALL="${LC_ALL_ORG}" sh -c "${VISUAL:-${EDITOR:-vi --}} \"\${1}\"" 'sh' "${bookmarkFile}"
 
 	exit
-	;;
 esac
 
 safe_string 'uri' "${1}"
