@@ -7,7 +7,7 @@
 ## Metadata:
 ##
 ##   author - <qq542vev at https://purl.org/meta/me/>
-##   version - 3.0.4
+##   version - 3.1.0
 ##   date - 2022-12-03
 ##   since - 2021-09-09
 ##   copyright - Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.
@@ -557,28 +557,29 @@ parse ${@+"${@}"}
 eval "set -- ${REST}"
 
 htmlTemplate=$(
-	cat <<-'__EOF__'
-	<!DOCTYPE html>
-	<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-		<head>
-			<meta charset="UTF-8" />
-			<meta name="generator" content="addbookmark.sh" />
-			<meta name="referrer" content="no-referrer" />
-			<meta name="robots" content="noindex,nofollow,noarchive" />
-			<title>Bookmark</title>
-			<link rel="profile" href="http://microformats.org/profile/xoxo" />
-		</head>
-		<body>
-			<main id="main">
-				<!-- Do not delete the "*** ~~~ ***" comment. -->
-				<ul class="xoxo">
-				<!-- *** BEGIN-BOOKMARK-SECTION *** -->
-				<!-- *** END-BOOKMARK-SECTION *** -->
-				</ul>
-			</main>
-		</body>
-	</html>
-	__EOF__
+	cat <<'__EOF__'
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="generator" content="addbookmark.sh" />
+		<meta name="referrer" content="no-referrer" />
+		<meta name="robots" content="noindex,nofollow,noarchive" />
+		<title>Bookmark</title>
+		<link rel="profile" href="http://microformats.org/profile/xoxo" />
+	</head>
+	<body>
+		<main id="main">
+			<!-- Do not delete the "*** ~~~ ***" comment. -->
+
+			<ul class="xoxo">
+			<!-- *** BEGIN-BOOKMARK-SECTION *** -->
+			<!-- *** END-BOOKMARK-SECTION *** -->
+			</ul>
+		</main>
+	</body>
+</html>
+__EOF__
 )
 awkFunctionScript=$(
 	cat <<-'__EOF__'
@@ -817,17 +818,17 @@ html_escape 'feedTitle' "${feedTitle}"
 comment_escape 'commentURI' "${uri}"
 comment_escape 'commentFeedTitle' "${feedTitle}"
 
-: ${ADDBOOKMARK_BEGIN_BOOKMARK_SYMBOL:='<!-- *** BEGIN-BOOKMARK-SECTION *** -->'}
-: ${ADDBOOKMARK_END_BOOKMARK_SYMBOL:='<!-- *** END-BOOKMARK-SECTION *** -->'}
-: ${ADDBOOKMARK_SECTION_TEMPLATE:="$(printf '<li>${feed_title}\n<ul>\n${ADDBOOKMARK_BEGIN_LIST_SYMBOL}\n${ADDBOOKMARK_END_LIST_SYMBOL}\n</ul>\n</li>')"}
-: ${ADDBOOKMARK_ITEM_TEMPLATE:='<li><a rel="noreferrer" href="${uri}"${description:+" title=\"${description}\""}>${title}</a></li>'}
+: ${ADDBOOKMARK_BEGIN_BOOKMARK_SYMBOL:="$(printf '\t\t\t<!-- *** BEGIN-BOOKMARK-SECTION *** -->')"}
+: ${ADDBOOKMARK_END_BOOKMARK_SYMBOL:="$(printf '\t\t\t<!-- *** END-BOOKMARK-SECTION *** -->')"}
+: ${ADDBOOKMARK_SECTION_TEMPLATE:="$(printf '\t\t\t\t<li>${feed_title}\n\t\t\t\t\t<ul>\n${ADDBOOKMARK_BEGIN_LIST_SYMBOL}\n${ADDBOOKMARK_END_LIST_SYMBOL}\n\t\t\t\t\t</ul>\n\t\t\t\t</li>')"}
+: ${ADDBOOKMARK_ITEM_TEMPLATE:="$(printf '\t\t\t\t\t\t<li><a rel="noreferrer" href="${uri}"${description:+" title=\"${description}\""}>${title}</a></li>')"}
 
-ADDBOOKMARK_BEGIN_SECTION_SYMBOL=$(printf "${ADDBOOKMARK_BEGIN_SECTION_SYMBOL:-<!-- *** BEGIN-SECTION: \"%s\" *** -->}" "${commentFeedTitle}")
-ADDBOOKMARK_END_SECTION_SYMBOL=$(printf "${ADDBOOKMARK_END_SECTION_SYMBOL:-<!-- *** END-SECTION *** -->}" "${commentFeedTitle}")
-ADDBOOKMARK_BEGIN_LIST_SYMBOL=$(printf "${ADDBOOKMARK_BEGIN_LIST_SYMBOL:-<!-- *** BEGIN-LIST *** -->}" "${commentFeedTitle}")
-ADDBOOKMARK_END_LIST_SYMBOL=$(printf "${ADDBOOKMARK_END_LIST_SYMBOL:-<!-- *** END-LIST *** -->}" "${commentFeedTitle}")
-ADDBOOKMARK_BEGIN_ITEM_SYMBOL=$(printf "${ADDBOOKMARK_BEGIN_ITEM_SYMBOL:-<!-- *** BEGIN-ITEM: \"%s\" *** -->}" "${commentURI}")
-ADDBOOKMARK_END_ITEM_SYMBOL=$(printf "${ADDBOOKMARK_END_ITEM_SYMBOL:-<!-- *** END-ITEM *** -->}" "${commentURI}")
+ADDBOOKMARK_BEGIN_SECTION_SYMBOL=$(printf "${ADDBOOKMARK_BEGIN_SECTION_SYMBOL:-\\t\\t\\t\\t<!-- *** BEGIN-SECTION: \"%s\" *** -->}" "${commentFeedTitle}")
+ADDBOOKMARK_END_SECTION_SYMBOL=$(printf "${ADDBOOKMARK_END_SECTION_SYMBOL:-\\t\\t\\t\\t<!-- *** END-SECTION *** -->}" "${commentFeedTitle}")
+ADDBOOKMARK_BEGIN_LIST_SYMBOL=$(printf "${ADDBOOKMARK_BEGIN_LIST_SYMBOL:-\\t\\t\\t\\t\\t<!-- *** BEGIN-LIST *** -->}" "${commentFeedTitle}")
+ADDBOOKMARK_END_LIST_SYMBOL=$(printf "${ADDBOOKMARK_END_LIST_SYMBOL:-\\t\\t\\t\\t\\t<!-- *** END-LIST *** -->}" "${commentFeedTitle}")
+ADDBOOKMARK_BEGIN_ITEM_SYMBOL=$(printf "${ADDBOOKMARK_BEGIN_ITEM_SYMBOL:-\\t\\t\\t\\t\\t\\t<!-- *** BEGIN-ITEM: \"%s\" *** -->}" "${commentURI}")
+ADDBOOKMARK_END_ITEM_SYMBOL=$(printf "${ADDBOOKMARK_END_ITEM_SYMBOL:-\\t\\t\\t\\t\\t\\t<!-- *** END-ITEM *** -->}" "${commentURI}")
 
 export \
 	'ADDBOOKMARK_BEGIN_BOOKMARK_SYMBOL' 'ADDBOOKMARK_END_BOOKMARK_SYMBOL' \
@@ -851,7 +852,6 @@ esac | awk \
 	-v "feed_title=${feedTitle}" \
 	-v "position=${position}" \
 	-v "duplicate_flag=${duplicateFlag}" \
-	-v "empty_section_flag=${emptySectionFlag}" \
 	-- "${awkFunctionScript}${awkAddItemScript}" \
 | case "${emptySectionFlag}" in
 	'1') cat;;
