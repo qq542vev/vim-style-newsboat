@@ -1,0 +1,1 @@
+﻿NDSummary.OnToolTipsLoaded("File:spec/addbookmark_spec.sh",{17:"<div class=\"NDToolTip TFile LShellScript\"><div class=\"TTSummary\">addbookmark.sh のテスト。</div></div>"});

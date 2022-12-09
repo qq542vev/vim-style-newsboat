@@ -1,1 +1,1 @@
-﻿NDSearch.OnPrefixDataLoaded("add",["File"],[["addbookmark",,[[,"addbookmark.sh",,,0,"File:bin/addbookmark.sh:addbookmark.sh"]]]]);
+﻿NDSearch.OnPrefixDataLoaded("add",["File"],[["addbookmark",,[[,"addbookmark.sh",,,0,"File:bin/addbookmark.sh:addbookmark.sh"]]],["addbookmark_spec",,[[,"addbookmark_spec.sh",,,0,"File:spec/addbookmark_spec.sh:addbookmark_spec.sh"]]]]);
