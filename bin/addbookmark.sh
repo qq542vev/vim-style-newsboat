@@ -821,7 +821,7 @@ comment_escape 'commentFeedTitle' "${feedTitle}"
 : ${ADDBOOKMARK_BEGIN_BOOKMARK_SYMBOL:="$(printf '\t\t\t<!-- *** BEGIN-BOOKMARK-SECTION *** -->')"}
 : ${ADDBOOKMARK_END_BOOKMARK_SYMBOL:="$(printf '\t\t\t<!-- *** END-BOOKMARK-SECTION *** -->')"}
 : ${ADDBOOKMARK_SECTION_TEMPLATE:="$(printf '\t\t\t\t<li>${feed_title}\n\t\t\t\t\t<ul>\n${ADDBOOKMARK_BEGIN_LIST_SYMBOL}\n${ADDBOOKMARK_END_LIST_SYMBOL}\n\t\t\t\t\t</ul>\n\t\t\t\t</li>')"}
-: ${ADDBOOKMARK_ITEM_TEMPLATE:="$(printf '\t\t\t\t\t\t<li><a rel="noreferrer" href="${uri}"${description:+" title=\"${description}\""}>${title}</a></li>')"}
+: ${ADDBOOKMARK_ITEM_TEMPLATE:="$(printf '\t\t\t\t\t\t<li><a rel="noreferrer" href="${uri}" title="${description-}">${title}</a></li>')"}
 
 ADDBOOKMARK_BEGIN_SECTION_SYMBOL=$(printf "${ADDBOOKMARK_BEGIN_SECTION_SYMBOL:-\\t\\t\\t\\t<!-- *** BEGIN-SECTION: \"%s\" *** -->}" "${commentFeedTitle}")
 ADDBOOKMARK_END_SECTION_SYMBOL=$(printf "${ADDBOOKMARK_END_SECTION_SYMBOL:-\\t\\t\\t\\t<!-- *** END-SECTION *** -->}" "${commentFeedTitle}")
