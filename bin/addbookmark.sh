@@ -8,7 +8,7 @@
 ##
 ##   author - <qq542vev at https://purl.org/meta/me/>
 ##   version - 3.1.0
-##   date - 2022-12-03
+##   date - 2022-12-10
 ##   since - 2021-09-09
 ##   copyright - Copyright (C) 2021 - 2022 qq542vev. Some rights reserved.
 ##   license - <CC-BY at https://creativecommons.org/licenses/by/4.0/>
@@ -109,6 +109,8 @@ trap 'end_call 129' 1  # SIGHUP
 trap 'end_call 130' 2  # SIGINT
 trap 'end_call 131' 3  # SIGQUIT
 trap 'end_call 143' 15 # SIGTERM
+
+alias org_lc='LC_ALL="${LC_ALL_ORG}"'
 
 ### Function: end_call
 ##
@@ -800,7 +802,7 @@ if [ '!' -s "${bookmarkFile}" ]; then
 fi
 
 case "${#}" in '0')
-	LC_ALL="${LC_ALL_ORG}" sh -c "${VISUAL:-${EDITOR:-vi --}} \"\${1}\"" 'sh' "${bookmarkFile}"
+	org_lc sh -c "${VISUAL:-${EDITOR:-vi --}} \"\${1}\"" 'sh' "${bookmarkFile}"
 
 	exit
 esac
