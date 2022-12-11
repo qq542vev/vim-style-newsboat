@@ -45,7 +45,7 @@ macro 0 set browser "echo 'Enter the command to open the URL. Exit if not entere
 macro 1 set browser "firefox %u &" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 macro 2 set browser "chromium %u &" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 
-macro 3 pipe-to "${MAILER-mutt --} 'mailto:?body='$(urlencode)"
+macro 3 pipe-to "${MAILER:-mutt --} 'mailto:?body='$(urlencode)"
 # macro 3 set browser "${MAILER:-mutt --} 'mailto:?body='$(echo %u | urlencode)" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
 
 macro 4 set browser "qrencode -t 'UTF8' -- %u; printf 'Exit with Ctrl-C or Enter Key'; read -r 'REPLY'" ; open-in-browser ; set browser "${BROWSER:-lynx --} %u"
